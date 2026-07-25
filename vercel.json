@@ -1,5 +1,7 @@
 {
-  "redirects": [
-    { "source": "/", "destination": "/wireframe-html/index.html", "permanent": false }
+  "rewrites": [
+    { "source": "/", "destination": "/wireframe-html/index.html" },
+    { "source": "/styles.css", "destination": "/wireframe-html/styles.css" },
+    { "source": "/assets/:path*", "destination": "/wireframe-html/assets/:path*" }
   ]
 }
