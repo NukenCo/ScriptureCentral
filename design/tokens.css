@@ -1,0 +1,133 @@
+/*
+  ScriptureCentral — Design Tokens
+  Fonte única de verdade para cor, tipografia, espaçamento e forma.
+  Extraído do arquivo Figma "Playground" (node 302:617 — Template) via
+  Code Connect / get_design_context. Ver design-system.html para a
+  documentação visual completa.
+*/
+
+@import url('https://api.fontshare.com/v2/css?f[]=general-sans@400,500,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
+
+:root {
+  /* ---------- Cor · Base ---------- */
+  --color-bg: #fafafa;              /* fundo geral do app */
+  --color-surface: #ffffff;         /* cards e superfícies elevadas */
+  --color-surface-sunken: #efecf0;  /* preenchimento do item ativo na tab bar */
+
+  /* ---------- Cor · Texto ---------- */
+  --color-ink: #1a1a1a;                       /* texto primário, ícones */
+  --color-ink-secondary: #2e2e2e;             /* corpo secundário (ex: banner de conta) */
+  --color-ink-tertiary: #b3b3b3;              /* meta: data, legendas, rodapé do card */
+  --color-ink-on-dark: #eeeeee;                /* texto sobre o card devocional */
+  --color-ink-on-dark-secondary: #a1a1a1;     /* "UNREAD" e afins sobre fundo escuro */
+
+  /* ---------- Cor · Bordas ---------- */
+  --color-border: #dbdbdb;
+
+  /* ---------- Cor · Marca / Acento ---------- */
+  --color-gold: #d9c089;            /* "COME, FOLLOW ME", "Mosiah 4:12", anel unread */
+  --color-gold-soft: rgba(217, 192, 137, 0.16);
+  --color-accent-red: #fd4848;      /* badge de notificação */
+
+  /* ---------- Cor · Card devocional (hero) ---------- */
+  /* A tela usa uma foto real (assets/images/card-devotional.png); estes tons
+     documentam a paleta para variações sem imagem (placeholders, temas). */
+  --color-navy-deep: #131f2e;
+  --color-navy: #24374b;
+  --color-navy-light: #52697d;
+
+  /* ---------- Cor · Thumbnails da biblioteca ---------- */
+  /* Idem: a tela usa fotos reais; gradiente aqui é só fallback documentado. */
+  --color-terracotta-light: #f4c86b;
+  --color-terracotta: #e08a44;
+  --color-terracotta-deep: #c96a3a;
+
+  /* ---------- Cor · Botões ---------- */
+  --color-btn-primary-bg: #000000;
+  --color-btn-primary-text: #ffffff;
+  --color-btn-secondary-bg: #ffffff;
+  --color-btn-secondary-text: var(--color-ink);
+  --color-btn-secondary-border: var(--color-border);
+
+  /* ---------- Gradientes (fallback, quando não há foto) ---------- */
+  --gradient-devotional: linear-gradient(
+    165deg,
+    var(--color-navy-light) 0%,
+    var(--color-navy) 45%,
+    var(--color-navy-deep) 100%
+  );
+  --gradient-thumbnail: linear-gradient(
+    145deg,
+    var(--color-terracotta-light) 0%,
+    var(--color-terracotta) 55%,
+    var(--color-terracotta-deep) 100%
+  );
+
+  /* ---------- Tipografia · Famílias ---------- */
+  /* Sans: toda a interface (chrome do app, navegação, rótulos, corpo). */
+  --font-sans: 'General Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  /* Serif: reservada à citação de escritura em destaque — dá peso devocional
+     ao texto sagrado e o diferencia do chrome do produto. Uso restrito a
+     esse papel. */
+  --font-serif: 'DM Serif Text', Georgia, 'Times New Roman', serif;
+
+  /* ---------- Tipografia · Escala (px reais do arquivo Figma) ---------- */
+  --text-3xs: 9px;    /* "UNREAD" */
+  --text-2xs: 10px;   /* rótulos eyebrow, texto de botão */
+  --text-xs: 11px;    /* "COME, FOLLOW ME" */
+  --text-sm: 12px;    /* data, meta, chips, parágrafos */
+  --text-base: 13px;  /* legenda dos cards da biblioteca */
+  --text-md: 14px;    /* referência do versículo ("Mosiah 4:12") */
+  --text-lg: 16px;    /* título dos cards da biblioteca */
+  --text-xl: 21px;    /* títulos de página/seção */
+  --text-2xl: 26px;   /* citação de escritura (serif) */
+
+  --leading-tight: 1.15;
+  --leading-snug: 1.3;
+  --leading-normal: 1.5;
+
+  --tracking-tight: -0.01em;
+  --tracking-normal: 0;
+  /* Regra única observada no arquivo: todo rótulo/meta pequeno usa +0.05em,
+     independente do tamanho da fonte (9–14px). */
+  --tracking-label: 0.05em;
+
+  --weight-regular: 400;
+  --weight-medium: 500;
+  --weight-semibold: 600;
+  --weight-bold: 700;
+
+  /* ---------- Espaçamento (base 4px) ---------- */
+  --space-1: 4px;
+  --space-2: 8px;
+  --space-3: 12px;
+  --space-4: 16px;
+  --space-5: 20px;
+  --space-6: 24px;
+  --space-7: 28px;
+  --space-8: 32px;
+  --space-10: 40px;
+  --space-12: 48px;
+
+  /* ---------- Raio ---------- */
+  --radius-sm: 10px;    /* máscara da imagem dentro do card de thumbnail */
+  --radius-md: 12px;    /* card de thumbnail (Videos/Reading Plans/Holy Land) */
+  --radius-lg: 20px;    /* card devocional, comentários, banner de conta */
+  --radius-full: 9999px; /* pills, chips, avatar, botão de menu, tab bar */
+
+  /* ---------- Sombra ---------- */
+  --shadow-icon-button: 0 4px 7px rgba(168, 168, 168, 0.25);
+  --shadow-nav: 0 8px 24px rgba(20, 18, 15, 0.12);
+
+  /* ---------- Ícone ---------- */
+  --icon-sm: 16px;
+  --icon-md: 20px;
+  --icon-lg: 24px;
+
+  /* ---------- Motion ---------- */
+  --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
+  --duration-fast: 120ms;
+  --duration-base: 200ms;
+}

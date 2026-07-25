@@ -1,0 +1,28 @@
+---
+description: Conventions for wireframe-html/ — low-fidelity prototypes and Figma ports
+globs:
+  - wireframe-html/**
+alwaysApply: false
+---
+
+# wireframe-html/
+
+Esta pasta tem dois usos válidos, dependendo da tela:
+
+1. **Baixa fidelidade** — prototipagem de layout/hierarquia antes de a tela
+   existir desenhada no Figma. Sem cor real, sem imagens finais, sem
+   polimento tipográfico. Só valida fluxo e estrutura.
+2. **Alta fidelidade** — telas portadas diretamente de um frame já pronto no
+   Figma (ex: `index.html`, frame "Template" / node 302:617 do arquivo
+   Playground). Cores reais, tipografia real (General Sans + DM Serif Text),
+   assets exportados do Figma em `assets/`.
+
+Para o caso (2), seguir a mesma regra de `final-html/`: tokens sempre de
+`../design/tokens.css`, assets sempre reais (baixados do Figma, nunca
+recriados à mão), e revisão visual antes de dar por concluído.
+
+HTML/CSS puro, sem build tool — deve abrir direto no navegador
+(`file://`). Ao testar `file://` com caminhos relativos para fora da pasta
+(`../design/tokens.css`), prefira validar via um servidor HTTP local
+(`python3 -m http.server` a partir da raiz do projeto) se o preview usado
+tiver sandbox de acesso a arquivo — isso já mordeu uma vez neste projeto.

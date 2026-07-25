@@ -1,0 +1,176 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScriptureCentral — Home</title>
+  <link rel="stylesheet" href="../design/tokens.css" />
+  <link rel="stylesheet" href="./styles.css" />
+</head>
+<body>
+  <main class="app-frame">
+
+    <header class="top-nav">
+      <button class="icon-btn icon-btn--plain" aria-label="Menu">
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+          <path d="M3 12H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+          <path d="M3 18H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <img class="logo" src="assets/icons/logo.svg" alt="ScriptureCentral" />
+
+      <div class="nav-right">
+        <button class="icon-btn icon-btn--surface" aria-label="Perfil">
+          <span class="icon icon--24">
+            <img src="assets/icons/user-24-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
+            <img src="assets/icons/user-24-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
+          </span>
+        </button>
+        <img class="notif-dot" src="assets/icons/ellipse-notification.svg" alt="" />
+      </div>
+    </header>
+
+    <section class="reading-section">
+      <div class="saudation">
+        <p class="eyebrow-date">Monday • July 20</p>
+        <h1 class="page-title">Hello, start here</h1>
+        <p class="page-subtitle">Book of Mormon · Mosiah 4:12 · 3 min read</p>
+      </div>
+
+      <article class="card-devotional" style="background-image: url('assets/images/card-devotional.png');">
+        <div class="card-tags">
+          <span class="tag-left">Come, Follow Me</span>
+          <span class="tag-right">
+            <img src="assets/icons/ellipse-unread.svg" alt="" width="6" height="6" />
+            Unread
+          </span>
+        </div>
+
+        <div class="card-display">
+          <p class="quote">&ldquo;And ye shall always rejoice, and be filled with the love of God.&rdquo;</p>
+          <span class="quote-ref">Mosiah 4:12</span>
+        </div>
+
+        <div class="card-footer">
+          <p class="footer-note">Studied by Saints around the<br />world this week</p>
+          <button class="btn btn--on-card">
+            Open Mosiah 4
+            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" />
+          </button>
+        </div>
+      </article>
+    </section>
+
+    <section class="utility-section">
+      <div class="card-utility">
+        <div class="card-utility__title">
+          <img src="assets/icons/bookmark.svg" alt="" width="20" height="20" />
+          <span class="eyebrow">Commentaries</span>
+        </div>
+        <div class="card-utility__row">
+          <p>This chapter already has <strong>1 commentary</strong> and <strong>1 related video</strong></p>
+          <button class="btn btn--primary">
+            See related
+            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <section class="mood-section">
+      <div class="section-heading">
+        <h2>How are you feeling right now?</h2>
+        <p>Tap a feeling to get a passage</p>
+      </div>
+      <div class="chip-row">
+        <span class="chip">Guidance</span>
+        <span class="chip">Comfort</span>
+        <span class="chip">Peace</span>
+        <span class="chip">Gratitude</span>
+      </div>
+    </section>
+
+    <section class="discover-section">
+      <div class="section-heading">
+        <h2>Discover the library</h2>
+      </div>
+      <div class="discover-row">
+        <a class="thumb" href="#">
+          <div class="thumb__image">
+            <img src="assets/images/thumb-videos.png" alt="" />
+          </div>
+          <h3>Videos</h3>
+          <p>Recent released videos</p>
+        </a>
+        <a class="thumb" href="#">
+          <div class="thumb__image">
+            <img src="assets/images/thumb-reading-plans.png" alt="" />
+          </div>
+          <h3>Reading Plans</h3>
+          <p>Recent reading plans</p>
+        </a>
+        <a class="thumb" href="#">
+          <div class="thumb__image">
+            <img src="assets/images/thumb-holy-land.png" alt="" />
+          </div>
+          <h3>Holy Land</h3>
+          <p>Events and chronology</p>
+        </a>
+      </div>
+    </section>
+
+    <section class="utility-section">
+      <div class="card-utility">
+        <div class="card-utility__title card-utility__title--spread">
+          <span class="icon icon--20">
+            <img src="assets/icons/user-20-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
+            <img src="assets/icons/user-20-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
+          </span>
+          <span class="eyebrow">Create account</span>
+          <button class="icon-btn icon-btn--close" aria-label="Fechar">
+            <span class="icon icon--20">
+              <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
+              <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
+            </span>
+          </button>
+        </div>
+        <div class="card-utility__row">
+          <p class="account-copy">Create an account to <strong>save your progress and notes.</strong></p>
+          <button class="btn btn--primary">
+            Create Now
+            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="bottom">
+      <nav class="tabbar">
+        <a class="tab tab--active" href="#">
+          <span class="icon icon--20">
+            <img src="assets/icons/book-a.svg" alt="" class="icon-layer" style="inset: 70.83% 16.67% 18.75% 16.67%;" />
+            <img src="assets/icons/book-b.svg" alt="" class="icon-layer" style="inset: 8.33% 16.67%;" />
+          </span>
+          Read
+        </a>
+        <a class="tab" href="#" aria-label="Explorar">
+          <span class="icon icon--20">
+            <img src="assets/icons/compass-a.svg" alt="" class="icon-layer" style="inset: 8.33%;" />
+            <img src="assets/icons/compass-b.svg" alt="" class="icon-layer" style="inset: 32.33%;" />
+          </span>
+        </a>
+        <a class="tab" href="#" aria-label="Buscar">
+          <span class="icon icon--20">
+            <img src="assets/icons/search-a.svg" alt="" class="icon-layer" style="inset: 12.5% 20.83% 20.83% 12.5%;" />
+            <img src="assets/icons/search-b.svg" alt="" class="icon-layer" style="inset: 69.37% 12.5% 12.5% 69.37%;" />
+          </span>
+        </a>
+      </nav>
+      <div class="home-indicator"><span></span></div>
+    </footer>
+
+  </main>
+</body>
+</html>

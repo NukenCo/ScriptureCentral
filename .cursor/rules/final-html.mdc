@@ -1,0 +1,23 @@
+---
+description: Conventions for final-html/ — the definitive high-fidelity build
+globs:
+  - final-html/**
+alwaysApply: false
+---
+
+# final-html/
+
+Fidelidade: **alta**, correspondente ao protótipo visual já validado (hero
+"Verse of the Day", chips de humor/tempo, Discover grid, banner de conta).
+
+Objetivo: HTML/CSS pixel-fiel, pronto para virar componentes React depois.
+
+- Cor, tipografia e espaçamento **sempre** vêm de `../design/tokens.css` —
+  nunca hardcode um valor que já existe como token, e nunca crie um token
+  duplicado aqui. Se faltar um token, adicione em `design/tokens.css`
+  primeiro (fonte única).
+- Ícones e fotos devem ser os assets reais exportados do Figma (ver
+  `wireframe-html/assets/` como referência de organização), não substitutos
+  desenhados à mão ou gradientes CSS quando existe uma foto real.
+- Antes de considerar uma tela pronta, revisar visualmente (hierarquia,
+  espaçamento, tipografia) — não só conferir que o CSS "compila".

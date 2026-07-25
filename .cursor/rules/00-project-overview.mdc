@@ -1,0 +1,46 @@
+---
+description: ScriptureCentral project structure and cross-cutting conventions
+globs:
+alwaysApply: true
+---
+
+# ScriptureCentral
+
+Projeto de design/frontend para o app ScriptureCentral, portado a partir de
+telas no Figma (arquivo "Playground").
+
+## Estrutura
+
+- `design/` — fonte única de verdade de design.
+  - `tokens.css`: todos os tokens de cor, tipografia, espaçamento e raio.
+    Extraídos do Figma via Code Connect (não são só leitura visual de print).
+    **Nunca hardcode** cor, tamanho de fonte, espaçamento ou raio em outro
+    arquivo — sempre referencie uma var `--*` deste arquivo. Se um valor
+    novo for necessário, adicione o token aqui primeiro.
+  - `design-system.html`: documentação viva dos tokens e componentes —
+    manter em sincronia quando `tokens.css` mudar.
+- `final-html/` — pasta de alta fidelidade definitiva (ver
+  `final-html/.cursor` ou `final-html/CLAUDE.md` para detalhes locais).
+- `wireframe-html/` — recebe tanto protótipos de baixa fidelidade (layout
+  puro) quanto telas de alta fidelidade portadas do Figma (ver
+  `wireframe-html/CLAUDE.md`).
+
+## Fluxo Figma → código
+
+1. Puxar o node do Figma (`get_design_context` no Claude, ou o painel do
+   Figma no Cursor) para o frame alvo.
+2. Baixar os assets reais exportados (ícones SVG, fotos) para
+   `<pasta>/assets/` — nunca desenhar à mão um ícone ou substituir uma foto
+   por um gradiente CSS quando o asset real existe.
+3. Mapear cor/tipografia/espaçamento do Figma para tokens em
+   `design/tokens.css`, atualizando o valor se o Figma tiver algo mais
+   preciso do que o token atual.
+4. Implementar o HTML/CSS consumindo os tokens via
+   `<link rel="stylesheet" href="../design/tokens.css">`.
+
+## Qualidade visual
+
+Toda alteração de UI deve passar por uma revisão de qualidade visual
+(hierarquia, espaçamento, tipografia, nada com "cara de IA genérica") antes
+de considerar a tarefa concluída — equivalente à skill `frontend-design`
+usada no lado Claude Code deste projeto.

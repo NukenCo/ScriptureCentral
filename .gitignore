@@ -1,0 +1,11 @@
+# Documentos internos / negócio — não versionar
+*.docx
+*.doc
+
+# macOS
+.DS_Store
+
+# Editores
+.vscode/*
+!.vscode/extensions.json
+.idea

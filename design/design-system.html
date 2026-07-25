@@ -1,0 +1,724 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ScriptureCentral — Design System</title>
+  <link rel="stylesheet" href="./tokens.css" />
+  <style>
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      background: var(--color-bg);
+      color: var(--color-ink);
+      font-family: var(--font-sans);
+      font-size: var(--text-base);
+      line-height: var(--leading-normal);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .doc-shell {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: var(--space-10) var(--space-6) var(--space-12);
+    }
+
+    .doc-header {
+      margin-bottom: var(--space-12);
+    }
+    .doc-eyebrow {
+      display: inline-block;
+      font-size: var(--text-2xs);
+      font-weight: var(--weight-semibold);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--color-gold);
+      background: var(--color-gold-soft);
+      padding: 6px 12px;
+      border-radius: var(--radius-full);
+      margin-bottom: var(--space-4);
+    }
+    .doc-header h1 {
+      font-size: 40px;
+      letter-spacing: var(--tracking-tight);
+      margin: 0 0 var(--space-3);
+      font-weight: var(--weight-bold);
+    }
+    .doc-header p {
+      max-width: 640px;
+      color: var(--color-ink-secondary);
+      font-size: var(--text-lg);
+      margin: 0;
+    }
+    .doc-header code {
+      font-family: ui-monospace, Menlo, monospace;
+      background: var(--color-surface-sunken);
+      padding: 2px 6px;
+      border-radius: 4px;
+      font-size: 0.9em;
+    }
+
+    section.doc-section {
+      margin-bottom: var(--space-12);
+      padding-top: var(--space-10);
+      border-top: 1px solid var(--color-border);
+    }
+    section.doc-section:first-of-type {
+      border-top: none;
+      padding-top: 0;
+    }
+
+    .doc-section-head {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-bottom: var(--space-6);
+      flex-wrap: wrap;
+    }
+    .doc-section-head h2 {
+      font-size: var(--text-xl);
+      margin: 0;
+      font-weight: var(--weight-semibold);
+    }
+    .doc-section-head span {
+      font-size: var(--text-base);
+      color: var(--color-ink-tertiary);
+      font-family: ui-monospace, Menlo, monospace;
+    }
+
+    /* ---- Color swatches ---- */
+    .swatch-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: var(--space-4);
+    }
+    .swatch {
+      border-radius: var(--radius-md);
+      overflow: hidden;
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+    }
+    .swatch-fill {
+      height: 72px;
+    }
+    .swatch-meta {
+      padding: var(--space-3);
+    }
+    .swatch-name {
+      font-size: var(--text-base);
+      font-weight: var(--weight-semibold);
+      display: block;
+    }
+    .swatch-hex {
+      font-size: var(--text-sm);
+      color: var(--color-ink-tertiary);
+      font-family: ui-monospace, Menlo, monospace;
+    }
+
+    /* ---- Type scale ---- */
+    .type-row {
+      display: flex;
+      align-items: baseline;
+      gap: var(--space-6);
+      padding: var(--space-4) 0;
+      border-bottom: 1px solid var(--color-border);
+    }
+    .type-row:last-child { border-bottom: none; }
+    .type-label {
+      width: 150px;
+      flex-shrink: 0;
+      font-size: var(--text-sm);
+      color: var(--color-ink-tertiary);
+      font-family: ui-monospace, Menlo, monospace;
+    }
+    .type-sample { color: var(--color-ink); margin: 0; }
+
+    /* ---- Spacing / radius swatches ---- */
+    .scale-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-6);
+    }
+    .scale-item { text-align: center; }
+    .scale-box {
+      background: var(--color-navy);
+      margin: 0 auto var(--space-2);
+    }
+    .scale-label {
+      font-size: var(--text-sm);
+      color: var(--color-ink-tertiary);
+      font-family: ui-monospace, Menlo, monospace;
+    }
+
+    /* ---- Component preview shell ---- */
+    .component-block {
+      background: var(--color-bg);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-6);
+    }
+
+    /* Top nav */
+    .topnav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .topnav .icon-btn {
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: transparent;
+    }
+    .topnav .logo {
+      font-size: 20px;
+    }
+    .avatar {
+      position: relative;
+      width: 40px;
+      height: 40px;
+      border-radius: var(--radius-full);
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .avatar .dot {
+      position: absolute;
+      top: 0;
+      right: 0;
+      width: 10px;
+      height: 10px;
+      border-radius: var(--radius-full);
+      background: var(--color-accent-red);
+      border: 2px solid var(--color-bg);
+    }
+
+    /* Date / page heading */
+    .page-meta {
+      text-align: center;
+      margin: var(--space-6) 0 var(--space-5);
+    }
+    .page-meta .date {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--color-ink-tertiary);
+      margin-bottom: var(--space-2);
+    }
+    .page-meta h3 {
+      font-size: var(--text-xl);
+      margin: 0 0 var(--space-1);
+      font-weight: var(--weight-semibold);
+    }
+    .page-meta .sub {
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-ink-tertiary);
+    }
+
+    /* Devotional hero card */
+    .card-devotional {
+      position: relative;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      background: var(--gradient-devotional);
+      padding: var(--space-5);
+      color: var(--color-ink-on-dark);
+      min-height: 300px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card-devotional .row-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+    .eyebrow-on-dark {
+      font-size: var(--text-xs);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--color-gold);
+      font-weight: var(--weight-semibold);
+    }
+    .status-on-dark {
+      font-size: var(--text-3xs);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--color-ink-on-dark-secondary);
+      font-weight: var(--weight-semibold);
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+    .status-on-dark .ring {
+      width: 8px;
+      height: 8px;
+      border-radius: var(--radius-full);
+      border: 1.5px solid var(--color-gold);
+    }
+    .quote-serif {
+      font-family: var(--font-serif);
+      font-size: var(--text-2xl);
+      line-height: var(--leading-tight);
+      margin: var(--space-6) 0 var(--space-3);
+      font-weight: var(--weight-regular);
+    }
+    .quote-ref {
+      color: var(--color-gold);
+      font-size: var(--text-md);
+      letter-spacing: var(--tracking-label);
+      font-weight: var(--weight-medium);
+    }
+    .row-bottom {
+      display: flex;
+      align-items: flex-end;
+      justify-content: space-between;
+      gap: var(--space-4);
+      margin-top: var(--space-6);
+    }
+    .row-bottom p {
+      font-size: var(--text-2xs);
+      letter-spacing: var(--tracking-label);
+      color: var(--color-ink-on-dark-secondary);
+      margin: 0;
+      max-width: 150px;
+      line-height: var(--leading-snug);
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      border: none;
+      border-radius: var(--radius-full);
+      font-family: var(--font-sans);
+      font-size: var(--text-2xs);
+      letter-spacing: var(--tracking-label);
+      font-weight: var(--weight-semibold);
+      height: 40px;
+      padding: 0 12px 0 20px;
+      cursor: pointer;
+      white-space: nowrap;
+    }
+    .btn-primary {
+      background: var(--color-btn-primary-bg);
+      color: var(--color-btn-primary-text);
+    }
+    .btn-secondary {
+      background: var(--color-btn-secondary-bg);
+      color: var(--color-btn-secondary-text);
+      border: 1px solid var(--color-btn-secondary-border);
+    }
+    .btn-on-devotional {
+      background: var(--color-surface);
+      color: var(--color-ink);
+      padding: 0 20px;
+    }
+
+    /* Utility card (commentaries / account banner) */
+    .card-utility {
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-lg);
+      padding: var(--space-5);
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: var(--space-4);
+      flex-wrap: wrap;
+    }
+    .card-utility .lead {
+      display: flex;
+      align-items: flex-start;
+      gap: var(--space-3);
+    }
+    .card-utility .eyebrow {
+      font-size: var(--text-2xs);
+      letter-spacing: var(--tracking-label);
+      text-transform: uppercase;
+      color: var(--color-ink);
+      font-weight: var(--weight-semibold);
+      display: block;
+      margin-bottom: 4px;
+    }
+    .card-utility p {
+      margin: 0;
+      font-size: var(--text-sm);
+      color: var(--color-ink);
+    }
+    .card-utility strong { font-weight: var(--weight-semibold); }
+
+    /* Mood chips */
+    .chip-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: var(--space-3);
+    }
+    .chip {
+      border: 1px solid var(--color-border);
+      background: var(--color-surface);
+      border-radius: var(--radius-full);
+      height: 40px;
+      padding: 0 16px;
+      display: inline-flex;
+      align-items: center;
+      font-size: var(--text-sm);
+      letter-spacing: var(--tracking-label);
+      font-weight: var(--weight-medium);
+      color: var(--color-ink);
+    }
+
+    /* Discover grid */
+    .discover-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: var(--space-4);
+    }
+    .discover-card {
+      text-align: left;
+      background: var(--color-surface);
+      border: 1px solid var(--color-border);
+      border-radius: var(--radius-md);
+      padding: var(--space-3);
+    }
+    .discover-thumb {
+      border-radius: var(--radius-sm);
+      background: var(--gradient-thumbnail);
+      aspect-ratio: 350 / 197;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: rgba(255, 255, 255, 0.75);
+      font-size: 20px;
+      margin-bottom: var(--space-4);
+    }
+    .discover-card h4 {
+      margin: 0 0 2px;
+      font-size: var(--text-lg);
+      font-weight: var(--weight-semibold);
+    }
+    .discover-card p {
+      margin: 0;
+      font-size: var(--text-base);
+      letter-spacing: var(--tracking-label);
+      color: var(--color-ink);
+    }
+
+    /* Floating tab bar */
+    .tabbar {
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      background: var(--color-surface);
+      border-radius: var(--radius-full);
+      box-shadow: var(--shadow-nav);
+      padding: 6px;
+      margin: var(--space-8) auto 0;
+    }
+    .tabbar .tab {
+      display: flex;
+      align-items: center;
+      gap: 4px;
+      padding: 10px 12px;
+      border-radius: var(--radius-full);
+      font-size: var(--text-sm);
+      font-weight: var(--weight-medium);
+      color: var(--color-ink-tertiary);
+    }
+    .tabbar .tab.is-active {
+      background: var(--color-surface-sunken);
+      color: var(--color-ink);
+      padding-right: 16px;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: var(--space-6);
+    }
+    @media (max-width: 720px) {
+      .discover-grid { grid-template-columns: repeat(2, 1fr); }
+      .grid-2 { grid-template-columns: 1fr; }
+    }
+
+    .swatch-fill.bg { background: var(--color-bg); }
+    .swatch-fill.surface { background: var(--color-surface); border-bottom: 1px solid var(--color-border); }
+    .swatch-fill.ink { background: var(--color-ink); }
+    .swatch-fill.ink-secondary { background: var(--color-ink-secondary); }
+    .swatch-fill.ink-tertiary { background: var(--color-ink-tertiary); }
+    .swatch-fill.on-dark-secondary { background: var(--color-navy-deep); color: var(--color-ink-on-dark-secondary); display:flex; align-items:center; justify-content:center; font-size: 11px; }
+    .swatch-fill.border { background: var(--color-border); }
+    .swatch-fill.gold { background: var(--color-gold); }
+    .swatch-fill.red { background: var(--color-accent-red); }
+    .swatch-fill.navy-deep { background: var(--color-navy-deep); }
+    .swatch-fill.navy { background: var(--color-navy); }
+    .swatch-fill.navy-light { background: var(--color-navy-light); }
+    .swatch-fill.terracotta { background: var(--gradient-thumbnail); }
+    .swatch-fill.devotional { background: var(--gradient-devotional); }
+  </style>
+</head>
+<body>
+  <div class="doc-shell">
+
+    <header class="doc-header">
+      <span class="doc-eyebrow">Design System</span>
+      <h1>ScriptureCentral</h1>
+      <p>
+        Linguagem visual extraída do arquivo Figma "Playground" (frame
+        <em>Template</em>, node 302:617): fundo neutro, tipografia
+        <strong>General Sans</strong> para o produto e <strong>DM Serif Text</strong>
+        reservada à citação de escritura, card devocional com foto real e
+        botões em pílula preta. Esta página documenta os tokens em
+        <code>tokens.css</code> e os componentes que eles formam — a
+        implementação pixel-fiel vive em
+        <code>wireframe-html/</code>.
+      </p>
+    </header>
+
+    <!-- COLOR -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Cor</h2>
+        <span>--color-*</span>
+      </div>
+      <div class="swatch-grid">
+        <div class="swatch"><div class="swatch-fill bg"></div><div class="swatch-meta"><span class="swatch-name">Background</span><span class="swatch-hex">#fafafa</span></div></div>
+        <div class="swatch"><div class="swatch-fill surface"></div><div class="swatch-meta"><span class="swatch-name">Surface</span><span class="swatch-hex">#ffffff</span></div></div>
+        <div class="swatch"><div class="swatch-fill ink"></div><div class="swatch-meta"><span class="swatch-name">Ink</span><span class="swatch-hex">#1a1a1a</span></div></div>
+        <div class="swatch"><div class="swatch-fill ink-secondary"></div><div class="swatch-meta"><span class="swatch-name">Ink secondary</span><span class="swatch-hex">#2e2e2e</span></div></div>
+        <div class="swatch"><div class="swatch-fill ink-tertiary"></div><div class="swatch-meta"><span class="swatch-name">Ink tertiary</span><span class="swatch-hex">#b3b3b3</span></div></div>
+        <div class="swatch"><div class="swatch-fill on-dark-secondary">Aa</div><div class="swatch-meta"><span class="swatch-name">On-dark secondary</span><span class="swatch-hex">#a1a1a1</span></div></div>
+        <div class="swatch"><div class="swatch-fill border"></div><div class="swatch-meta"><span class="swatch-name">Border</span><span class="swatch-hex">#dbdbdb</span></div></div>
+        <div class="swatch"><div class="swatch-fill gold"></div><div class="swatch-meta"><span class="swatch-name">Gold (acento)</span><span class="swatch-hex">#d9c089</span></div></div>
+        <div class="swatch"><div class="swatch-fill red"></div><div class="swatch-meta"><span class="swatch-name">Notificação</span><span class="swatch-hex">#fd4848</span></div></div>
+        <div class="swatch"><div class="swatch-fill navy-deep"></div><div class="swatch-meta"><span class="swatch-name">Navy deep</span><span class="swatch-hex">#131f2e</span></div></div>
+        <div class="swatch"><div class="swatch-fill navy"></div><div class="swatch-meta"><span class="swatch-name">Navy</span><span class="swatch-hex">#24374b</span></div></div>
+        <div class="swatch"><div class="swatch-fill navy-light"></div><div class="swatch-meta"><span class="swatch-name">Navy light</span><span class="swatch-hex">#52697d</span></div></div>
+        <div class="swatch"><div class="swatch-fill devotional"></div><div class="swatch-meta"><span class="swatch-name">Gradiente devocional</span><span class="swatch-hex">fallback sem foto</span></div></div>
+        <div class="swatch"><div class="swatch-fill terracotta"></div><div class="swatch-meta"><span class="swatch-name">Gradiente terracota</span><span class="swatch-hex">fallback sem foto</span></div></div>
+      </div>
+      <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-ink-tertiary);">
+        Card devocional e thumbnails da biblioteca usam fotos reais na implementação
+        (<code>wireframe-html/assets/images/</code>); os gradientes acima existem só
+        como fallback documentado para estados sem imagem.
+      </p>
+    </section>
+
+    <!-- TYPE -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Tipografia</h2>
+        <span>--font-*, --text-*</span>
+      </div>
+      <div class="type-row">
+        <span class="type-label">2xl · 26px / serif</span>
+        <p class="type-sample" style="font-family: var(--font-serif); font-size: var(--text-2xl); line-height: var(--leading-tight);">"And ye shall always rejoice, and be filled with the love of God."</p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">xl · 21px / semibold</span>
+        <p class="type-sample" style="font-size: var(--text-xl); font-weight: var(--weight-semibold);">Hello, start here</p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">lg · 16px / semibold</span>
+        <p class="type-sample" style="font-size: var(--text-lg); font-weight: var(--weight-semibold);">Videos</p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">md · 14px / medium</span>
+        <p class="type-sample" style="font-size: var(--text-md); letter-spacing: var(--tracking-label); font-weight: var(--weight-medium); color: var(--color-gold);">Mosiah 4:12</p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">base · 13px</span>
+        <p class="type-sample" style="font-size: var(--text-base); letter-spacing: var(--tracking-label);">Recent released videos</p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">sm · 12px</span>
+        <p class="type-sample" style="font-size: var(--text-sm);">This chapter already has <strong>1 commentary</strong> and <strong>1 related video</strong></p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">xs · 11px / eyebrow</span>
+        <p class="type-sample" style="font-size: var(--text-xs); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-gold); font-weight: var(--weight-semibold);">Come, Follow Me</p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">2xs · 10px / botão</span>
+        <p class="type-sample" style="font-size: var(--text-2xs); letter-spacing: var(--tracking-label); font-weight: var(--weight-semibold);">Open Mosiah 4</p>
+      </div>
+      <div class="type-row">
+        <span class="type-label">3xs · 9px / badge</span>
+        <p class="type-sample" style="font-size: var(--text-3xs); letter-spacing: var(--tracking-label); text-transform: uppercase; color: var(--color-ink-tertiary); font-weight: var(--weight-semibold);">Unread</p>
+      </div>
+      <p style="margin-top: var(--space-5); font-size: var(--text-sm); color: var(--color-ink-secondary);">
+        Regra 1: <strong>DM Serif Text</strong> é exclusiva da citação de escritura em destaque — todo o resto usa <strong>General Sans</strong>.
+        Regra 2: todo rótulo/meta pequeno (9–14px) usa <code>letter-spacing: 0.05em</code> — proporção constante observada no arquivo, independente do tamanho.
+      </p>
+    </section>
+
+    <!-- SPACING & RADIUS -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Espaçamento &amp; Raio</h2>
+        <span>--space-*, --radius-*</span>
+      </div>
+      <div class="grid-2">
+        <div>
+          <p style="font-size: var(--text-sm); color: var(--color-ink-secondary); margin-bottom: var(--space-4);">Escala base 4px</p>
+          <div class="scale-grid">
+            <div class="scale-item"><div class="scale-box" style="width:4px;height:24px;"></div><span class="scale-label">4</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:8px;height:24px;"></div><span class="scale-label">8</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:16px;height:24px;"></div><span class="scale-label">16</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:24px;height:24px;"></div><span class="scale-label">24</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:32px;height:24px;"></div><span class="scale-label">32</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:40px;height:24px;"></div><span class="scale-label">40</span></div>
+          </div>
+        </div>
+        <div>
+          <p style="font-size: var(--text-sm); color: var(--color-ink-secondary); margin-bottom: var(--space-4);">Raio</p>
+          <div class="scale-grid">
+            <div class="scale-item"><div class="scale-box" style="width:56px;height:56px;border-radius:var(--radius-sm);"></div><span class="scale-label">sm 10</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:56px;height:56px;border-radius:var(--radius-md);"></div><span class="scale-label">md 12</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:56px;height:56px;border-radius:var(--radius-lg);"></div><span class="scale-label">lg 20</span></div>
+            <div class="scale-item"><div class="scale-box" style="width:56px;height:56px;border-radius:var(--radius-full);"></div><span class="scale-label">full</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- NAVIGATION -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Navegação</h2>
+        <span>top nav · tab bar</span>
+      </div>
+      <div class="component-block" style="margin-bottom: var(--space-4);">
+        <div class="topnav">
+          <div class="icon-btn">☰</div>
+          <div class="logo">✦</div>
+          <div class="avatar">👤<span class="dot"></span></div>
+        </div>
+      </div>
+      <div class="component-block" style="text-align:center;">
+        <div class="tabbar">
+          <span class="tab is-active">📖 Read</span>
+          <span class="tab">🧭</span>
+          <span class="tab">🔎</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- HERO / DEVOTIONAL CARD -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Card devocional</h2>
+        <span>hero · "Come, Follow Me"</span>
+      </div>
+      <div class="component-block">
+        <div class="page-meta">
+          <div class="date">Monday • July 20</div>
+          <h3>Hello, start here</h3>
+          <div class="sub">Book of Mormon · Mosiah 4:12 · 3 min read</div>
+        </div>
+        <div class="card-devotional">
+          <div class="row-top">
+            <span class="eyebrow-on-dark">Come, Follow Me</span>
+            <span class="status-on-dark"><span class="ring"></span> Unread</span>
+          </div>
+          <div>
+            <p class="quote-serif">"And ye shall always rejoice, and be filled with the love of God."</p>
+            <span class="quote-ref">Mosiah 4:12</span>
+          </div>
+          <div class="row-bottom">
+            <p>Studied by Saints around the world this week</p>
+            <button class="btn btn-on-devotional">Open Mosiah 4 →</button>
+          </div>
+        </div>
+      </div>
+      <p style="margin-top: var(--space-4); font-size: var(--text-sm); color: var(--color-ink-tertiary);">
+        Na implementação real o fundo é a foto <code>card-devotional.png</code>, não o gradiente — mantido aqui só como placeholder do sistema.
+      </p>
+    </section>
+
+    <!-- UTILITY CARD -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Card utilitário</h2>
+        <span>comentários · conta</span>
+      </div>
+      <div class="component-block" style="display:flex; flex-direction:column; gap: var(--space-4);">
+        <div class="card-utility">
+          <div class="lead">
+            <div>
+              <span class="eyebrow">Commentaries</span>
+              <p>This chapter already has <strong>1 commentary</strong> and <strong>1 related video</strong></p>
+            </div>
+          </div>
+          <button class="btn btn-primary">See related →</button>
+        </div>
+        <div class="card-utility">
+          <div class="lead">
+            <div>
+              <span class="eyebrow">Create account</span>
+              <p>Create an account to save your progress and notes.</p>
+            </div>
+          </div>
+          <button class="btn btn-primary">Create Now →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- CHIPS -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Chips de humor</h2>
+        <span>--radius-full</span>
+      </div>
+      <div class="component-block">
+        <p style="font-weight: var(--weight-semibold); font-size: var(--text-xl); margin: 0 0 4px;">How are you feeling right now?</p>
+        <p style="font-size: var(--text-sm); color: var(--color-ink-tertiary); margin: 0 0 var(--space-5);">Tap a feeling to get a passage</p>
+        <div class="chip-row">
+          <span class="chip">Guidance</span>
+          <span class="chip">Comfort</span>
+          <span class="chip">Peace</span>
+          <span class="chip">Gratitude</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOVER GRID -->
+    <section class="doc-section">
+      <div class="doc-section-head">
+        <h2>Grid da biblioteca</h2>
+        <span>thumbnail · título · legenda</span>
+      </div>
+      <div class="component-block">
+        <p style="font-weight: var(--weight-semibold); font-size: var(--text-xl); margin: 0 0 var(--space-5);">Discover the library</p>
+        <div class="discover-grid">
+          <div class="discover-card">
+            <div class="discover-thumb">▶</div>
+            <h4>Videos</h4>
+            <p>Recent released videos</p>
+          </div>
+          <div class="discover-card">
+            <div class="discover-thumb">🧎</div>
+            <h4>Reading Plans</h4>
+            <p>Recent reading plans</p>
+          </div>
+          <div class="discover-card">
+            <div class="discover-thumb">📍</div>
+            <h4>Holy Land</h4>
+            <p>Events and chronology</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </div>
+</body>
+</html>
