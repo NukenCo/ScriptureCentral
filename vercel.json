@@ -2,6 +2,7 @@
   "rewrites": [
     { "source": "/", "destination": "/wireframe-html/index.html" },
     { "source": "/styles.css", "destination": "/wireframe-html/styles.css" },
-    { "source": "/assets/:path*", "destination": "/wireframe-html/assets/:path*" }
+    { "source": "/assets/:path*", "destination": "/wireframe-html/assets/:path*" },
+    { "source": "/:page.html", "destination": "/wireframe-html/:page.html" }
   ]
 }

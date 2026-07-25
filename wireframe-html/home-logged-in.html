@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>ScriptureCentral — Home</title>
+  <title>ScriptureCentral — Home (logged in)</title>
   <link rel="stylesheet" href="../design/tokens.css" />
   <link rel="stylesheet" href="./styles.css" />
 </head>
@@ -22,27 +22,19 @@
       <img class="logo" src="assets/icons/logo.svg" alt="ScriptureCentral" />
 
       <div class="nav-right">
-        <button
-          class="icon-btn icon-btn--surface"
-          id="profileTrigger"
-          aria-label="Perfil"
-          aria-haspopup="dialog"
-          aria-controls="loginOverlay"
-          aria-expanded="false"
-        >
+        <button class="icon-btn icon-btn--surface" aria-label="Notificações">
           <span class="icon icon--24">
-            <img src="assets/icons/user-24-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
-            <img src="assets/icons/user-24-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
+            <img src="assets/icons/bell-a.svg" alt="" class="icon-layer" style="inset: 8.33% 12.5% 29.17% 12.5%;" />
+            <img src="assets/icons/bell-b.svg" alt="" class="icon-layer" style="inset: 87.5% 42.79% 8.35% 42.79%;" />
           </span>
         </button>
-        <img class="notif-dot" src="assets/icons/ellipse-notification.svg" alt="" />
       </div>
     </header>
 
     <section class="reading-section">
       <div class="saudation">
-        <p class="eyebrow-date">Monday • July 20</p>
-        <h1 class="page-title">Hello, start here</h1>
+        <p class="eyebrow-date">MONDAY • JULY 20</p>
+        <h1 class="page-title">Good morning, Emma</h1>
         <p class="page-subtitle">Book of Mormon · Mosiah 4:12 · 3 min read</p>
       </div>
 
@@ -154,106 +146,55 @@
     </section>
 
     <footer class="bottom">
-      <nav class="tabbar">
-        <a class="tab tab--active" href="#">
-          <span class="icon icon--20">
-            <img src="assets/icons/book-a.svg" alt="" class="icon-layer" style="inset: 70.83% 16.67% 18.75% 16.67%;" />
-            <img src="assets/icons/book-b.svg" alt="" class="icon-layer" style="inset: 8.33% 16.67%;" />
-          </span>
-          Read
-        </a>
-        <a class="tab" href="#" aria-label="Explorar">
-          <span class="icon icon--20">
-            <img src="assets/icons/compass-a.svg" alt="" class="icon-layer" style="inset: 8.33%;" />
-            <img src="assets/icons/compass-b.svg" alt="" class="icon-layer" style="inset: 32.33%;" />
-          </span>
-        </a>
-        <a class="tab" href="#" aria-label="Buscar">
+      <nav class="tabbar-full">
+        <button class="pill-icon-btn" type="button" aria-label="Buscar">
           <span class="icon icon--20">
             <img src="assets/icons/search-a.svg" alt="" class="icon-layer" style="inset: 12.5% 20.83% 20.83% 12.5%;" />
             <img src="assets/icons/search-b.svg" alt="" class="icon-layer" style="inset: 69.37% 12.5% 12.5% 69.37%;" />
+          </span>
+        </button>
+
+        <div class="tabbar-full__group">
+          <a class="tabbar-full__tab tabbar-full__tab--active" href="#">
+            <span class="icon icon--20">
+              <img src="assets/icons/home-20-a.svg" alt="" class="icon-layer" style="inset: 8.33% 12.5%;" />
+              <img src="assets/icons/home-20-b.svg" alt="" class="icon-layer" style="inset: 50% 37.5% 8.33% 37.5%;" />
+            </span>
+            Home
+          </a>
+          <a class="tabbar-full__tab" href="#" aria-label="Lista">
+            <span class="icon icon--20">
+              <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 25% 12.5% 75% 33.33%;" />
+              <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 50% 12.5% 50% 33.33%;" />
+              <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 75% 12.5% 25% 33.33%;" />
+              <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 25% 87.46% 75% 12.5%;" />
+              <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 50% 87.46% 50% 12.5%;" />
+              <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 75% 87.46% 25% 12.5%;" />
+            </span>
+          </a>
+          <a class="tabbar-full__tab" href="#" aria-label="Leitura">
+            <span class="icon icon--20">
+              <img src="assets/icons/book-open-24-a.svg" alt="" class="icon-layer" style="inset: 12.5% 50% 12.5% 8.33%;" />
+              <img src="assets/icons/book-open-24-b.svg" alt="" class="icon-layer" style="inset: 12.5% 8.33% 12.5% 50%;" />
+            </span>
+          </a>
+          <a class="tabbar-full__tab" href="#" aria-label="Explorar">
+            <span class="icon icon--20">
+              <img src="assets/icons/compass-a.svg" alt="" class="icon-layer" style="inset: 8.33%;" />
+              <img src="assets/icons/compass-b.svg" alt="" class="icon-layer" style="inset: 32.33%;" />
+            </span>
+          </a>
+        </div>
+
+        <a class="pill-icon-btn" href="#" aria-label="Perfil">
+          <span class="icon icon--24">
+            <img src="assets/icons/user-24-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
+            <img src="assets/icons/user-24-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
           </span>
         </a>
       </nav>
     </footer>
 
   </main>
-
-  <div class="login-overlay" id="loginOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Entrar ou criar conta">
-    <div class="login-overlay__sheet">
-
-      <div class="login-overlay__header">
-        <img class="login-overlay__logo" src="assets/icons/logo-full.svg" alt="ScriptureCentral" />
-        <button class="icon-btn icon-btn--surface" id="loginOverlayClose" aria-label="Fechar">
-          <span class="icon icon--20">
-            <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
-            <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
-          </span>
-        </button>
-      </div>
-
-      <div class="action-sheet">
-        <div class="action-sheet__title">
-          <h2>Illuminating and Defending<br />Divine Truth</h2>
-        </div>
-
-        <div class="action-sheet__buttons">
-          <a class="btn-social" href="choose-language.html">
-            <img src="assets/icons/google.svg" alt="" width="16" height="16" />
-            Login with Google
-          </a>
-          <a class="btn-social" href="choose-language.html">
-            <img src="assets/icons/facebook.svg" alt="" width="16" height="16" />
-            Login with Facebook
-          </a>
-          <a class="btn-social" href="choose-language.html">
-            <img src="assets/icons/apple.svg" alt="" width="12" height="15" />
-            Login with Apple
-          </a>
-          <a class="btn-social" href="choose-language.html">
-            <span class="icon icon--16">
-              <img src="assets/icons/mail-a.svg" alt="" class="icon-layer" style="inset: 16.67% 8.33%;" />
-              <img src="assets/icons/mail-b.svg" alt="" class="icon-layer" style="inset: 25% 8.33% 45.83% 8.33%;" />
-            </span>
-            Login with your e-mail
-          </a>
-        </div>
-
-        <p class="action-sheet__signup">Don't have an account? <strong>Sign up</strong></p>
-        <p class="action-sheet__legal">By signing up, you agree to our Terms<br />and Privacy Policy.</p>
-      </div>
-
-    </div>
-  </div>
-
-  <script>
-    (function () {
-      var trigger = document.getElementById('profileTrigger');
-      var overlay = document.getElementById('loginOverlay');
-      var closeBtn = document.getElementById('loginOverlayClose');
-
-      function openOverlay() {
-        overlay.classList.add('is-open');
-        overlay.setAttribute('aria-hidden', 'false');
-        trigger.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('no-scroll');
-        closeBtn.focus();
-      }
-
-      function closeOverlay() {
-        overlay.classList.remove('is-open');
-        overlay.setAttribute('aria-hidden', 'true');
-        trigger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('no-scroll');
-        trigger.focus();
-      }
-
-      trigger.addEventListener('click', openOverlay);
-      closeBtn.addEventListener('click', closeOverlay);
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeOverlay();
-      });
-    })();
-  </script>
 </body>
 </html>

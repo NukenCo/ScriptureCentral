@@ -91,6 +91,10 @@ img {
   align-items: center;
   justify-content: center;
 }
+.icon-btn--sm {
+  width: 38px;
+  height: 38px;
+}
 .icon-btn--plain {
   background: transparent;
 }
@@ -170,6 +174,11 @@ img {
   flex-direction: column;
   justify-content: space-between;
   color: var(--color-ink-on-dark);
+  /* Escurece a foto pra manter o texto legível — degradês do Figma (node 291:552). */
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
+    linear-gradient(to bottom, rgba(102, 102, 102, 0) 51.534%, rgba(0, 0, 0, 0.6) 100%),
+    url('assets/images/card-devotional.png');
   background-size: cover;
   background-position: center;
 }
@@ -345,6 +354,11 @@ img {
 .chip-row::-webkit-scrollbar,
 .discover-row::-webkit-scrollbar {
   display: none;
+}
+.chip-row--wrap {
+  flex-wrap: wrap;
+  overflow: visible;
+  padding: 0 30px 4px;
 }
 
 .chip {
@@ -551,4 +565,129 @@ img {
 .action-sheet__legal {
   color: var(--color-ink-tertiary);
   line-height: var(--leading-snug);
+}
+
+/* ---------- Onboarding (choose-language / what-you-want / familiarity) ----------
+   Telas simples, sem tab bar fixa: o conteúdo flui normalmente e o bloco
+   Next/Skip é empurrado para o fim com margin-top: auto. */
+.app-frame--onboarding {
+  padding-bottom: var(--space-6);
+}
+
+.onboarding-header {
+  padding: var(--space-4) var(--space-6) 0;
+}
+
+.onboarding-title {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 0 30px;
+}
+.onboarding-title h1 {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.onboarding-title p {
+  margin: 0;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  color: #878787;
+}
+
+.search-row {
+  display: flex;
+  gap: 6px;
+  padding: 0 30px;
+}
+.pill-icon-btn {
+  flex-shrink: 0;
+  width: 52px;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: var(--color-surface);
+  border: 1px solid #ececec;
+  border-radius: var(--radius-full);
+}
+.search-field {
+  flex: 1;
+  min-width: 0;
+  height: 52px;
+  display: flex;
+  align-items: center;
+  padding: 0 var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid #ececec;
+  border-radius: var(--radius-full);
+  color: #b7b7b7;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+.onboarding-helper {
+  margin: 0;
+  padding: 50px 30px 0;
+  font-size: var(--text-base);
+  letter-spacing: var(--tracking-label);
+  color: #878787;
+}
+
+.onboarding-bottom {
+  margin-top: auto;
+  display: flex;
+  flex-direction: column;
+  padding: 0 30px var(--space-4);
+}
+.onboarding-skip {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-2);
+  font-size: var(--text-base);
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-ink);
+}
+
+/* ---------- Tab bar completa (home do usuário logado) ----------
+   Três grupos independentes: busca (pill-icon-btn) + navegação principal +
+   perfil (pill-icon-btn), ocupando a largura toda do frame. */
+.tabbar-full {
+  pointer-events: auto;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px;
+  padding: 0 var(--space-4);
+}
+.tabbar-full__group {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  background: var(--color-surface);
+  border: 1.5px solid #ececec;
+  border-radius: var(--radius-full);
+  padding: 6px;
+}
+.tabbar-full__tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 4px;
+  width: 44px;
+  height: 44px;
+  border-radius: var(--radius-full);
+  color: var(--color-ink);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+.tabbar-full__tab--active {
+  width: auto;
+  padding: 10px 16px 10px 12px;
+  background: var(--color-surface-sunken);
 }
