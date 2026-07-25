@@ -1,5 +1,5 @@
 {
-  "rewrites": [
-    { "source": "/", "destination": "/wireframe-html/index.html" }
+  "redirects": [
+    { "source": "/", "destination": "/wireframe-html/index.html", "permanent": false }
   ]
 }
