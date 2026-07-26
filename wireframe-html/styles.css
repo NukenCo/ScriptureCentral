@@ -1209,23 +1209,33 @@ img {
 .password-page__form {
   display: flex;
   align-items: center;
+  justify-content: center;
   gap: 6px;
   width: 100%;
 }
 .password-page__input {
-  flex: 1;
-  min-width: 0;
+  /* Largura fixa do Figma (251px), não esticada — por isso a folga nas
+     bordas da página é esperada. */
+  width: 251px;
+  max-width: 60%;
   height: 48px;
   padding: 0 var(--space-4);
   background: var(--color-surface);
   border: 1px solid #e3e3e3;
   border-radius: var(--radius-full);
   font: inherit;
-  font-size: var(--text-sm);
+  /* 16px no mínimo: abaixo disso o Safari/iOS dá zoom automático ao focar. */
+  font-size: 16px;
   color: var(--color-ink);
+  transition: border-color var(--duration-base) var(--ease-standard);
 }
 .password-page__input::placeholder {
   color: #cccccc;
+}
+/* Estado preenchido (Figma 499:9766): borda preta no campo, botão escurece
+   e o ícone vira branco — sinaliza que já pode enviar. */
+.password-page__input:not(:placeholder-shown) {
+  border-color: #000000;
 }
 .password-page__submit {
   flex-shrink: 0;
@@ -1237,6 +1247,13 @@ img {
   display: flex;
   align-items: center;
   justify-content: center;
+  transition: background-color var(--duration-base) var(--ease-standard);
+}
+.password-page__input:not(:placeholder-shown) ~ .password-page__submit {
+  background: #2c2c2c;
+}
+.password-page__input:not(:placeholder-shown) ~ .password-page__submit .icon-layer {
+  filter: brightness(0) invert(1);
 }
 .password-page__error {
   margin: 0;
