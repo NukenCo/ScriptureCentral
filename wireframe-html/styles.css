@@ -1163,6 +1163,88 @@ img {
   color: var(--color-ink);
 }
 
+/* ---------- Password gate (Figma 499:9602) ---------- */
+.password-page {
+  width: 393px;
+  max-width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #ddedff 0%, var(--color-bg) 50.036%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: calc(90px + env(safe-area-inset-top, 0px)) 16px 40px;
+}
+.password-page__header {
+  padding-bottom: 20px;
+}
+.password-page__card {
+  width: 361px;
+  max-width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+  padding: 20px 0;
+}
+.password-page__title {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  text-align: center;
+  padding: 12px 0 16px;
+}
+.password-page__title h1 {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.password-page__title p {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: #7d7d7d;
+}
+.password-page__form {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 100%;
+}
+.password-page__input {
+  flex: 1;
+  min-width: 0;
+  height: 48px;
+  padding: 0 var(--space-4);
+  background: var(--color-surface);
+  border: 1px solid #e3e3e3;
+  border-radius: var(--radius-full);
+  font: inherit;
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+}
+.password-page__input::placeholder {
+  color: #cccccc;
+}
+.password-page__submit {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  border-radius: var(--radius-full);
+  background: var(--color-surface);
+  border: 1px solid #e3e3e3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.password-page__error {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-accent-red);
+  text-align: center;
+}
+
 @media (prefers-reduced-motion: reduce) {
   .app-menu,
   .app-menu.is-open,
