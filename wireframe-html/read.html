@@ -53,15 +53,18 @@
         <p class="read-hero__quote">&ldquo;And ye shall always rejoice, and be filled with the love of God.&rdquo;</p>
         <span class="read-hero__ref">Mosiah 4:12</span>
       </div>
-
-      <button class="read-hero__cta" id="readStartCta" type="button">
-        Start Read
-        <span class="icon icon--16">
-          <img src="assets/icons/arrow-down-a.svg" alt="" class="icon-layer" style="inset: 20.83% 50% 20.83% 50%;" />
-          <img src="assets/icons/arrow-down-b.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 20.83% 20.83%;" />
-        </span>
-      </button>
     </div>
+
+    <!-- Irmão da sheet (não filho do hero) de propósito: precisa de um
+         z-index que fure o scrim/painel da sheet, o que só funciona fora
+         do contexto de empilhamento do .read-hero. -->
+    <button class="read-hero__cta" id="readStartCta" type="button">
+      Start Read
+      <span class="icon icon--16">
+        <img src="assets/icons/arrow-down-a.svg" alt="" class="icon-layer" style="inset: 20.83% 50% 20.83% 50%;" />
+        <img src="assets/icons/arrow-down-b.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 20.83% 20.83%;" />
+      </span>
+    </button>
 
     <div class="read-sheet" id="readSheet">
       <div class="read-sheet__scrim" aria-hidden="true"></div>

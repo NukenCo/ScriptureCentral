@@ -80,6 +80,18 @@ button {
   cursor: pointer;
 }
 
+/* Sem contorno azul em cliques/toques nem em .focus() disparado por JS
+   (ex: ao abrir o overlay de login) — mantém o anel só pra navegação
+   real por teclado (:focus-visible). */
+a,
+button {
+  -webkit-tap-highlight-color: transparent;
+}
+a:focus:not(:focus-visible),
+button:focus:not(:focus-visible) {
+  outline: none;
+}
+
 img {
   max-width: 100%;
 }
@@ -887,7 +899,10 @@ img {
   color: var(--color-gold);
 }
 .read-hero__cta {
-  align-self: flex-start;
+  position: absolute;
+  left: 20px;
+  bottom: 190px; /* alinhado à mesma posição de quando vivia dentro do hero */
+  z-index: 22; /* acima do scrim/painel da sheet (20), abaixo do topbar (30) */
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -900,6 +915,20 @@ img {
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-label);
   animation: read-slide-fade-down var(--duration-page) var(--ease-decelerate) 320ms both;
+  /* Some em fade assim que a sheet começa a subir por cima dele — não
+     precisa esperar o gesto inteiro, ele está bem perto da linha do peek. */
+  --cta-progress-fade: max(0, calc(1 - var(--sheet-progress, 0) * 5));
+  transition: opacity var(--duration-base) var(--ease-standard);
+  pointer-events: auto;
+}
+/* !important: precisa vencer o opacity que a keyframe de entrada segura
+   via fill-mode:both depois de terminar. */
+.read-page:not(.is-expanded) .read-hero__cta {
+  opacity: var(--cta-progress-fade) !important;
+}
+.read-page.is-expanded .read-hero__cta {
+  opacity: 0 !important;
+  pointer-events: none;
 }
 
 @keyframes read-slide-fade-down {
@@ -1040,10 +1069,13 @@ img {
 
 @media (prefers-reduced-motion: reduce) {
   .read-topbar,
-  .read-hero__content,
-  .read-hero__cta {
+  .read-hero__content {
     animation: none !important;
     opacity: 1 !important;
+    transform: none !important;
+  }
+  .read-hero__cta {
+    animation: none !important;
     transform: none !important;
   }
   .read-sheet {
