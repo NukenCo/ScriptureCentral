@@ -6,6 +6,17 @@
   <title>ScriptureCentral — Home</title>
   <link rel="stylesheet" href="../design/tokens.css" />
   <link rel="stylesheet" href="./styles.css" />
+  <style>
+    /* Chegada na home: fade in suave, sem o slide horizontal padrão. */
+    ::view-transition-new(root) {
+      animation-name: vt-fade-in;
+      animation-timing-function: var(--ease-decelerate);
+      animation-duration: var(--duration-page);
+    }
+    @keyframes vt-fade-in {
+      from { transform: translateY(10px); opacity: 0; }
+    }
+  </style>
 </head>
 <body>
   <main class="app-frame app-frame--fixed-header">

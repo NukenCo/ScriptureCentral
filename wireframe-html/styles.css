@@ -9,6 +9,47 @@
   box-sizing: border-box;
 }
 
+/* ---------- Transições entre páginas (View Transitions API) ----------
+   Navegação entre documentos (cliques em Next, Skip, botões de login etc.)
+   ganha um slide suave da direita pra esquerda por padrão — a página nova
+   entra da direita enquanto a atual sai pela esquerda. Progressive
+   enhancement: navegadores sem suporte simplesmente ignoram e a troca de
+   página acontece na hora, sem quebrar nada. */
+@view-transition {
+  navigation: auto;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: var(--duration-page);
+  mix-blend-mode: normal;
+}
+::view-transition-old(root) {
+  z-index: 1;
+  animation-name: vt-slide-out;
+  animation-timing-function: var(--ease-accelerate);
+}
+::view-transition-new(root) {
+  z-index: 2;
+  animation-name: vt-slide-in;
+  animation-timing-function: var(--ease-decelerate);
+}
+
+@keyframes vt-slide-out {
+  to { transform: translateX(-6%); opacity: 0; }
+}
+@keyframes vt-slide-in {
+  from { transform: translateX(6%); opacity: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-group(*),
+  ::view-transition-old(*),
+  ::view-transition-new(*) {
+    animation: none !important;
+  }
+}
+
 html,
 body {
   margin: 0;
@@ -484,7 +525,8 @@ img {
 /* ---------- Login / Register overlay ----------
    Figma node 388:1397 "WireframeLogin". Aberto ao clicar no botão de perfil:
    o fundo (degradê) faz fade in e o grupo Header+Action-sheet entra de
-   baixo para cima, juntos, na mesma transição. */
+   baixo para cima logo em seguida — timings assimétricos: entrada lenta e
+   desacelerada (assenta), saída rápida (responsiva). */
 .login-overlay {
   position: fixed;
   inset: 0;
@@ -494,12 +536,12 @@ img {
   background: linear-gradient(to bottom, #ddedff 0%, var(--color-bg) 50.036%);
   opacity: 0;
   visibility: hidden;
-  transition: opacity var(--duration-base) var(--ease-standard), visibility 0s linear var(--duration-base);
+  transition: opacity 260ms var(--ease-accelerate), visibility 0s linear 260ms;
 }
 .login-overlay.is-open {
   opacity: 1;
   visibility: visible;
-  transition: opacity var(--duration-base) var(--ease-standard);
+  transition: opacity var(--duration-page) var(--ease-decelerate);
 }
 
 .login-overlay__sheet {
@@ -510,10 +552,21 @@ img {
   flex-direction: column;
   justify-content: flex-end;
   transform: translateY(100%);
-  transition: transform var(--duration-base) var(--ease-standard);
+  transition: transform 280ms var(--ease-accelerate);
 }
 .login-overlay.is-open .login-overlay__sheet {
   transform: translateY(0);
+  transition: transform var(--duration-page) var(--ease-decelerate) 60ms;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .login-overlay,
+  .login-overlay.is-open,
+  .login-overlay__sheet,
+  .login-overlay.is-open .login-overlay__sheet {
+    transition-duration: 0.01ms !important;
+    transition-delay: 0s !important;
+  }
 }
 
 .login-overlay__header {
