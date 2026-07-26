@@ -829,13 +829,18 @@ img {
 /* ---- Hero: tags + citação + referência, depois o CTA ---- */
 .read-hero {
   position: absolute;
-  inset: 0;
+  top: 0;
+  left: 0;
+  right: 0;
+  /* Para antes da faixa que a sheet cobre no peek (150px) — sem isso o CTA
+     fica escondido atrás dela. */
+  bottom: 150px;
   z-index: 10;
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
   gap: 40px;
-  padding: 100px 20px 90px;
+  padding: 100px 20px 40px;
   color: var(--color-ink-on-dark);
 }
 .read-hero__content {
@@ -933,6 +938,13 @@ img {
   background: rgba(255, 255, 255, calc(0.7 + 0.3 * var(--sheet-progress, 0)));
   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
   overflow: hidden;
+  /* Recolhida: o painel inteiro é alça de arrasto. Expandida: só o
+     grabber continua sendo (ele força touch-action:none mesmo com o pai
+     em pan-y), o resto passa a rolar normalmente. */
+  touch-action: none;
+}
+.read-page.is-expanded .read-sheet__panel {
+  touch-action: pan-y;
 }
 .read-sheet__handle {
   flex-shrink: 0;
@@ -953,6 +965,7 @@ img {
   min-height: 0;
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
+  touch-action: pan-y;
   padding: 0 30px 40px;
 }
 .read-sheet__title {

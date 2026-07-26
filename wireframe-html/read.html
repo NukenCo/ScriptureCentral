@@ -66,7 +66,7 @@
     <div class="read-sheet" id="readSheet">
       <div class="read-sheet__scrim" aria-hidden="true"></div>
 
-      <div class="read-sheet__panel">
+      <div class="read-sheet__panel" id="readPanel">
         <div class="read-sheet__handle" id="readHandle">
           <span class="read-sheet__grabber"></span>
         </div>
@@ -116,8 +116,9 @@
   <script>
     (function () {
       var page = document.getElementById('readPage');
+      var topbar = document.getElementById('readTopbar');
       var sheet = document.getElementById('readSheet');
-      var handle = document.getElementById('readHandle');
+      var panel = document.getElementById('readPanel');
       var startCta = document.getElementById('readStartCta');
       var backBtn = document.getElementById('readBack');
       var closeBtn = document.getElementById('readClose');
@@ -132,6 +133,11 @@
       var lastMoveY = 0;
       var velocity = 0;
 
+      // A sheet nunca cobre o header — para no fim dele, não no topo absoluto
+      // da tela (senão o botão de close fica por baixo/por cima da sheet).
+      function expandedY() {
+        return topbar.offsetHeight;
+      }
       function peekY() {
         return page.clientHeight - PEEK_VISIBLE;
       }
@@ -142,18 +148,20 @@
       }
 
       function setSheetY(y, animate) {
+        var min = expandedY();
         var max = peekY();
-        y = Math.max(0, Math.min(max, y));
+        y = Math.max(min, Math.min(max, y));
         currentY = y;
         sheet.style.transition = animate ? '' : 'none';
         sheet.style.transform = 'translateY(' + y + 'px)';
-        setProgress(max > 0 ? 1 - y / max : 1);
+        var range = max - min;
+        setProgress(range > 0 ? 1 - (y - min) / range : 1);
       }
 
       function snapTo(expand, animate) {
         isExpanded = expand;
         page.classList.toggle('is-expanded', expand);
-        setSheetY(expand ? 0 : peekY(), animate !== false);
+        setSheetY(expand ? expandedY() : peekY(), animate !== false);
       }
 
       function goBack() {
@@ -165,9 +173,21 @@
       }
 
       setSheetY(peekY(), false);
-      window.addEventListener('resize', function () {
-        if (!dragging) setSheetY(isExpanded ? 0 : peekY(), false);
-      });
+
+      // Acompanha mudanças reais de tamanho do frame (ex: a barra de
+      // endereço do navegador recolhendo/expandindo ao rolar), não só o
+      // evento resize da window — isso é o que causava o layout quebrado.
+      function resync() {
+        if (!dragging) setSheetY(isExpanded ? expandedY() : peekY(), false);
+      }
+      if (window.ResizeObserver) {
+        new ResizeObserver(resync).observe(page);
+      } else {
+        window.addEventListener('resize', resync);
+      }
+      if (window.visualViewport) {
+        window.visualViewport.addEventListener('resize', resync);
+      }
 
       startCta.addEventListener('click', function () {
         snapTo(true, true);
@@ -175,9 +195,17 @@
       backBtn.addEventListener('click', goBack);
       closeBtn.addEventListener('click', goBack);
 
-      handle.addEventListener('pointerdown', function (e) {
+      function isOnHandle(target) {
+        return !!(target && target.closest && target.closest('.read-sheet__handle'));
+      }
+
+      // No estado recolhido, a sheet inteira é alça de arrasto. Só quando já
+      // está expandida é que o toque precisa ser exatamente no grabber —
+      // fora dele, o texto rola normalmente.
+      panel.addEventListener('pointerdown', function (e) {
+        if (isExpanded && !isOnHandle(e.target)) return;
         dragging = true;
-        handle.setPointerCapture(e.pointerId);
+        panel.setPointerCapture(e.pointerId);
         dragStartY = e.clientY;
         sheetStartY = currentY;
         sheet.style.transition = 'none';
@@ -186,7 +214,7 @@
         velocity = 0;
       });
 
-      handle.addEventListener('pointermove', function (e) {
+      panel.addEventListener('pointermove', function (e) {
         if (!dragging) return;
         var delta = e.clientY - dragStartY;
         setSheetY(sheetStartY + delta, false);
@@ -203,14 +231,16 @@
       function endDrag() {
         if (!dragging) return;
         dragging = false;
+        var min = expandedY();
         var max = peekY();
-        var progress = max > 0 ? 1 - currentY / max : 1;
+        var range = max - min;
+        var progress = range > 0 ? 1 - (currentY - min) / range : 1;
         var expand = velocity < -0.35 ? true : velocity > 0.35 ? false : progress > 0.5;
         snapTo(expand, true);
       }
 
-      handle.addEventListener('pointerup', endDrag);
-      handle.addEventListener('pointercancel', endDrag);
+      panel.addEventListener('pointerup', endDrag);
+      panel.addEventListener('pointercancel', endDrag);
     })();
   </script>
 </body>
