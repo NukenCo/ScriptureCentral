@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ScriptureCentral — Mosiah 4:12</title>
+  <link rel="stylesheet" href="../design/tokens.css" />
+  <link rel="stylesheet" href="./styles.css" />
+  <style>
+    /* Página com coreografia própria de entrada (topbar/conteúdo/CTA
+       escalonados) — o crossfade do view-transition da página inteira
+       fica só como um "corte" rápido e discreto por baixo disso. */
+    ::view-transition-old(root),
+    ::view-transition-new(root) {
+      animation-duration: 260ms;
+      animation-timing-function: var(--ease-standard);
+      animation-name: vt-fade-plain;
+    }
+    @keyframes vt-fade-plain {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+  </style>
+</head>
+<body>
+  <div class="read-page" id="readPage">
+    <div class="read-bg" aria-hidden="true"></div>
+
+    <header class="read-topbar" id="readTopbar">
+      <button class="read-icon-btn read-icon-btn--ghost" id="readBack" aria-label="Voltar" type="button">
+        <span class="icon icon--20">
+          <img src="assets/icons/arrow-left-a.svg" alt="" class="icon-layer icon--on-dark" style="inset: 50% 20.83% 50% 20.83%;" />
+          <img src="assets/icons/arrow-left-b.svg" alt="" class="icon-layer icon--on-dark" style="inset: 20.83% 50% 20.83% 20.83%;" />
+        </span>
+      </button>
+      <button class="icon-btn icon-btn--sm icon-btn--surface read-icon-btn--close" id="readClose" aria-label="Fechar" type="button">
+        <span class="icon icon--20">
+          <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
+          <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
+        </span>
+      </button>
+    </header>
+
+    <div class="read-hero">
+      <div class="read-hero__content">
+        <div class="read-hero__tags">
+          <span class="read-hero__tag-left">Come, Follow Me</span>
+          <span class="read-hero__tag-right">
+            <img src="assets/icons/ellipse-unread.svg" alt="" width="6" height="6" />
+            Unread
+          </span>
+        </div>
+        <p class="read-hero__quote">&ldquo;And ye shall always rejoice, and be filled with the love of God.&rdquo;</p>
+        <span class="read-hero__ref">Mosiah 4:12</span>
+      </div>
+
+      <button class="read-hero__cta" id="readStartCta" type="button">
+        Start Read
+        <span class="icon icon--16">
+          <img src="assets/icons/arrow-down-a.svg" alt="" class="icon-layer" style="inset: 20.83% 50% 20.83% 50%;" />
+          <img src="assets/icons/arrow-down-b.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 20.83% 20.83%;" />
+        </span>
+      </button>
+    </div>
+
+    <div class="read-sheet" id="readSheet">
+      <div class="read-sheet__scrim" aria-hidden="true"></div>
+
+      <div class="read-sheet__panel">
+        <div class="read-sheet__handle" id="readHandle">
+          <span class="read-sheet__grabber"></span>
+        </div>
+
+        <div class="read-sheet__scroll" id="readScroll">
+          <p class="read-sheet__title">&ldquo;And ye shall always rejoice, and be filled with the love of God.&rdquo;</p>
+
+          <div class="read-sheet__body">
+            <p><span class="verse-num">8</span> And this is the means whereby salvation cometh. And there is <strong>none</strong> other salvation save this which hath been spoken of; neither are there any conditions whereby man can be saved except the conditions which I have told you.</p>
+
+            <p><span class="verse-num">9</span> Believe in <strong>God</strong>; believe that he is, and that he <strong>created</strong> all things, both in heaven and in earth; believe that he has all <strong>wisdom</strong>, and all power, both in heaven and in earth; believe that man doth not <strong>comprehend</strong> all the things which the Lord can comprehend.</p>
+
+            <p><span class="verse-num">10</span> And again, believe that ye must <strong>repent</strong> of your sins and forsake them, and humble yourselves before God; and ask in <strong>sincerity</strong> of heart that he would forgive you; and now, if you believe all these things see that ye do them.</p>
+
+            <p><span class="verse-num">11</span> And again I say unto you as I have said before, that as ye have come to the knowledge of the glory of God, or if ye have known of his goodness and have <strong>tasted</strong> of his love, and have received a <strong>remission</strong> of your sins, which causeth such exceedingly great joy in your souls, even so I would that ye should remember, and always retain in remembrance, the greatness of God, and your own <strong>nothingness</strong>, and his <strong>goodness</strong> and long-suffering towards you, unworthy creatures, and humble yourselves even in the depths of <strong>humility</strong>, calling on the name of the Lord daily, and standing <strong>steadfastly</strong> in the faith of that which is to come, which was spoken by the mouth of the angel.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="read-share" id="readShare">
+      <div class="read-share__pill">
+        <button class="read-share__btn" type="button" aria-label="Curtir">
+          <span class="icon icon--20">
+            <img src="assets/icons/heart.svg" alt="" class="icon-layer icon--on-dark" style="inset: 12.49% 6.45% 11.54% 6.45%;" />
+          </span>
+          1.2k
+        </button>
+        <button class="read-share__btn" type="button" aria-label="Comentários">
+          <span class="icon icon--20">
+            <img src="assets/icons/comment.svg" alt="" class="icon-layer" style="inset: 12.5%;" />
+          </span>
+          327
+        </button>
+        <button class="read-share__btn" type="button" aria-label="Compartilhar">
+          <span class="icon icon--20">
+            <img src="assets/icons/share-a.svg" alt="" class="icon-layer" style="inset: 62.5% 12.5% 12.5% 12.5%;" />
+            <img src="assets/icons/share-b.svg" alt="" class="icon-layer" style="inset: 12.5% 29.17% 66.67% 29.17%;" />
+            <img src="assets/icons/share-c.svg" alt="" class="icon-layer" style="inset: 12.5% 50% 37.5% 50%;" />
+          </span>
+          489
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var page = document.getElementById('readPage');
+      var sheet = document.getElementById('readSheet');
+      var handle = document.getElementById('readHandle');
+      var startCta = document.getElementById('readStartCta');
+      var backBtn = document.getElementById('readBack');
+      var closeBtn = document.getElementById('readClose');
+
+      var PEEK_VISIBLE = 150; // px do sheet visíveis no estado recolhido
+      var isExpanded = false;
+      var dragging = false;
+      var dragStartY = 0;
+      var sheetStartY = 0;
+      var currentY = 0;
+      var lastMoveTime = 0;
+      var lastMoveY = 0;
+      var velocity = 0;
+
+      function peekY() {
+        return page.clientHeight - PEEK_VISIBLE;
+      }
+
+      function setProgress(p) {
+        p = Math.max(0, Math.min(1, p));
+        page.style.setProperty('--sheet-progress', p);
+      }
+
+      function setSheetY(y, animate) {
+        var max = peekY();
+        y = Math.max(0, Math.min(max, y));
+        currentY = y;
+        sheet.style.transition = animate ? '' : 'none';
+        sheet.style.transform = 'translateY(' + y + 'px)';
+        setProgress(max > 0 ? 1 - y / max : 1);
+      }
+
+      function snapTo(expand, animate) {
+        isExpanded = expand;
+        page.classList.toggle('is-expanded', expand);
+        setSheetY(expand ? 0 : peekY(), animate !== false);
+      }
+
+      function goBack() {
+        if (document.referrer && new URL(document.referrer).origin === location.origin) {
+          history.back();
+        } else {
+          location.href = 'index.html';
+        }
+      }
+
+      setSheetY(peekY(), false);
+      window.addEventListener('resize', function () {
+        if (!dragging) setSheetY(isExpanded ? 0 : peekY(), false);
+      });
+
+      startCta.addEventListener('click', function () {
+        snapTo(true, true);
+      });
+      backBtn.addEventListener('click', goBack);
+      closeBtn.addEventListener('click', goBack);
+
+      handle.addEventListener('pointerdown', function (e) {
+        dragging = true;
+        handle.setPointerCapture(e.pointerId);
+        dragStartY = e.clientY;
+        sheetStartY = currentY;
+        sheet.style.transition = 'none';
+        lastMoveTime = performance.now();
+        lastMoveY = e.clientY;
+        velocity = 0;
+      });
+
+      handle.addEventListener('pointermove', function (e) {
+        if (!dragging) return;
+        var delta = e.clientY - dragStartY;
+        setSheetY(sheetStartY + delta, false);
+
+        var now = performance.now();
+        var dt = now - lastMoveTime;
+        if (dt > 0) {
+          velocity = (e.clientY - lastMoveY) / dt;
+          lastMoveTime = now;
+          lastMoveY = e.clientY;
+        }
+      });
+
+      function endDrag() {
+        if (!dragging) return;
+        dragging = false;
+        var max = peekY();
+        var progress = max > 0 ? 1 - currentY / max : 1;
+        var expand = velocity < -0.35 ? true : velocity > 0.35 ? false : progress > 0.5;
+        snapTo(expand, true);
+      }
+
+      handle.addEventListener('pointerup', endDrag);
+      handle.addEventListener('pointercancel', endDrag);
+    })();
+  </script>
+</body>
+</html>

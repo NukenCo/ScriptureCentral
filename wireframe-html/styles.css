@@ -758,3 +758,275 @@ img {
   padding: 10px 16px 10px 12px;
   background: var(--color-surface-sunken);
 }
+
+/* ---------- Read card (Figma 391:5914 / 399:6819) ----------
+   Bottom sheet arrastável com 2 posições (peek / expandida) sobre uma foto
+   full-bleed. --sheet-progress (0 = peek, 1 = expandida) é escrita via JS
+   a cada frame do arrasto e dirige o scrim, o crossfade do header e a
+   barra de curtir/comentar/compartilhar — tudo fica fisicamente ligado
+   ao gesto, não só ao estado final. */
+.read-page {
+  position: relative;
+  width: 393px;
+  max-width: 100%;
+  height: 100dvh;
+  margin: 0 auto;
+  overflow: hidden;
+  background: #000;
+  --sheet-progress: 0;
+}
+
+.read-bg {
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background-image:
+    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
+    linear-gradient(to bottom, rgba(102, 102, 102, 0) 0%, rgba(0, 0, 0, 0.6) 100%),
+    url('assets/images/read-hero.png');
+  background-size: cover;
+  background-position: center;
+}
+
+/* ---- Top bar: back (ghost, sobre a foto) <-> close (surface, quando expandida) ---- */
+.read-topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 30;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: calc(16px + env(safe-area-inset-top, 0px)) 16px 0;
+  animation: read-slide-fade-down var(--duration-page) var(--ease-decelerate) both;
+}
+.read-icon-btn--ghost {
+  width: 38px;
+  height: 38px;
+  border-radius: var(--radius-full);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: rgba(68, 68, 68, 0.7);
+  opacity: calc(1 - var(--sheet-progress, 0));
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.read-page:not(.is-expanded) .read-icon-btn--ghost {
+  pointer-events: auto;
+}
+.read-icon-btn--close {
+  margin-left: auto;
+  opacity: var(--sheet-progress, 0);
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.read-page.is-expanded .read-icon-btn--close {
+  pointer-events: auto;
+}
+
+/* ---- Hero: tags + citação + referência, depois o CTA ---- */
+.read-hero {
+  position: absolute;
+  inset: 0;
+  z-index: 10;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 40px;
+  padding: 100px 20px 90px;
+  color: var(--color-ink-on-dark);
+}
+.read-hero__content {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  animation: read-fade-in var(--duration-page) var(--ease-decelerate) 140ms both;
+}
+.read-hero__tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.read-hero__tag-left {
+  font-size: 11px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-gold);
+}
+.read-hero__tag-right {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-size: 9px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: #ffffff;
+}
+.read-hero__quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 32px;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  color: var(--color-ink-on-dark);
+}
+.read-hero__ref {
+  display: block;
+  font-size: 16px;
+  font-weight: var(--weight-medium);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-gold);
+}
+.read-hero__cta {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  height: 46px;
+  padding: 0 20px;
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border-radius: var(--radius-full);
+  font-size: var(--text-base);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  animation: read-slide-fade-down var(--duration-page) var(--ease-decelerate) 320ms both;
+}
+
+@keyframes read-slide-fade-down {
+  from { opacity: 0; transform: translateY(-16px); }
+}
+@keyframes read-fade-in {
+  from { opacity: 0; }
+}
+
+/* ---- Action sheet: scrim que estimula o swipe + painel arrastável ---- */
+.read-sheet {
+  position: absolute;
+  inset: 0;
+  z-index: 20;
+  will-change: transform;
+  /* Mesma fórmula do JS (altura - 150px) — a sheet já nasce no "peek"
+     antes do script rodar, sem flash de tela cheia no primeiro frame. */
+  transform: translateY(calc(100% - 150px));
+  transition: transform var(--duration-page) var(--ease-decelerate);
+}
+.read-sheet__scrim {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 100%;
+  height: 130px;
+  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
+  opacity: calc(1 - var(--sheet-progress, 0));
+  pointer-events: none;
+}
+.read-sheet__panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+  background: rgba(255, 255, 255, calc(0.7 + 0.3 * var(--sheet-progress, 0)));
+  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
+  overflow: hidden;
+}
+.read-sheet__handle {
+  flex-shrink: 0;
+  display: flex;
+  justify-content: center;
+  padding: 14px 0 10px;
+  touch-action: none;
+  cursor: grab;
+}
+.read-sheet__grabber {
+  width: 58px;
+  height: 4px;
+  border-radius: var(--radius-full);
+  background: #cccccc;
+}
+.read-sheet__scroll {
+  flex: 1;
+  min-height: 0;
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+  padding: 0 30px 40px;
+}
+.read-sheet__title {
+  margin: 0 0 20px;
+  font-family: var(--font-serif);
+  font-size: 27px;
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  color: #333333;
+}
+.read-sheet__body {
+  font-size: var(--text-base);
+  line-height: var(--leading-normal);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-ink);
+}
+.read-sheet__body p {
+  margin: 0 0 20px;
+}
+.read-sheet__body strong {
+  color: #93773a;
+  font-weight: var(--weight-bold);
+}
+.verse-num {
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink-tertiary);
+  margin-right: 2px;
+}
+
+/* ---- Barra flutuante de curtir/comentar/compartilhar (só na expandida) ---- */
+.read-share {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 40;
+  display: flex;
+  justify-content: center;
+  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
+  opacity: var(--sheet-progress, 0);
+  pointer-events: none;
+  transition: opacity var(--duration-base) var(--ease-standard);
+}
+.read-page.is-expanded .read-share {
+  pointer-events: auto;
+}
+.read-share__pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 24px;
+  padding: 6px 20px;
+  background: rgba(0, 0, 0, 0.7);
+  border: 1px solid rgba(236, 236, 236, 0.1);
+  border-radius: var(--radius-full);
+}
+.read-share__btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  color: #ffffff;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .read-topbar,
+  .read-hero__content,
+  .read-hero__cta {
+    animation: none !important;
+    opacity: 1 !important;
+    transform: none !important;
+  }
+  .read-sheet {
+    transition-duration: 0.01ms !important;
+  }
+}
