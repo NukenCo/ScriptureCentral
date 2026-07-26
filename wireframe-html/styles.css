@@ -56,6 +56,10 @@ img {
   /* Espaço para o conteúdo não ficar sob a tab bar fixa (altura da pill + 20px + safe area). */
   padding-bottom: calc(96px + env(safe-area-inset-bottom, 0px));
 }
+.app-frame--fixed-header {
+  /* Espaço pro conteúdo não nascer embaixo do header fixo (44px do botão + 16px de padding * 2). */
+  padding-top: 76px;
+}
 
 /* ---------- Icons (multi-layer, positioned per Figma inset %) ---------- */
 .icon {
@@ -75,12 +79,25 @@ img {
   filter: brightness(0) invert(1);
 }
 
-/* ---------- Top nav ---------- */
+/* ---------- Top nav ----------
+   Fixo no topo, com um vidro fosco (fundo translúcido + blur) por trás —
+   o conteúdo passa por baixo dele ao rolar a página. */
 .top-nav {
+  position: fixed;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 393px;
+  max-width: 100%;
+  z-index: 20;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: var(--space-4);
+  background: rgba(250, 250, 250, 0.72);
+  backdrop-filter: blur(16px) saturate(160%);
+  -webkit-backdrop-filter: blur(16px) saturate(160%);
+  border-bottom: 1px solid rgba(219, 219, 219, 0.5);
 }
 
 .icon-btn {
@@ -174,10 +191,10 @@ img {
   flex-direction: column;
   justify-content: space-between;
   color: var(--color-ink-on-dark);
-  /* Escurece a foto pra manter o texto legível — degradês do Figma (node 291:552). */
+  /* Escurece a foto pra manter o texto legível — degradês do Figma (node 465:8033). */
   background-image:
     linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)),
-    linear-gradient(to bottom, rgba(102, 102, 102, 0) 51.534%, rgba(0, 0, 0, 0.6) 100%),
+    linear-gradient(to bottom, rgba(102, 102, 102, 0) 51.534%, rgba(0, 0, 0, 0.2) 100%),
     url('assets/images/card-devotional.png');
   background-size: cover;
   background-position: center;
@@ -203,7 +220,7 @@ img {
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-label);
   text-transform: uppercase;
-  color: var(--color-ink-on-dark-secondary);
+  color: #ffffff;
 }
 
 .card-display {
@@ -240,7 +257,7 @@ img {
   font-weight: var(--weight-regular);
   letter-spacing: var(--tracking-label);
   line-height: var(--leading-snug);
-  color: var(--color-ink-on-dark-secondary);
+  color: #f1f1f1;
 }
 
 /* ---------- Buttons ---------- */
@@ -567,13 +584,7 @@ img {
   line-height: var(--leading-snug);
 }
 
-/* ---------- Onboarding (choose-language / what-you-want / familiarity) ----------
-   Telas simples, sem tab bar fixa: o conteúdo flui normalmente e o bloco
-   Next/Skip é empurrado para o fim com margin-top: auto. */
-.app-frame--onboarding {
-  padding-bottom: var(--space-6);
-}
-
+/* ---------- Onboarding (choose-language / what-you-want / familiarity) ---------- */
 .onboarding-header {
   padding: var(--space-4) var(--space-6) 0;
 }
@@ -636,11 +647,13 @@ img {
   color: #878787;
 }
 
-.onboarding-bottom {
-  margin-top: auto;
+/* Reaproveita o .bottom fixo (mesmo comportamento das tab bars: fixo no
+   footer, 20px acima da safe area do navegador). */
+.onboarding-actions {
+  width: 100%;
+  padding: 0 30px;
   display: flex;
   flex-direction: column;
-  padding: 0 30px var(--space-4);
 }
 .onboarding-skip {
   display: flex;
