@@ -80,12 +80,19 @@ button {
   cursor: pointer;
 }
 
-/* Sem contorno azul em cliques/toques nem em .focus() disparado por JS
-   (ex: ao abrir o overlay de login) — mantém o anel só pra navegação
-   real por teclado (:focus-visible). */
+/* Nada de anel azul: cinza #ececec (a mesma cor de borda já usada no
+   resto da UI) em vez do outline padrão do navegador. Alguns navegadores
+   (Safari incluso) ainda tratam .focus() disparado por JS como
+   :focus-visible, então suprimir o outline sozinho não é suficiente —
+   melhor restilizar a cor do que torcer pra ele nunca aparecer. */
 a,
 button {
   -webkit-tap-highlight-color: transparent;
+}
+a:focus-visible,
+button:focus-visible {
+  outline: 2px solid #ececec;
+  outline-offset: 2px;
 }
 a:focus:not(:focus-visible),
 button:focus:not(:focus-visible) {
@@ -1108,7 +1115,6 @@ img {
   height: 100%;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   transform: translateY(100%);
   transition: transform 380ms var(--ease-accelerate);
 }
@@ -1123,12 +1129,18 @@ img {
 }
 
 .app-menu__panel {
+  /* Preenche o resto da altura abaixo do header — o painel sobe quase até
+     o topo mesmo quando os itens não preenchem tudo (espaço sobrando
+     embaixo do conteúdo é esperado, igual ao Figma). */
+  flex: 1;
+  min-height: 0;
   background: #f8f8f8;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
   padding: var(--space-5) var(--space-6);
   display: flex;
   flex-direction: column;
   gap: var(--space-8);
+  overflow-y: auto;
 }
 .app-menu__group {
   background: var(--color-surface);
