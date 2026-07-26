@@ -1236,6 +1236,10 @@ img {
    e o ícone vira branco — sinaliza que já pode enviar. */
 .password-page__input:not(:placeholder-shown) {
   border-color: #000000;
+  /* Aperta os bullets do type=password — só quando preenchido, pra não
+     esmagar o texto do placeholder. Cabe "scripturecentral@2026" (21
+     caracteres) sem estourar a caixa de 251px. */
+  letter-spacing: -3px;
 }
 .password-page__submit {
   flex-shrink: 0;
