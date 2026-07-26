@@ -36,10 +36,10 @@
 }
 
 @keyframes vt-slide-out {
-  to { transform: translateX(-6%); opacity: 0; }
+  to { transform: translateX(-2.5%); opacity: 0; }
 }
 @keyframes vt-slide-in {
-  from { transform: translateX(6%); opacity: 0; }
+  from { transform: translateX(2.5%); opacity: 0; }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -525,8 +525,8 @@ img {
 /* ---------- Login / Register overlay ----------
    Figma node 388:1397 "WireframeLogin". Aberto ao clicar no botão de perfil:
    o fundo (degradê) faz fade in e o grupo Header+Action-sheet entra de
-   baixo para cima logo em seguida — timings assimétricos: entrada lenta e
-   desacelerada (assenta), saída rápida (responsiva). */
+   baixo para cima logo em seguida — bem devagar e suave na entrada (como
+   um respiro), um pouco mais rápido (mas ainda macio) na saída. */
 .login-overlay {
   position: fixed;
   inset: 0;
@@ -536,7 +536,7 @@ img {
   background: linear-gradient(to bottom, #ddedff 0%, var(--color-bg) 50.036%);
   opacity: 0;
   visibility: hidden;
-  transition: opacity 260ms var(--ease-accelerate), visibility 0s linear 260ms;
+  transition: opacity 360ms var(--ease-accelerate), visibility 0s linear 360ms;
 }
 .login-overlay.is-open {
   opacity: 1;
@@ -552,11 +552,11 @@ img {
   flex-direction: column;
   justify-content: flex-end;
   transform: translateY(100%);
-  transition: transform 280ms var(--ease-accelerate);
+  transition: transform 380ms var(--ease-accelerate);
 }
 .login-overlay.is-open .login-overlay__sheet {
   transform: translateY(0);
-  transition: transform var(--duration-page) var(--ease-decelerate) 60ms;
+  transition: transform 720ms var(--ease-decelerate) 100ms;
 }
 
 @media (prefers-reduced-motion: reduce) {

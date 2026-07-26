@@ -126,12 +126,14 @@
   --icon-md: 20px;
   --icon-lg: 24px;
 
-  /* ---------- Motion ---------- */
+  /* ---------- Motion ----------
+     Curvas suaves de propósito — app religioso, o movimento deve transmitir
+     leveza e calma, nunca pressa ou mecanicidade. */
   --ease-standard: cubic-bezier(0.2, 0.8, 0.2, 1);
-  --ease-decelerate: cubic-bezier(0.16, 1, 0.3, 1); /* entradas: desacelera forte no final, sensação de assentar */
-  --ease-accelerate: cubic-bezier(0.4, 0, 1, 1);     /* saídas: some rápido, responsivo */
+  --ease-decelerate: cubic-bezier(0.33, 1, 0.68, 1); /* entradas: desacelera suavemente, sem golpe */
+  --ease-accelerate: cubic-bezier(0.32, 0, 0.67, 0);  /* saídas: acelera suavemente, sem corte seco */
   --duration-fast: 120ms;
   --duration-base: 200ms;
-  --duration-slow: 380ms;  /* entrada de overlays */
-  --duration-page: 480ms;  /* transições de página inteira */
+  --duration-slow: 460ms;  /* entrada de overlays */
+  --duration-page: 620ms;  /* transições de página inteira */
 }
