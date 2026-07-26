@@ -650,6 +650,7 @@ img {
 /* Reaproveita o .bottom fixo (mesmo comportamento das tab bars: fixo no
    footer, 20px acima da safe area do navegador). */
 .onboarding-actions {
+  pointer-events: auto;
   width: 100%;
   padding: 0 30px;
   display: flex;
