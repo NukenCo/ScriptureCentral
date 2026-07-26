@@ -210,7 +210,6 @@
       panel.addEventListener('pointerdown', function (e) {
         if (isExpanded && !isOnHandle(e.target)) return;
         dragging = true;
-        page.classList.add('is-dragging');
         panel.setPointerCapture(e.pointerId);
         dragStartY = e.clientY;
         sheetStartY = currentY;
@@ -237,7 +236,6 @@
       function endDrag() {
         if (!dragging) return;
         dragging = false;
-        page.classList.remove('is-dragging');
         var min = expandedY();
         var max = peekY();
         var range = max - min;

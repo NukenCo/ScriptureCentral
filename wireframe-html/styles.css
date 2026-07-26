@@ -935,7 +935,13 @@ img {
   display: flex;
   flex-direction: column;
   border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  background: rgba(255, 255, 255, calc(0.7 + 0.3 * var(--sheet-progress, 0)));
+  /* Sempre opaca — sem alpha. Cinza (#929292, já usado no título da sheet)
+     no peek, branco sólido conforme ela sobe até a expandida. */
+  background: color-mix(
+    in srgb,
+    #929292 calc((1 - var(--sheet-progress, 0)) * 100%),
+    #ffffff calc(var(--sheet-progress, 0) * 100%)
+  );
   transition: background-color var(--duration-base) var(--ease-standard);
   box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
   overflow: hidden;
@@ -943,11 +949,6 @@ img {
      grabber continua sendo (ele força touch-action:none mesmo com o pai
      em pan-y), o resto passa a rolar normalmente. */
   touch-action: none;
-}
-/* Enquanto o dedo está arrastando, fica sólida — translúcida durante o
-   gesto deixa a foto/barra de compartilhar vazando atrás e fica poluído. */
-.read-page.is-dragging .read-sheet__panel {
-  background: #ffffff;
 }
 .read-page.is-expanded .read-sheet__panel {
   touch-action: pan-y;
