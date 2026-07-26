@@ -22,7 +22,14 @@
   <main class="app-frame app-frame--fixed-header">
 
     <header class="top-nav">
-      <button class="icon-btn icon-btn--plain" aria-label="Menu">
+      <button
+        class="icon-btn icon-btn--plain"
+        id="menuTrigger"
+        aria-label="Menu"
+        aria-haspopup="dialog"
+        aria-controls="appMenu"
+        aria-expanded="false"
+      >
         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
           <path d="M3 6H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
           <path d="M3 12H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
@@ -237,6 +244,61 @@
     </div>
   </div>
 
+  <div class="app-menu" id="appMenu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menu">
+    <div class="app-menu__sheet">
+      <div class="app-menu__header">
+        <button class="icon-btn icon-btn--sm icon-btn--surface" id="appMenuClose" aria-label="Fechar menu" type="button">
+          <span class="icon icon--20">
+            <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
+            <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
+          </span>
+        </button>
+      </div>
+
+      <div class="app-menu__panel">
+        <div class="app-menu__group">
+          <a class="app-menu__item" href="#">
+            <span class="icon icon--16">
+              <img src="assets/icons/info-a.svg" alt="" class="icon-layer" style="inset: 8.33%;" />
+              <img src="assets/icons/info-b.svg" alt="" class="icon-layer" style="inset: 50% 50% 33.33% 50%;" />
+              <img src="assets/icons/info-c.svg" alt="" class="icon-layer" style="inset: 33.33% 49.96% 66.67% 50%;" />
+            </span>
+            About us
+          </a>
+          <a class="app-menu__item" href="#">
+            <span class="icon icon--16">
+              <img src="assets/icons/help-a.svg" alt="" class="icon-layer" style="inset: 8.33%;" />
+              <img src="assets/icons/help-b.svg" alt="" class="icon-layer" style="inset: 29.15% 37.83% 45.83% 37.87%;" />
+              <img src="assets/icons/help-c.svg" alt="" class="icon-layer" style="inset: 70.83% 49.96% 29.17% 50%;" />
+            </span>
+            Help
+          </a>
+          <a class="app-menu__item" href="#">
+            <span class="icon icon--16">
+              <img src="assets/icons/share2-node.svg" alt="" class="icon-layer" style="inset: 8.33% 12.5% 66.67% 62.5%;" />
+              <img src="assets/icons/share2-node.svg" alt="" class="icon-layer" style="inset: 37.5% 62.5% 37.5% 12.5%;" />
+              <img src="assets/icons/share2-node.svg" alt="" class="icon-layer" style="inset: 66.67% 12.5% 8.33% 62.5%;" />
+              <img src="assets/icons/share2-line-a.svg" alt="" class="icon-layer" style="inset: 56.29% 35.75% 27.12% 35.79%;" />
+              <img src="assets/icons/share2-line-b.svg" alt="" class="icon-layer" style="inset: 27.13% 35.79% 56.29% 35.79%;" />
+            </span>
+            Share Scripture Central
+          </a>
+        </div>
+
+        <div class="app-menu__group">
+          <button class="app-menu__item" id="appMenuAuthItem" type="button">
+            <span class="icon icon--16">
+              <img src="assets/icons/logout-a.svg" alt="" class="icon-layer" style="inset: 12.5% 62.5% 12.5% 12.5%;" />
+              <img src="assets/icons/logout-b.svg" alt="" class="icon-layer" style="inset: 29.17% 12.5% 29.17% 66.67%;" />
+              <img src="assets/icons/logout-c.svg" alt="" class="icon-layer" style="inset: 50% 12.5% 50% 37.5%;" />
+            </span>
+            Log In or Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <script>
     (function () {
       var trigger = document.getElementById('profileTrigger');
@@ -264,6 +326,48 @@
       document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeOverlay();
       });
+
+      // Menu (hamburguer)
+      var menuTrigger = document.getElementById('menuTrigger');
+      var menu = document.getElementById('appMenu');
+      var menuClose = document.getElementById('appMenuClose');
+      var menuAuthItem = document.getElementById('appMenuAuthItem');
+
+      function openMenu() {
+        menu.classList.add('is-open');
+        menu.setAttribute('aria-hidden', 'false');
+        menuTrigger.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('no-scroll');
+        menuClose.focus();
+      }
+
+      function closeMenu() {
+        menu.classList.remove('is-open');
+        menu.setAttribute('aria-hidden', 'true');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+        menuTrigger.focus();
+      }
+
+      menuTrigger.addEventListener('click', openMenu);
+      menuClose.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+      });
+
+      // "Log In or Sign Up": fecha o menu e abre o overlay de login já
+      // existente nesta mesma página.
+      menuAuthItem.addEventListener('click', function () {
+        closeMenu();
+        openOverlay();
+      });
+
+      // Chega aqui vindo do "Log Out" da home logada (?login=1): abre o
+      // login direto, sem precisar clicar em nada.
+      if (location.search.indexOf('login=1') !== -1) {
+        openOverlay();
+        history.replaceState(null, '', location.pathname);
+      }
     })();
   </script>
 </body>
