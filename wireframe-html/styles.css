@@ -850,9 +850,9 @@ img {
   z-index: 10;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
+  justify-content: flex-start;
   gap: 40px;
-  padding: 100px 20px 40px;
+  padding: 90px 20px 40px;
   color: var(--color-ink-on-dark);
 }
 .read-hero__content {
@@ -899,10 +899,7 @@ img {
   color: var(--color-gold);
 }
 .read-hero__cta {
-  position: absolute;
-  left: 20px;
-  bottom: 190px; /* alinhado à mesma posição de quando vivia dentro do hero */
-  z-index: 22; /* acima do scrim/painel da sheet (20), abaixo do topbar (30) */
+  align-self: flex-start;
   display: inline-flex;
   align-items: center;
   gap: 8px;
@@ -915,11 +912,10 @@ img {
   font-weight: var(--weight-semibold);
   letter-spacing: var(--tracking-label);
   animation: read-slide-fade-down var(--duration-page) var(--ease-decelerate) 320ms both;
-  /* Some em fade assim que a sheet começa a subir por cima dele — não
-     precisa esperar o gesto inteiro, ele está bem perto da linha do peek. */
+  /* Some em fade um pouco antes do scrim da sheet alcançar essa altura —
+     evita o botão aparecer "lavado" por baixo do degradê translúcido. */
   --cta-progress-fade: max(0, calc(1 - var(--sheet-progress, 0) * 5));
   transition: opacity var(--duration-base) var(--ease-standard);
-  pointer-events: auto;
 }
 /* !important: precisa vencer o opacity que a keyframe de entrada segura
    via fill-mode:both depois de terminar. */
@@ -1002,7 +998,7 @@ img {
   overflow-y: auto;
   -webkit-overflow-scrolling: touch;
   touch-action: pan-y;
-  padding: 0 30px 40px;
+  padding: 12px 30px 40px;
 }
 .read-sheet__title {
   margin: 0 0 20px;
