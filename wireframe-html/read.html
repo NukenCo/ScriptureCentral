@@ -136,7 +136,7 @@
       // A sheet nunca cobre o header — para no fim dele, não no topo absoluto
       // da tela (senão o botão de close fica por baixo/por cima da sheet).
       function expandedY() {
-        return topbar.offsetHeight;
+        return topbar.offsetHeight + 20; // respiro entre o header e a sheet
       }
       function peekY() {
         return page.clientHeight - PEEK_VISIBLE;
@@ -192,8 +192,13 @@
       startCta.addEventListener('click', function () {
         snapTo(true, true);
       });
+      // Close só recolhe a sheet de volta pro peek. Voltar pra home é só
+      // pelo botão de voltar (esquerda), que só existe/funciona já com a
+      // sheet recolhida.
+      closeBtn.addEventListener('click', function () {
+        snapTo(false, true);
+      });
       backBtn.addEventListener('click', goBack);
-      closeBtn.addEventListener('click', goBack);
 
       function isOnHandle(target) {
         return !!(target && target.closest && target.closest('.read-sheet__handle'));
@@ -205,6 +210,7 @@
       panel.addEventListener('pointerdown', function (e) {
         if (isExpanded && !isOnHandle(e.target)) return;
         dragging = true;
+        page.classList.add('is-dragging');
         panel.setPointerCapture(e.pointerId);
         dragStartY = e.clientY;
         sheetStartY = currentY;
@@ -231,6 +237,7 @@
       function endDrag() {
         if (!dragging) return;
         dragging = false;
+        page.classList.remove('is-dragging');
         var min = expandedY();
         var max = peekY();
         var range = max - min;
