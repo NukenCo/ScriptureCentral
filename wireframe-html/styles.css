@@ -106,7 +106,7 @@ img {
 .app-frame {
   width: 393px;
   max-width: 100%;
-  min-height: 100vh;
+  min-height: 100dvh;
   margin: 0 auto;
   background: var(--color-bg);
   box-shadow: 0 0 40px rgba(0, 0, 0, 0.08);
@@ -1275,5 +1275,32 @@ img {
   .app-menu.is-open .app-menu__sheet {
     transition-duration: 0.01ms !important;
     transition-delay: 0s !important;
+  }
+}
+
+/* ---------- Responsividade — telas de celular ----------
+   Todo container de página/overlay é travado em 393px (a largura de
+   referência do design) e centralizado, com sombra e fundo cinza ao
+   redor — isso é pensado para visualizar o "mockup de celular" dentro de
+   um navegador de desktop bem mais largo.
+
+   Só que num celular de verdade — iPhone (SE ao Pro Max, 375–430px) ou
+   Android (tipicamente 360–430px) — essa mesma regra deixa faixas cinzas
+   nas bordas em vez de preencher a tela, porque a viewport real já É do
+   tamanho de um celular. Abaixo de 600px (cobre qualquer telefone com
+   folga, sem pegar tablets) a gente solta a largura fixa: cada container
+   passa a ocupar 100% da tela, sem sombra de "cartão flutuando". */
+@media (max-width: 600px) {
+  .app-frame {
+    width: 100%;
+    box-shadow: none;
+  }
+  .top-nav,
+  .bottom,
+  .login-overlay__sheet,
+  .app-menu__sheet,
+  .read-page,
+  .password-page {
+    width: 100%;
   }
 }
