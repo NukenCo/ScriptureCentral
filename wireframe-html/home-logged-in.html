@@ -82,17 +82,49 @@
     </section>
 
     <section class="utility-section">
-      <div class="card-utility">
-        <div class="card-utility__title">
-          <img src="assets/icons/bookmark.svg" alt="" width="20" height="20" />
-          <span class="eyebrow">Commentaries</span>
-        </div>
-        <div class="card-utility__row">
-          <p>This chapter already has <strong>1 commentary</strong> and <strong>1 related video</strong></p>
-          <button class="btn btn--primary">
-            See related
-            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+      <div class="plan-cards">
+        <a class="plan-card" href="read.html">
+          <div class="plan-card__head">
+            <button class="plan-card__edit" type="button" aria-label="Editar plano">
+              <img src="assets/icons/edit.svg" alt="" width="15" height="15" />
+            </button>
+            <span class="plan-card__eyebrow">Your Reading Plan</span>
+          </div>
+          <h3 class="plan-card__title">The Birth of Christ</h3>
+          <p class="plan-card__subtitle">Messages of Christ</p>
+          <div class="plan-card__footer">
+            <span class="plan-card__meta">Last open &bull; 2 hours ago</span>
+            <span class="plan-card__resume">
+              Resume
+              <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+            </span>
+          </div>
+        </a>
+
+        <a class="week-card" href="read.html">
+          <div class="week-card__head">
+            <span class="plan-card__eyebrow">This week</span>
+            <img src="assets/icons/chevron-tiny.svg" alt="" width="6" height="10" />
+          </div>
+          <h3 class="plan-card__title plan-card__title--sm">Mosiah 4-6 / Day 4 of 7</h3>
+          <p class="plan-card__subtitle">Come, Follow Me</p>
+          <div class="week-card__progress">
+            <span class="week-card__track"><span class="week-card__fill" style="width: 38%;"></span></span>
+            <span class="week-card__count">Day 4 of 7</span>
+          </div>
+        </a>
+
+        <div class="study-card">
+          <button class="study-card__close" type="button" aria-label="Fechar cartão">
+            <span class="icon icon--12">
+              <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
+              <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
+            </span>
           </button>
+          <span class="plan-card__eyebrow">From your study</span>
+          <p class="study-card__label">One year ago today</p>
+          <p class="study-card__quote">&ldquo;...I know in whom I have trusted.&rdquo;</p>
+          <p class="study-card__meta">2 Nephi 4:19 &bull; you highlighted this</p>
         </div>
       </div>
     </section>
@@ -136,31 +168,6 @@
           <h3>Holy Land</h3>
           <p>Events and chronology</p>
         </a>
-      </div>
-    </section>
-
-    <section class="utility-section">
-      <div class="card-utility">
-        <div class="card-utility__title card-utility__title--spread">
-          <span class="icon icon--20">
-            <img src="assets/icons/user-20-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
-            <img src="assets/icons/user-20-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
-          </span>
-          <span class="eyebrow">Create account</span>
-          <button class="icon-btn icon-btn--close" aria-label="Fechar">
-            <span class="icon icon--20">
-              <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
-              <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
-            </span>
-          </button>
-        </div>
-        <div class="card-utility__row">
-          <p class="account-copy">Create an account to <strong>save your progress and notes.</strong></p>
-          <button class="btn btn--primary">
-            Create Now
-            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
-          </button>
-        </div>
       </div>
     </section>
 

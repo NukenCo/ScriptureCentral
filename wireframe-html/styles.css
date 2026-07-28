@@ -127,6 +127,7 @@ img {
   display: inline-block;
   flex-shrink: 0;
 }
+.icon--12 { width: 12px; height: 12px; }
 .icon--16 { width: 16px; height: 16px; }
 .icon--20 { width: 20px; height: 20px; }
 .icon--24 { width: 24px; height: 24px; }
@@ -365,6 +366,160 @@ img {
 .card-utility__title--spread {
   width: 100%;
 }
+.card-birth__title {
+  margin: 0 0 2px;
+  font-size: 18px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.card-birth__subtitle {
+  margin: 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-regular);
+  color: var(--color-ink-tertiary);
+}
+
+/* ---------- Cards de continuação (home logada) — Figma 391:5646 ---------- */
+.plan-cards {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+.plan-card,
+.week-card {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+.plan-card__head,
+.week-card__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.plan-card__eyebrow {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: var(--color-ink);
+}
+.plan-card__edit {
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: -6px 0 -6px -6px;
+}
+.plan-card__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.plan-card__title--sm {
+  font-size: var(--text-md);
+}
+.plan-card__subtitle {
+  margin: 0;
+  font-size: var(--text-base);
+  color: var(--color-ink);
+}
+.plan-card__footer {
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.plan-card__meta {
+  font-size: var(--text-sm);
+  color: var(--color-ink-tertiary);
+}
+.plan-card__resume {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 34px;
+  padding: 0 var(--space-3) 0 var(--space-4);
+  background: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  border-radius: var(--radius-full);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  white-space: nowrap;
+}
+
+.week-card__head img {
+  opacity: 0.4;
+}
+.week-card__progress {
+  margin-top: var(--space-2);
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.week-card__track {
+  flex: 1;
+  display: block;
+  height: 2px;
+  background: var(--color-border);
+  border-radius: var(--radius-full);
+  overflow: hidden;
+}
+.week-card__fill {
+  display: block;
+  height: 100%;
+  background: var(--color-ink);
+}
+.week-card__count {
+  flex-shrink: 0;
+  font-size: 10px;
+  color: var(--color-ink-tertiary);
+}
+
+.study-card {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  background: var(--color-gold);
+  border-radius: var(--radius-lg);
+  padding: var(--space-4);
+}
+.study-card__close {
+  position: absolute;
+  top: var(--space-4);
+  right: var(--space-4);
+  width: 20px;
+  height: 20px;
+}
+.study-card__label {
+  margin: 4px 0 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.study-card__quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: 20px;
+  line-height: var(--leading-tight);
+  color: var(--color-ink);
+}
+.study-card__meta {
+  margin: 0;
+  font-size: var(--text-md);
+  color: var(--color-ink);
+}
+
 .eyebrow {
   font-size: var(--text-2xs);
   font-weight: var(--weight-semibold);
@@ -613,6 +768,15 @@ img {
   align-items: center;
   gap: 18px;
 }
+.action-sheet__badge {
+  width: 40px;
+  height: 40px;
+  border-radius: var(--radius-full);
+  background: #ebebeb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
 .action-sheet__title {
   padding: var(--space-3) var(--space-6) 0;
 }
@@ -622,6 +786,14 @@ img {
   font-weight: var(--weight-semibold);
   text-align: center;
   line-height: var(--leading-tight);
+}
+.action-sheet__title p {
+  margin: var(--space-2) 0 0;
+  font-size: var(--text-md);
+  font-weight: var(--weight-medium);
+  color: #616161;
+  text-align: center;
+  line-height: var(--leading-snug);
 }
 .action-sheet__buttons {
   width: 100%;
@@ -656,6 +828,21 @@ img {
 .action-sheet__legal {
   color: var(--color-ink-tertiary);
   line-height: var(--leading-snug);
+}
+
+/* ---------- Login (fluxo do Reading Plan) — Figma 511:1734 ----------
+   Página própria (não overlay): mesmo visual do login-overlay, mas fixa
+   na tela em vez de animar sobre o conteúdo — chega aqui só ao clicar no
+   card "The Birth of Christ" na home deslogada. */
+.login-plan-page {
+  width: 393px;
+  max-width: 100%;
+  min-height: 100dvh;
+  margin: 0 auto;
+  background: linear-gradient(to bottom, #ddedff 0%, var(--color-bg) 50.036%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 /* ---------- Onboarding (choose-language / what-you-want / familiarity) ---------- */
