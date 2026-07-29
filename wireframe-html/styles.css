@@ -1022,7 +1022,7 @@ img {
 
 /* ---------- Reserva de espaço pra tab bar sólida do rodapé ---------- */
 .app-frame--tabbar2 {
-  padding-bottom: calc(88px + env(safe-area-inset-bottom, 0px));
+  padding-bottom: calc(104px + env(safe-area-inset-bottom, 0px));
 }
 
 /* ---------- Saudação do PrincipleCard (linha única, sem eyebrow/subtítulo) ---------- */
@@ -1422,6 +1422,7 @@ img {
   padding-bottom: calc(18px + env(safe-area-inset-bottom, 0px));
   background: var(--color-surface);
   border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -20px 20px -8px rgba(255, 255, 255, 0.5);
 }
 .tabbar2__item {
   flex: 1;
