@@ -366,159 +366,6 @@ img {
 .card-utility__title--spread {
   width: 100%;
 }
-.card-birth__title {
-  margin: 0 0 2px;
-  font-size: 18px;
-  font-weight: var(--weight-semibold);
-  color: var(--color-ink);
-}
-.card-birth__subtitle {
-  margin: 0;
-  font-size: var(--text-md);
-  font-weight: var(--weight-regular);
-  color: var(--color-ink-tertiary);
-}
-
-/* ---------- Cards de continuação (home logada) — Figma 391:5646 ---------- */
-.plan-cards {
-  display: flex;
-  flex-direction: column;
-  gap: 20px;
-}
-.plan-card,
-.week-card {
-  display: flex;
-  flex-direction: column;
-  gap: 6px;
-  background: var(--color-surface);
-  border: 1px solid var(--color-border);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-}
-.plan-card__head,
-.week-card__head {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.plan-card__eyebrow {
-  font-size: var(--text-2xs);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-ink);
-}
-.plan-card__edit {
-  width: 28px;
-  height: 28px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin: -6px 0 -6px -6px;
-}
-.plan-card__title {
-  margin: 0;
-  font-size: 18px;
-  font-weight: var(--weight-semibold);
-  color: var(--color-ink);
-}
-.plan-card__title--sm {
-  font-size: var(--text-md);
-}
-.plan-card__subtitle {
-  margin: 0;
-  font-size: var(--text-base);
-  color: var(--color-ink);
-}
-.plan-card__footer {
-  margin-top: var(--space-2);
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: var(--space-3);
-}
-.plan-card__meta {
-  font-size: var(--text-sm);
-  color: var(--color-ink-tertiary);
-}
-.plan-card__resume {
-  flex-shrink: 0;
-  display: inline-flex;
-  align-items: center;
-  gap: 6px;
-  height: 34px;
-  padding: 0 var(--space-3) 0 var(--space-4);
-  background: var(--color-btn-primary-bg);
-  color: var(--color-btn-primary-text);
-  border-radius: var(--radius-full);
-  font-size: var(--text-2xs);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  white-space: nowrap;
-}
-
-.week-card__head img {
-  opacity: 0.4;
-}
-.week-card__progress {
-  margin-top: var(--space-2);
-  display: flex;
-  align-items: center;
-  gap: var(--space-3);
-}
-.week-card__track {
-  flex: 1;
-  display: block;
-  height: 2px;
-  background: var(--color-border);
-  border-radius: var(--radius-full);
-  overflow: hidden;
-}
-.week-card__fill {
-  display: block;
-  height: 100%;
-  background: var(--color-ink);
-}
-.week-card__count {
-  flex-shrink: 0;
-  font-size: 10px;
-  color: var(--color-ink-tertiary);
-}
-
-.study-card {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 8px;
-  background: var(--color-gold);
-  border-radius: var(--radius-lg);
-  padding: var(--space-4);
-}
-.study-card__close {
-  position: absolute;
-  top: var(--space-4);
-  right: var(--space-4);
-  width: 20px;
-  height: 20px;
-}
-.study-card__label {
-  margin: 4px 0 0;
-  font-size: var(--text-md);
-  font-weight: var(--weight-semibold);
-  color: var(--color-ink);
-}
-.study-card__quote {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 20px;
-  line-height: var(--leading-tight);
-  color: var(--color-ink);
-}
-.study-card__meta {
-  margin: 0;
-  font-size: var(--text-md);
-  color: var(--color-ink);
-}
 
 .eyebrow {
   font-size: var(--text-2xs);
@@ -830,21 +677,6 @@ img {
   line-height: var(--leading-snug);
 }
 
-/* ---------- Login (fluxo do Reading Plan) — Figma 511:1734 ----------
-   Página própria (não overlay): mesmo visual do login-overlay, mas fixa
-   na tela em vez de animar sobre o conteúdo — chega aqui só ao clicar no
-   card "The Birth of Christ" na home deslogada. */
-.login-plan-page {
-  width: 393px;
-  max-width: 100%;
-  min-height: 100dvh;
-  margin: 0 auto;
-  background: linear-gradient(to bottom, #ddedff 0%, var(--color-bg) 50.036%);
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
 /* ---------- Onboarding (choose-language / what-you-want / familiarity) ---------- */
 .onboarding-header {
   padding: var(--space-4) var(--space-6) 0;
@@ -965,314 +797,6 @@ img {
   width: auto;
   padding: 10px 16px 10px 12px;
   background: var(--color-surface-sunken);
-}
-
-/* ---------- Read card (Figma 391:5914 / 399:6819) ----------
-   Bottom sheet arrastável com 2 posições (peek / expandida) sobre uma foto
-   full-bleed. --sheet-progress (0 = peek, 1 = expandida) é escrita via JS
-   a cada frame do arrasto e dirige o scrim, o crossfade do header e a
-   barra de curtir/comentar/compartilhar — tudo fica fisicamente ligado
-   ao gesto, não só ao estado final. */
-.read-page {
-  position: relative;
-  width: 393px;
-  max-width: 100%;
-  height: 100dvh;
-  margin: 0 auto;
-  overflow: hidden;
-  background: #000;
-  --sheet-progress: 0;
-}
-
-.read-bg {
-  position: absolute;
-  inset: 0;
-  z-index: 0;
-  background-image:
-    linear-gradient(rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2)),
-    linear-gradient(to bottom, rgba(102, 102, 102, 0) 0%, rgba(0, 0, 0, 0.6) 100%),
-    url('assets/images/read-hero.png');
-  background-size: cover;
-  background-position: center;
-}
-
-/* ---- Top bar: back (ghost, sobre a foto) <-> close (surface, quando expandida) ---- */
-.read-topbar {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: 30;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: calc(16px + env(safe-area-inset-top, 0px)) 16px 0;
-  animation: read-slide-fade-down var(--duration-page) var(--ease-decelerate) both;
-}
-.read-icon-btn--ghost {
-  width: 38px;
-  height: 38px;
-  border-radius: var(--radius-full);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  background: rgba(68, 68, 68, 0.7);
-  opacity: calc(1 - var(--sheet-progress, 0));
-  pointer-events: none;
-  transition: opacity var(--duration-base) var(--ease-standard);
-}
-.read-page:not(.is-expanded) .read-icon-btn--ghost {
-  pointer-events: auto;
-}
-.read-icon-btn--close {
-  margin-left: auto;
-  opacity: var(--sheet-progress, 0);
-  pointer-events: none;
-  transition: opacity var(--duration-base) var(--ease-standard);
-}
-.read-page.is-expanded .read-icon-btn--close {
-  pointer-events: auto;
-}
-
-/* ---- Hero: tags + citação + referência, depois o CTA ---- */
-.read-hero {
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  /* Para antes da faixa que a sheet cobre no peek (150px) — sem isso o CTA
-     fica escondido atrás dela. */
-  bottom: 150px;
-  z-index: 10;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  gap: 40px;
-  padding: 90px 20px 40px;
-  color: var(--color-ink-on-dark);
-}
-.read-hero__content {
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
-  animation: read-fade-in var(--duration-page) var(--ease-decelerate) 140ms both;
-}
-.read-hero__tags {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-.read-hero__tag-left {
-  font-size: 11px;
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: var(--color-gold);
-}
-.read-hero__tag-right {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 9px;
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  text-transform: uppercase;
-  color: #ffffff;
-}
-.read-hero__quote {
-  margin: 0;
-  font-family: var(--font-serif);
-  font-size: 32px;
-  line-height: var(--leading-tight);
-  letter-spacing: -0.02em;
-  color: var(--color-ink-on-dark);
-}
-.read-hero__ref {
-  display: block;
-  font-size: 16px;
-  font-weight: var(--weight-medium);
-  letter-spacing: var(--tracking-label);
-  color: var(--color-gold);
-}
-.read-hero__cta {
-  align-self: flex-start;
-  display: inline-flex;
-  align-items: center;
-  gap: 8px;
-  height: 46px;
-  padding: 0 20px;
-  background: var(--color-surface);
-  color: var(--color-ink);
-  border-radius: var(--radius-full);
-  font-size: var(--text-base);
-  font-weight: var(--weight-semibold);
-  letter-spacing: var(--tracking-label);
-  animation: read-slide-fade-down var(--duration-page) var(--ease-decelerate) 320ms both;
-  /* Some em fade um pouco antes do scrim da sheet alcançar essa altura —
-     evita o botão aparecer "lavado" por baixo do degradê translúcido. */
-  --cta-progress-fade: max(0, calc(1 - var(--sheet-progress, 0) * 5));
-  transition: opacity var(--duration-base) var(--ease-standard);
-}
-/* !important: precisa vencer o opacity que a keyframe de entrada segura
-   via fill-mode:both depois de terminar. */
-.read-page:not(.is-expanded) .read-hero__cta {
-  opacity: var(--cta-progress-fade) !important;
-}
-.read-page.is-expanded .read-hero__cta {
-  opacity: 0 !important;
-  pointer-events: none;
-}
-
-@keyframes read-slide-fade-down {
-  from { opacity: 0; transform: translateY(-16px); }
-}
-@keyframes read-fade-in {
-  from { opacity: 0; }
-}
-
-/* ---- Action sheet: scrim que estimula o swipe + painel arrastável ---- */
-.read-sheet {
-  position: absolute;
-  inset: 0;
-  z-index: 20;
-  will-change: transform;
-  /* Mesma fórmula do JS (altura - 150px) — a sheet já nasce no "peek"
-     antes do script rodar, sem flash de tela cheia no primeiro frame. */
-  transform: translateY(calc(100% - 150px));
-  transition: transform var(--duration-page) var(--ease-decelerate);
-}
-.read-sheet__scrim {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 100%;
-  height: 130px;
-  background: linear-gradient(to bottom, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.6) 100%);
-  opacity: calc(1 - var(--sheet-progress, 0));
-  pointer-events: none;
-}
-.read-sheet__panel {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-  /* Sempre opaca — sem alpha. Cinza (#929292, já usado no título da sheet)
-     no peek, branco sólido conforme ela sobe até a expandida. */
-  background: color-mix(
-    in srgb,
-    #929292 calc((1 - var(--sheet-progress, 0)) * 100%),
-    #ffffff calc(var(--sheet-progress, 0) * 100%)
-  );
-  transition: background-color var(--duration-base) var(--ease-standard);
-  box-shadow: 0 -10px 40px rgba(0, 0, 0, 0.12);
-  overflow: hidden;
-  /* Recolhida: o painel inteiro é alça de arrasto. Expandida: só o
-     grabber continua sendo (ele força touch-action:none mesmo com o pai
-     em pan-y), o resto passa a rolar normalmente. */
-  touch-action: none;
-}
-.read-page.is-expanded .read-sheet__panel {
-  touch-action: pan-y;
-}
-.read-sheet__handle {
-  flex-shrink: 0;
-  display: flex;
-  justify-content: center;
-  padding: 14px 0 10px;
-  touch-action: none;
-  cursor: grab;
-}
-.read-sheet__grabber {
-  width: 58px;
-  height: 4px;
-  border-radius: var(--radius-full);
-  background: #cccccc;
-}
-.read-sheet__scroll {
-  flex: 1;
-  min-height: 0;
-  overflow-y: auto;
-  -webkit-overflow-scrolling: touch;
-  touch-action: pan-y;
-  padding: 12px 30px 40px;
-}
-.read-sheet__title {
-  margin: 0 0 20px;
-  font-family: var(--font-serif);
-  font-size: 27px;
-  line-height: var(--leading-tight);
-  letter-spacing: -0.02em;
-  color: #333333;
-}
-.read-sheet__body {
-  font-size: var(--text-base);
-  line-height: var(--leading-normal);
-  letter-spacing: var(--tracking-label);
-  color: var(--color-ink);
-}
-.read-sheet__body p {
-  margin: 0 0 20px;
-}
-.read-sheet__body strong {
-  color: #93773a;
-  font-weight: var(--weight-bold);
-}
-.verse-num {
-  font-weight: var(--weight-semibold);
-  color: var(--color-ink-tertiary);
-  margin-right: 2px;
-}
-
-/* ---- Barra flutuante de curtir/comentar/compartilhar (só na expandida) ---- */
-.read-share {
-  position: absolute;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 40;
-  display: flex;
-  justify-content: center;
-  padding-bottom: calc(20px + env(safe-area-inset-bottom, 0px));
-  opacity: var(--sheet-progress, 0);
-  pointer-events: none;
-  transition: opacity var(--duration-base) var(--ease-standard);
-}
-.read-page.is-expanded .read-share {
-  pointer-events: auto;
-}
-.read-share__pill {
-  display: inline-flex;
-  align-items: center;
-  gap: 24px;
-  padding: 6px 20px;
-  background: rgba(0, 0, 0, 0.7);
-  border: 1px solid rgba(236, 236, 236, 0.1);
-  border-radius: var(--radius-full);
-}
-.read-share__btn {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 4px;
-  color: #ffffff;
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .read-topbar,
-  .read-hero__content {
-    animation: none !important;
-    opacity: 1 !important;
-    transform: none !important;
-  }
-  .read-hero__cta {
-    animation: none !important;
-    transform: none !important;
-  }
-  .read-sheet {
-    transition-duration: 0.01ms !important;
-  }
 }
 
 /* ---------- Menu do app (hamburguer) ----------
@@ -1484,10 +1008,437 @@ img {
   }
   .top-nav,
   .bottom,
+  .tabbar2,
   .login-overlay__sheet,
   .app-menu__sheet,
-  .read-page,
   .password-page {
     width: 100%;
   }
+}
+
+/* ================================================================
+   Redesenho das homes (Figma 571:6558 deslogada / 571:6774 logada)
+   ================================================================ */
+
+/* ---------- Reserva de espaço pra tab bar sólida do rodapé ---------- */
+.app-frame--tabbar2 {
+  padding-bottom: calc(72px + env(safe-area-inset-bottom, 0px));
+}
+
+/* ---------- Saudação do PrincipleCard (linha única, sem eyebrow/subtítulo) ---------- */
+.principle-saudation {
+  margin: 0;
+  padding: var(--space-6) var(--space-5) var(--space-3);
+  font-size: 21px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+  text-align: center;
+}
+
+/* ---------- Carrossel do PrincipleCard (7 cards, arrasto horizontal) ---------- */
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  padding: 0 21px;
+}
+.carousel__track {
+  display: flex;
+  gap: 23px;
+  touch-action: pan-y;
+  cursor: grab;
+  transition: transform 420ms var(--ease-decelerate);
+}
+.carousel-card {
+  position: relative;
+  flex-shrink: 0;
+  width: 351px;
+  height: 330px;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  -webkit-user-select: none;
+  user-select: none;
+}
+.carousel-card::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: rgba(0, 0, 0, var(--card-overlay, 0.35));
+}
+.carousel-card > * {
+  position: relative;
+}
+.carousel-card__meta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: 9px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.carousel-card__body {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  text-align: center;
+  padding-top: var(--space-8);
+}
+.carousel-card__verse {
+  margin: 0;
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-label);
+  color: #f9e3b4;
+}
+.carousel-card__quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+  line-height: var(--leading-tight);
+  letter-spacing: -0.02em;
+  color: #fff;
+}
+.carousel-card__cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  height: 38px;
+  margin-top: var(--space-5);
+  padding: 0 var(--space-5);
+  background: var(--color-surface);
+  color: var(--color-ink);
+  border-radius: var(--radius-full);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+}
+.carousel-card__progress {
+  display: flex;
+  flex-direction: column;
+  gap: 11px;
+}
+.carousel-card__progress-label {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: var(--space-2);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+}
+.carousel-card__progress-label .result {
+  color: var(--color-gold);
+}
+.carousel-card__progress-row {
+  display: flex;
+  align-items: center;
+  gap: var(--space-3);
+}
+.carousel-card__track-bar {
+  flex: 1;
+  height: 8px;
+  border-radius: 4px;
+  background: rgba(255, 255, 255, 0.9);
+  overflow: hidden;
+}
+.carousel-card__track-bar span {
+  display: block;
+  height: 100%;
+  background: var(--color-gold);
+}
+.carousel-card__track-bar--full {
+  background: var(--color-gold);
+}
+.carousel-card__day {
+  flex-shrink: 0;
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+}
+.carousel__track.is-dragging {
+  cursor: grabbing;
+}
+@media (prefers-reduced-motion: reduce) {
+  .carousel__track {
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* ---------- SecondCard: "What are you seeking right now?" ---------- */
+.seeking-card {
+  margin: var(--space-8) 20px 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-8);
+}
+.seeking-card__eyebrow {
+  margin: 0 0 var(--space-6);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: #a6843a;
+}
+.seeking-card__title {
+  margin: 0;
+  font-size: 18px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.seeking-card__buttons {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: var(--space-3);
+}
+.seeking-card__buttons .chip {
+  flex-shrink: initial;
+  width: 100%;
+  justify-content: center;
+  border-color: var(--color-gold);
+}
+
+/* ---------- ThirdCard: card de reading plan com imagem ---------- */
+.image-plan-card {
+  display: block;
+  margin: var(--space-8) 20px 0;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.image-plan-card__image {
+  position: relative;
+  height: 144px;
+  background-size: cover;
+  background-position: center;
+}
+.image-plan-card__badge {
+  position: absolute;
+  left: var(--space-3);
+  top: var(--space-4);
+  background: var(--color-surface);
+  border-radius: var(--radius-full);
+  padding: 4px var(--space-3);
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+  color: #a6843a;
+}
+.image-plan-card__content {
+  padding: var(--space-3) var(--space-5) var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.image-plan-card__title {
+  margin: 0 0 2px;
+  font-size: 18px;
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.image-plan-card__subtitle {
+  margin: 0;
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+}
+.image-plan-card__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--space-3);
+}
+.image-plan-card__meta {
+  font-size: var(--text-sm);
+  color: var(--color-ink);
+}
+.image-plan-card__resume {
+  flex-shrink: 0;
+  display: inline-flex;
+  align-items: center;
+  gap: 3px;
+  height: 34px;
+  padding: 0 var(--space-3) 0 17px;
+  background: var(--color-btn-primary-bg);
+  color: var(--color-btn-primary-text);
+  border-radius: var(--radius-full);
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+}
+
+/* ---------- "Continue where left off" (só home logada) ---------- */
+.continue-cards {
+  padding: var(--space-8) 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.continue-cards__title {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.continue-cards__row {
+  display: flex;
+  gap: var(--space-3);
+  overflow-x: auto;
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.continue-cards__row::-webkit-scrollbar {
+  display: none;
+}
+.continue-card {
+  flex-shrink: 0;
+  width: 300px;
+  background: var(--color-surface);
+  border: 1px solid var(--color-border);
+  border-radius: var(--radius-lg);
+  overflow: hidden;
+}
+.continue-card__image {
+  height: 130px;
+  background-size: cover;
+  background-position: center;
+}
+.continue-card__content {
+  padding: var(--space-3) var(--space-4) var(--space-4);
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-4);
+}
+.continue-card__title {
+  margin: 0;
+  font-size: var(--text-lg);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.continue-card__track {
+  height: 8px;
+  border-radius: 4px;
+  background: var(--color-gold-soft);
+  overflow: hidden;
+  margin-bottom: 6px;
+}
+.continue-card__track span {
+  display: block;
+  height: 100%;
+  background: var(--color-gold);
+}
+.continue-card__row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-2xs);
+  letter-spacing: var(--tracking-label);
+  color: var(--color-ink);
+}
+
+/* ---------- GoldenCard: destaque "from your study" ---------- */
+.study-highlight {
+  position: relative;
+  margin: var(--space-8) 21px 0;
+  height: 258px;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background-size: cover;
+  background-position: center;
+  color: #fff;
+}
+.study-highlight::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  background: linear-gradient(rgba(217, 192, 137, 0.45), rgba(217, 192, 137, 0.45)), rgba(0, 0, 0, 0.45);
+}
+.study-highlight > * {
+  position: relative;
+}
+.study-highlight__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.study-highlight__eyebrow {
+  font-size: var(--text-2xs);
+  font-weight: var(--weight-semibold);
+  letter-spacing: var(--tracking-label);
+  text-transform: uppercase;
+}
+.study-highlight__body {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 3px;
+}
+.study-highlight__eyebrow-2 {
+  margin: 0;
+  font-size: var(--text-sm);
+}
+.study-highlight__quote {
+  margin: 0;
+  font-family: var(--font-serif);
+  font-size: var(--text-2xl);
+}
+.study-highlight__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+  letter-spacing: var(--tracking-label);
+}
+
+/* ---------- Tab bar do rodapé v2 (TabBarModel02) ---------- */
+.tabbar2 {
+  position: fixed;
+  left: 50%;
+  bottom: 0;
+  transform: translateX(-50%);
+  width: 393px;
+  max-width: 100%;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  padding: 10px;
+  padding-bottom: calc(10px + env(safe-area-inset-bottom, 0px));
+  background: var(--color-surface);
+  border-top: 1px solid #e0e0e0;
+  box-shadow: 0 -20px 20px -8px rgba(255, 255, 255, 0.95);
+}
+.tabbar2__item {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  padding: 10px 6px;
+  border-radius: var(--radius-full);
+  color: #b4b4b4;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+}
+.tabbar2__item--active {
+  color: var(--color-ink);
+}
+.tabbar2__item--active .icon-layer {
+  filter: none;
 }

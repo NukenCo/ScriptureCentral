@@ -20,7 +20,7 @@
   </style>
 </head>
 <body>
-  <main class="app-frame app-frame--fixed-header">
+  <main class="app-frame app-frame--fixed-header app-frame--tabbar2">
 
     <header class="top-nav">
       <button
@@ -40,107 +40,269 @@
 
       <img class="logo" src="assets/icons/logo.svg" alt="ScriptureCentral" />
 
-      <div class="nav-right">
-        <button class="icon-btn icon-btn--surface" aria-label="Notificações">
-          <span class="icon icon--24">
-            <img src="assets/icons/bell-a.svg" alt="" class="icon-layer" style="inset: 8.33% 12.5% 29.17% 12.5%;" />
-            <img src="assets/icons/bell-b.svg" alt="" class="icon-layer" style="inset: 87.5% 42.79% 8.35% 42.79%;" />
-          </span>
-        </button>
-      </div>
+      <span class="icon-btn icon-btn--surface" aria-hidden="true">
+        <span class="icon icon--24">
+          <img src="assets/icons/search-a.svg" alt="" class="icon-layer" style="inset: 12.5% 20.83% 20.83% 12.5%;" />
+          <img src="assets/icons/search-b.svg" alt="" class="icon-layer" style="inset: 69.38% 12.5% 12.5% 69.38%;" />
+        </span>
+      </span>
     </header>
 
-    <section class="reading-section">
-      <div class="saudation">
-        <p class="eyebrow-date">MONDAY • JULY 20</p>
-        <h1 class="page-title">Good morning, Emma</h1>
-        <p class="page-subtitle">Book of Mormon · Mosiah 4:12 · 3 min read</p>
+    <section>
+      <h1 class="principle-saudation">Good morning, Emma</h1>
+
+      <div class="carousel" data-start-index="1">
+        <div class="carousel__track">
+
+          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-mountain.jpg); --card-overlay: 0.5;">
+            <div class="carousel-card__meta">
+              <span>Come, Follow Me</span>
+              <span>Monday, July 27</span>
+            </div>
+            <div class="carousel-card__body">
+              <p class="carousel-card__verse">Ezra &nbsp;|&nbsp; 1:1-11 • 3:1-13</p>
+              <p class="carousel-card__quote">&ldquo;The Lord stirred up<br />the spirit of Cyrus.&rdquo;</p>
+              <span class="carousel-card__cta">
+                Begin
+                <span class="icon icon--16">
+                  <img src="assets/icons/arrow-right-a.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 50% 20.83%;" />
+                  <img src="assets/icons/arrow-right-b.svg" alt="" class="icon-layer" style="inset: 20.83% 20.83% 20.83% 50%;" />
+                </span>
+              </span>
+            </div>
+            <div class="carousel-card__progress">
+              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
+              <div class="carousel-card__progress-row">
+                <span class="carousel-card__track-bar"><span style="width: 15%;"></span></span>
+                <span class="carousel-card__day">1 of 8</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-mountain.jpg); --card-overlay: 0.3;">
+            <div class="carousel-card__meta">
+              <span>Come, Follow Me</span>
+              <span>Tuesday, July 28</span>
+            </div>
+            <div class="carousel-card__body">
+              <p class="carousel-card__verse">Ezra &nbsp;|&nbsp; 1:1-11 • 3:1-13</p>
+              <p class="carousel-card__quote">&ldquo;We are the servants<br />of the God of heaven and earth.&rdquo;</p>
+              <span class="carousel-card__cta">
+                Continue
+                <span class="icon icon--16">
+                  <img src="assets/icons/arrow-right-a.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 50% 20.83%;" />
+                  <img src="assets/icons/arrow-right-b.svg" alt="" class="icon-layer" style="inset: 20.83% 20.83% 20.83% 50%;" />
+                </span>
+              </span>
+            </div>
+            <div class="carousel-card__progress">
+              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
+              <div class="carousel-card__progress-row">
+                <span class="carousel-card__track-bar"><span style="width: 27%;"></span></span>
+                <span class="carousel-card__day">1 of 8</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-mountain.jpg); --card-overlay: 0.15;">
+            <div class="carousel-card__meta">
+              <span>Come, Follow Me</span>
+              <span>Wednesday, July 29</span>
+            </div>
+            <div class="carousel-card__body">
+              <p class="carousel-card__verse">Ezra &nbsp;|&nbsp; 6:1-22 • 7:1-28</p>
+              <p class="carousel-card__quote">&ldquo;The hand of the Lord<br />his God was upon him.&rdquo;</p>
+              <span class="carousel-card__cta">
+                Continue
+                <span class="icon icon--16">
+                  <img src="assets/icons/arrow-right-a.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 50% 20.83%;" />
+                  <img src="assets/icons/arrow-right-b.svg" alt="" class="icon-layer" style="inset: 20.83% 20.83% 20.83% 50%;" />
+                </span>
+              </span>
+            </div>
+            <div class="carousel-card__progress">
+              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
+              <div class="carousel-card__progress-row">
+                <span class="carousel-card__track-bar"><span style="width: 36%;"></span></span>
+                <span class="carousel-card__day">0 of 7</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-alt.png); --card-overlay: 0.2;">
+            <div class="carousel-card__meta">
+              <span>Come, Follow Me</span>
+              <span>Thursday, July 30</span>
+            </div>
+            <div class="carousel-card__body">
+              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 2:1-20 • 4:1-6</p>
+              <p class="carousel-card__quote">&ldquo;Let us rise up<br />and build.&rdquo;</p>
+              <span class="carousel-card__cta">
+                Continue
+                <span class="icon icon--16">
+                  <img src="assets/icons/arrow-right-a.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 50% 20.83%;" />
+                  <img src="assets/icons/arrow-right-b.svg" alt="" class="icon-layer" style="inset: 20.83% 20.83% 20.83% 50%;" />
+                </span>
+              </span>
+            </div>
+            <div class="carousel-card__progress">
+              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
+              <div class="carousel-card__progress-row">
+                <span class="carousel-card__track-bar"><span style="width: 44%;"></span></span>
+                <span class="carousel-card__day">3 of 6</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-alt.png); --card-overlay: 0.15;">
+            <div class="carousel-card__meta">
+              <span>Come, Follow Me</span>
+              <span>Friday, July 31</span>
+            </div>
+            <div class="carousel-card__body">
+              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 4:7-23 • 5:1-19</p>
+              <p class="carousel-card__quote">&ldquo;Our God shall<br />fight for us.&rdquo;</p>
+              <span class="carousel-card__cta">
+                Continue
+                <span class="icon icon--16">
+                  <img src="assets/icons/arrow-right-a.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 50% 20.83%;" />
+                  <img src="assets/icons/arrow-right-b.svg" alt="" class="icon-layer" style="inset: 20.83% 20.83% 20.83% 50%;" />
+                </span>
+              </span>
+            </div>
+            <div class="carousel-card__progress">
+              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
+              <div class="carousel-card__progress-row">
+                <span class="carousel-card__track-bar"><span style="width: 64%;"></span></span>
+                <span class="carousel-card__day">4 of 8</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-alt.png); --card-overlay: 0.15;">
+            <div class="carousel-card__meta">
+              <span>Come, Follow Me</span>
+              <span>Saturday, August 1</span>
+            </div>
+            <div class="carousel-card__body">
+              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 6:1-19</p>
+              <p class="carousel-card__quote">&ldquo;I am doing a great work,<br />so that I cannot come down.&rdquo;</p>
+              <span class="carousel-card__cta">
+                Continue
+                <span class="icon icon--16">
+                  <img src="assets/icons/arrow-right-a.svg" alt="" class="icon-layer" style="inset: 50% 20.83% 50% 20.83%;" />
+                  <img src="assets/icons/arrow-right-b.svg" alt="" class="icon-layer" style="inset: 20.83% 20.83% 20.83% 50%;" />
+                </span>
+              </span>
+            </div>
+            <div class="carousel-card__progress">
+              <p class="carousel-card__progress-label">Today&rsquo;s study <span class="result">A great work completed</span></p>
+              <div class="carousel-card__progress-row">
+                <span class="carousel-card__track-bar carousel-card__track-bar--full"><span style="width: 100%;"></span></span>
+                <span class="carousel-card__day">5 of 5</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-sunday.jpg); --card-overlay: 0.2;">
+            <div class="carousel-card__meta">
+              <span>Come, Follow Me</span>
+              <span>Sunday, August 2</span>
+            </div>
+            <div class="carousel-card__body">
+              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 8:1-18</p>
+              <p class="carousel-card__quote">&ldquo;The joy of the Lord<br />is your strength.&rdquo;</p>
+            </div>
+            <div class="carousel-card__progress">
+              <p class="carousel-card__progress-label">Today&rsquo;s study <span class="result">A great work completed</span></p>
+              <div class="carousel-card__progress-row">
+                <span class="carousel-card__track-bar carousel-card__track-bar--full"><span style="width: 100%;"></span></span>
+                <span class="carousel-card__day">4 of 4</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
-
-      <a class="card-devotional" href="read.html">
-        <div class="card-tags">
-          <span class="tag-left">Come, Follow Me</span>
-          <span class="tag-right">
-            <img src="assets/icons/ellipse-unread.svg" alt="" width="6" height="6" />
-            Unread
-          </span>
-        </div>
-
-        <div class="card-display">
-          <p class="quote">&ldquo;And ye shall always rejoice, and be filled with the love of God.&rdquo;</p>
-          <span class="quote-ref">Mosiah 4:12</span>
-        </div>
-
-        <div class="card-footer">
-          <p class="footer-note">Studied by Saints around the<br />world this week</p>
-          <span class="btn btn--on-card">
-            Open Mosiah 4
-            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" />
-          </span>
-        </div>
-      </a>
     </section>
 
-    <section class="utility-section">
-      <div class="plan-cards">
-        <a class="plan-card" href="read.html">
-          <div class="plan-card__head">
-            <button class="plan-card__edit" type="button" aria-label="Editar plano">
-              <img src="assets/icons/edit.svg" alt="" width="15" height="15" />
-            </button>
-            <span class="plan-card__eyebrow">Your Reading Plan</span>
-          </div>
-          <h3 class="plan-card__title">The Birth of Christ</h3>
-          <p class="plan-card__subtitle">Messages of Christ</p>
-          <div class="plan-card__footer">
-            <span class="plan-card__meta">Last open &bull; 2 hours ago</span>
-            <span class="plan-card__resume">
-              Resume
-              <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
-            </span>
-          </div>
-        </a>
-
-        <a class="week-card" href="read.html">
-          <div class="week-card__head">
-            <span class="plan-card__eyebrow">This week</span>
-            <img src="assets/icons/chevron-tiny.svg" alt="" width="6" height="10" />
-          </div>
-          <h3 class="plan-card__title plan-card__title--sm">Mosiah 4-6 / Day 4 of 7</h3>
-          <p class="plan-card__subtitle">Come, Follow Me</p>
-          <div class="week-card__progress">
-            <span class="week-card__track"><span class="week-card__fill" style="width: 38%;"></span></span>
-            <span class="week-card__count">Day 4 of 7</span>
-          </div>
-        </a>
-
-        <div class="study-card">
-          <button class="study-card__close" type="button" aria-label="Fechar cartão">
-            <span class="icon icon--12">
-              <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
-              <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
-            </span>
-          </button>
-          <span class="plan-card__eyebrow">From your study</span>
-          <p class="study-card__label">One year ago today</p>
-          <p class="study-card__quote">&ldquo;...I know in whom I have trusted.&rdquo;</p>
-          <p class="study-card__meta">2 Nephi 4:19 &bull; you highlighted this</p>
-        </div>
-      </div>
-    </section>
-
-    <section class="mood-section">
-      <div class="section-heading">
-        <h2>How are you feeling right now?</h2>
-        <p>Tap a feeling to get a passage</p>
-      </div>
-      <div class="chip-row">
+    <div class="seeking-card">
+      <p class="seeking-card__eyebrow">Tap to get a passage</p>
+      <h2 class="seeking-card__title">What are you seeking right now?</h2>
+      <div class="seeking-card__buttons">
         <span class="chip">Guidance</span>
         <span class="chip">Comfort</span>
         <span class="chip">Peace</span>
         <span class="chip">Gratitude</span>
       </div>
-    </section>
+    </div>
+
+    <div class="image-plan-card">
+      <div class="image-plan-card__image" style="background-image: url(assets/images/reading-plan-card.png);">
+        <span class="image-plan-card__badge">Your Reading plan</span>
+      </div>
+      <div class="image-plan-card__content">
+        <div>
+          <h3 class="image-plan-card__title">The Birth of Christ</h3>
+          <p class="image-plan-card__subtitle">Messages of Christ</p>
+        </div>
+        <div class="image-plan-card__footer">
+          <span class="image-plan-card__meta">Last open &bull; 2 hours ago</span>
+          <span class="image-plan-card__resume">
+            Resume
+            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="continue-cards">
+      <h2 class="continue-cards__title">Continue where left off</h2>
+      <div class="continue-cards__row">
+        <div class="continue-card">
+          <div class="continue-card__image" style="background-image: url(assets/images/continue-card.png);"></div>
+          <div class="continue-card__content">
+            <h3 class="continue-card__title">Alma the Younger Repents</h3>
+            <div>
+              <span class="continue-card__track"><span style="width: 79%;"></span></span>
+              <div class="continue-card__row">
+                <span>Video</span>
+                <span>20 min left</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="continue-card">
+          <div class="continue-card__image" style="background-image: url(assets/images/continue-card.png);"></div>
+          <div class="continue-card__content">
+            <h3 class="continue-card__title">Alma the Younger Repents</h3>
+            <div class="continue-card__row">
+              <span>Gospel For Kids &bull; Scripture Central</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="study-highlight" style="background-image: url(assets/images/carousel-card-mountain.jpg);">
+      <div class="study-highlight__head">
+        <span class="study-highlight__eyebrow">From your study</span>
+        <button class="icon-btn icon-btn--sm" aria-label="Fechar" type="button">
+          <span class="icon icon--16">
+            <img src="assets/icons/close-a.svg" alt="" class="icon-layer icon--on-dark" style="inset: 25%;" />
+            <img src="assets/icons/close-b.svg" alt="" class="icon-layer icon--on-dark" style="inset: 25%;" />
+          </span>
+        </button>
+      </div>
+      <div class="study-highlight__body">
+        <p class="study-highlight__eyebrow-2">two months today</p>
+        <p class="study-highlight__quote">&ldquo;...I know in whom I have trusted.&rdquo;</p>
+      </div>
+      <div class="study-highlight__footer">
+        <span>Nephi &nbsp;|&nbsp; 4:19</span>
+        <span>you highlighted this</span>
+      </div>
+    </div>
 
     <section class="discover-section">
       <div class="section-heading">
@@ -171,55 +333,72 @@
       </div>
     </section>
 
-    <footer class="bottom">
-      <nav class="tabbar-full">
-        <button class="pill-icon-btn" type="button" aria-label="Buscar">
+    <section class="utility-section">
+      <div class="card-utility">
+        <div class="card-utility__title card-utility__title--spread">
           <span class="icon icon--20">
-            <img src="assets/icons/search-a.svg" alt="" class="icon-layer" style="inset: 12.5% 20.83% 20.83% 12.5%;" />
-            <img src="assets/icons/search-b.svg" alt="" class="icon-layer" style="inset: 69.38% 12.5% 12.5% 69.38%;" />
+            <img src="assets/icons/user-20-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
+            <img src="assets/icons/user-20-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
           </span>
-        </button>
-
-        <div class="tabbar-full__group">
-          <a class="tabbar-full__tab tabbar-full__tab--active" href="#">
+          <span class="eyebrow">Create account</span>
+          <button class="icon-btn icon-btn--close" aria-label="Fechar" type="button">
             <span class="icon icon--20">
-              <img src="assets/icons/home-20-a.svg" alt="" class="icon-layer" style="inset: 8.33% 12.5%;" />
-              <img src="assets/icons/home-20-b.svg" alt="" class="icon-layer" style="inset: 50% 37.5% 8.33% 37.5%;" />
+              <img src="assets/icons/close-a.svg" alt="" class="icon-layer" style="inset: 25%;" />
+              <img src="assets/icons/close-b.svg" alt="" class="icon-layer" style="inset: 25%;" />
             </span>
-            Home
-          </a>
-          <a class="tabbar-full__tab" href="#" aria-label="Lista">
-            <span class="icon icon--20">
-              <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 25% 12.5% 75% 33.33%;" />
-              <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 50% 12.5% 50% 33.33%;" />
-              <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 75% 12.5% 25% 33.33%;" />
-              <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 25% 87.46% 75% 12.5%;" />
-              <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 50% 87.46% 50% 12.5%;" />
-              <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 75% 87.46% 25% 12.5%;" />
-            </span>
-          </a>
-          <a class="tabbar-full__tab" href="#" aria-label="Leitura">
-            <span class="icon icon--20">
-              <img src="assets/icons/book-open-24-a.svg" alt="" class="icon-layer" style="inset: 12.5% 50% 12.5% 8.33%;" />
-              <img src="assets/icons/book-open-24-b.svg" alt="" class="icon-layer" style="inset: 12.5% 8.33% 12.5% 50%;" />
-            </span>
-          </a>
-          <a class="tabbar-full__tab" href="#" aria-label="Explorar">
-            <span class="icon icon--20">
-              <img src="assets/icons/compass-a.svg" alt="" class="icon-layer" style="inset: 8.33%;" />
-              <img src="assets/icons/compass-b.svg" alt="" class="icon-layer" style="inset: 32.33%;" />
-            </span>
-          </a>
+          </button>
         </div>
+        <div class="card-utility__row">
+          <p class="account-copy">Create an account to <strong>save your progress and notes.</strong></p>
+          <button class="btn btn--primary" type="button">
+            Create Now
+            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+          </button>
+        </div>
+      </div>
+    </section>
 
-        <a class="pill-icon-btn" href="#" aria-label="Perfil">
-          <span class="icon icon--24">
-            <img src="assets/icons/user-24-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
-            <img src="assets/icons/user-24-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
-          </span>
-        </a>
-      </nav>
-    </footer>
+    <nav class="tabbar2">
+      <a class="tabbar2__item tabbar2__item--active" href="#">
+        <span class="icon icon--20">
+          <img src="assets/icons/home-20-a.svg" alt="" class="icon-layer" style="inset: 8.33% 12.5%;" />
+          <img src="assets/icons/home-20-b.svg" alt="" class="icon-layer" style="inset: 50% 37.5% 8.33% 37.5%;" />
+        </span>
+        Home
+      </a>
+      <a class="tabbar2__item" href="#">
+        <span class="icon icon--20">
+          <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 25% 12.5% 75% 33.33%;" />
+          <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 50% 12.5% 50% 33.33%;" />
+          <img src="assets/icons/list-24-line.svg" alt="" class="icon-layer" style="inset: 75% 12.5% 25% 33.33%;" />
+          <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 25% 87.46% 75% 12.5%;" />
+          <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 50% 87.46% 50% 12.5%;" />
+          <img src="assets/icons/list-24-dot.svg" alt="" class="icon-layer" style="inset: 75% 87.46% 25% 12.5%;" />
+        </span>
+        Plans
+      </a>
+      <a class="tabbar2__item" href="#">
+        <span class="icon icon--20">
+          <img src="assets/icons/book-open-24-a.svg" alt="" class="icon-layer" style="inset: 12.5% 50% 12.5% 8.33%;" />
+          <img src="assets/icons/book-open-24-b.svg" alt="" class="icon-layer" style="inset: 12.5% 8.33% 12.5% 50%;" />
+        </span>
+        Scriptures
+      </a>
+      <a class="tabbar2__item" href="#">
+        <span class="icon icon--20">
+          <img src="assets/icons/compass-a.svg" alt="" class="icon-layer" style="inset: 8.33%;" />
+          <img src="assets/icons/compass-b.svg" alt="" class="icon-layer" style="inset: 32.33%;" />
+        </span>
+        Discover
+      </a>
+      <a class="tabbar2__item" href="#">
+        <span class="icon icon--20">
+          <img src="assets/icons/user-24-body.svg" alt="" class="icon-layer" style="inset: 62.5% 16.67% 12.5% 16.67%;" />
+          <img src="assets/icons/user-24-head.svg" alt="" class="icon-layer" style="inset: 12.5% 33.33% 54.17% 33.33%;" />
+        </span>
+        Profile
+      </a>
+    </nav>
 
   </main>
 
@@ -278,6 +457,7 @@
     </div>
   </div>
 
+  <script src="assets/js/carousel.js"></script>
   <script>
     (function () {
       var menuTrigger = document.getElementById('menuTrigger');
