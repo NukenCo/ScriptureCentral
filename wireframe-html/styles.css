@@ -1442,3 +1442,158 @@ img {
 .tabbar2__item--active .icon-layer {
   filter: none;
 }
+
+/* ================================================================
+   Home deslogada — variante "seletor de dias" (Figma node 418:127)
+   Hero fixo com tags + seletor de dias da semana, no lugar do
+   carrossel de 7 cards. Ver home-deslogada.html.
+   ================================================================ */
+
+/* ---------- PrincipleCard: hero fixo com seletor de dias ---------- */
+.day-hero {
+  position: relative;
+  margin: var(--space-3) 20px 0;
+  height: 373px;
+  border-radius: var(--radius-lg);
+  padding: var(--space-5);
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  overflow: hidden;
+}
+.day-hero::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(1, 17, 34, 0.2);
+}
+.day-hero > * {
+  position: relative;
+}
+.day-hero__tags {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.day-hero__tag-left {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-semibold);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.day-hero__tag-right {
+  font-size: var(--text-base);
+  font-weight: var(--weight-regular);
+}
+.day-hero__title {
+  margin: 0;
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding-bottom: 68px;
+}
+.day-hero__title-eyebrow {
+  display: block;
+  font-size: var(--text-md);
+  font-weight: var(--weight-semibold);
+}
+.day-hero__title-main {
+  display: block;
+  font-size: 27px;
+  font-weight: var(--weight-semibold);
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+.day-hero__footer {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: var(--space-5) var(--space-3);
+  display: flex;
+  justify-content: center;
+  background: linear-gradient(to bottom, rgba(49, 52, 60, 0) 0%, rgba(0, 0, 0, 0.85) 85%);
+}
+.day-hero__days {
+  display: flex;
+  gap: 6px;
+}
+.day-hero__day {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  width: 38px;
+  padding: 8px 0;
+  border-radius: 7px;
+  border: 1px solid transparent;
+}
+.day-hero__day-label {
+  font-size: var(--text-sm);
+  font-weight: var(--weight-medium);
+  letter-spacing: 0.02em;
+  color: rgba(255, 255, 255, 0.65);
+}
+.day-hero__day--done .day-hero__day-label {
+  color: #fbf6ee;
+}
+.day-hero__day--today {
+  border-color: var(--color-gold);
+}
+.day-hero__day--today .day-hero__day-label {
+  color: #fff;
+}
+.day-hero__day-icon {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---------- Cabeçalho de seção com "See all" ---------- */
+.section-title-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.section-title-row h2 {
+  margin: 0;
+  font-size: var(--text-xl);
+  font-weight: var(--weight-semibold);
+  color: var(--color-ink);
+}
+.see-all {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-regular);
+  color: var(--color-ink);
+}
+.see-all img {
+  opacity: 0.55;
+}
+
+/* ---------- "Your reading plan": título de seção + ThirdCard ---------- */
+.reading-plan-section {
+  margin: var(--space-8) 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.reading-plan-section .image-plan-card {
+  margin: 0;
+}
+
+/* ---------- "From your study": título de seção + GoldenCard ---------- */
+.golden-card-section {
+  margin: var(--space-8) 20px 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-5);
+}
+.golden-card-section .study-highlight {
+  margin: 0;
+}

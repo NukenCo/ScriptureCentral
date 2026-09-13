@@ -4,478 +4,405 @@
   <meta charset="UTF-8" />
   <script src="assets/js/gate.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>ScriptureCentral — Home</title>
+  <title>ScriptureCentral — Every chapter has more to give</title>
   <link rel="stylesheet" href="../design/tokens.css" />
+  <link rel="stylesheet" href="../design/tokens-landing.css" />
   <link rel="stylesheet" href="./styles.css" />
-  <style>
-    /* Chegada na home: fade in suave, sem o slide horizontal padrão. */
-    ::view-transition-new(root) {
-      animation-name: vt-fade-in;
-      animation-timing-function: var(--ease-decelerate);
-      animation-duration: var(--duration-page);
-    }
-    @keyframes vt-fade-in {
-      from { transform: translateY(6px); opacity: 0; }
-    }
-  </style>
+  <link rel="stylesheet" href="./styles-landing.css" />
 </head>
-<body>
-  <main class="app-frame app-frame--fixed-header app-frame--tabbar2">
-
-    <header class="top-nav">
-      <button
-        class="icon-btn icon-btn--plain"
-        id="menuTrigger"
-        aria-label="Menu"
-        aria-haspopup="dialog"
-        aria-controls="appMenu"
-        aria-expanded="false"
-      >
-        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
-          <path d="M3 6H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
-          <path d="M3 12H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
-          <path d="M3 18H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
-        </svg>
-      </button>
-
-      <img class="logo" src="assets/icons/logo.svg" alt="ScriptureCentral" />
-
-      <span class="icon-btn icon-btn--plain" aria-hidden="true">
-        <img src="assets/icons/search.svg" alt="" width="24" height="24" />
-      </span>
-    </header>
-
-    <section>
-      <h1 class="principle-saudation">Hello, start here</h1>
-
-      <div class="carousel">
-        <div class="carousel__track">
-
-          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-mountain.jpg); --card-overlay: 0.5;">
-            <div class="carousel-card__meta">
-              <span>Come, Follow Me</span>
-              <span>Monday, July 27</span>
-            </div>
-            <div class="carousel-card__body">
-              <p class="carousel-card__verse">Ezra &nbsp;|&nbsp; 1:1-11 • 3:1-13</p>
-              <p class="carousel-card__quote">&ldquo;The Lord stirred up<br />the spirit of Cyrus.&rdquo;</p>
-              <span class="carousel-card__cta">
-                Begin
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
-              </span>
-            </div>
-            <div class="carousel-card__progress">
-              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
-              <div class="carousel-card__progress-row">
-                <span class="carousel-card__track-bar"><span style="width: 15%;"></span></span>
-                <span class="carousel-card__day">1 of 8</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-mountain.jpg); --card-overlay: 0.3;">
-            <div class="carousel-card__meta">
-              <span>Come, Follow Me</span>
-              <span>Tuesday, July 28</span>
-            </div>
-            <div class="carousel-card__body">
-              <p class="carousel-card__verse">Ezra &nbsp;|&nbsp; 1:1-11 • 3:1-13</p>
-              <p class="carousel-card__quote">&ldquo;We are the servants<br />of the God of heaven and earth.&rdquo;</p>
-              <span class="carousel-card__cta">
-                Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
-              </span>
-            </div>
-            <div class="carousel-card__progress">
-              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
-              <div class="carousel-card__progress-row">
-                <span class="carousel-card__track-bar"><span style="width: 27%;"></span></span>
-                <span class="carousel-card__day">1 of 8</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-mountain.jpg); --card-overlay: 0.15;">
-            <div class="carousel-card__meta">
-              <span>Come, Follow Me</span>
-              <span>Wednesday, July 29</span>
-            </div>
-            <div class="carousel-card__body">
-              <p class="carousel-card__verse">Ezra &nbsp;|&nbsp; 6:1-22 • 7:1-28</p>
-              <p class="carousel-card__quote">&ldquo;The hand of the Lord<br />his God was upon him.&rdquo;</p>
-              <span class="carousel-card__cta">
-                Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
-              </span>
-            </div>
-            <div class="carousel-card__progress">
-              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
-              <div class="carousel-card__progress-row">
-                <span class="carousel-card__track-bar"><span style="width: 36%;"></span></span>
-                <span class="carousel-card__day">0 of 7</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-alt.png); --card-overlay: 0.2;">
-            <div class="carousel-card__meta">
-              <span>Come, Follow Me</span>
-              <span>Thursday, July 30</span>
-            </div>
-            <div class="carousel-card__body">
-              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 2:1-20 • 4:1-6</p>
-              <p class="carousel-card__quote">&ldquo;Let us rise up<br />and build.&rdquo;</p>
-              <span class="carousel-card__cta">
-                Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
-              </span>
-            </div>
-            <div class="carousel-card__progress">
-              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
-              <div class="carousel-card__progress-row">
-                <span class="carousel-card__track-bar"><span style="width: 44%;"></span></span>
-                <span class="carousel-card__day">3 of 6</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-alt.png); --card-overlay: 0.15;">
-            <div class="carousel-card__meta">
-              <span>Come, Follow Me</span>
-              <span>Friday, July 31</span>
-            </div>
-            <div class="carousel-card__body">
-              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 4:7-23 • 5:1-19</p>
-              <p class="carousel-card__quote">&ldquo;Our God shall<br />fight for us.&rdquo;</p>
-              <span class="carousel-card__cta">
-                Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
-              </span>
-            </div>
-            <div class="carousel-card__progress">
-              <p class="carousel-card__progress-label">Today&rsquo;s study</p>
-              <div class="carousel-card__progress-row">
-                <span class="carousel-card__track-bar"><span style="width: 64%;"></span></span>
-                <span class="carousel-card__day">4 of 8</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-alt.png); --card-overlay: 0.15;">
-            <div class="carousel-card__meta">
-              <span>Come, Follow Me</span>
-              <span>Saturday, August 1</span>
-            </div>
-            <div class="carousel-card__body">
-              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 6:1-19</p>
-              <p class="carousel-card__quote">&ldquo;I am doing a great work,<br />so that I cannot come down.&rdquo;</p>
-              <span class="carousel-card__cta">
-                Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
-              </span>
-            </div>
-            <div class="carousel-card__progress">
-              <p class="carousel-card__progress-label">Today&rsquo;s study <span class="result">A great work completed</span></p>
-              <div class="carousel-card__progress-row">
-                <span class="carousel-card__track-bar carousel-card__track-bar--full"><span style="width: 100%;"></span></span>
-                <span class="carousel-card__day">5 of 5</span>
-              </div>
-            </div>
-          </div>
-
-          <div class="carousel-card" style="background-image: url(assets/images/carousel-card-sunday.jpg); --card-overlay: 0.2;">
-            <div class="carousel-card__meta">
-              <span>Come, Follow Me</span>
-              <span>Sunday, August 2</span>
-            </div>
-            <div class="carousel-card__body">
-              <p class="carousel-card__verse">Nehemiah &nbsp;|&nbsp; 8:1-18</p>
-              <p class="carousel-card__quote">&ldquo;The joy of the Lord<br />is your strength.&rdquo;</p>
-            </div>
-            <div class="carousel-card__progress">
-              <p class="carousel-card__progress-label">Today&rsquo;s study <span class="result">A great work completed</span></p>
-              <div class="carousel-card__progress-row">
-                <span class="carousel-card__track-bar carousel-card__track-bar--full"><span style="width: 100%;"></span></span>
-                <span class="carousel-card__day">4 of 4</span>
-              </div>
-            </div>
-          </div>
-
-        </div>
-      </div>
-    </section>
-
-    <div class="seeking-card">
-      <p class="seeking-card__eyebrow">Tap to get a passage</p>
-      <h2 class="seeking-card__title">What are you seeking right now?</h2>
-      <div class="seeking-card__buttons">
-        <span class="chip">Guidance</span>
-        <span class="chip">Comfort</span>
-        <span class="chip">Peace</span>
-        <span class="chip">Gratitude</span>
-      </div>
+<body class="landing">
+  <section class="hero" aria-label="Every chapter has more to give">
+    <div class="hero__media">
+      <video class="hero__video" poster="assets/images/hero-poster.jpg" autoplay muted loop playsinline>
+        <!-- TODO: apontar pro arquivo de vídeo real quando estiver em assets/videos/ -->
+        <source src="assets/videos/hero-parting-waters.mp4" type="video/mp4" />
+      </video>
     </div>
 
-    <button class="image-plan-card" id="thirdCardTrigger" type="button">
-      <div class="image-plan-card__image" style="background-image: url(assets/images/reading-plan-card.png);">
-        <span class="image-plan-card__badge">Your Reading plan</span>
-      </div>
-      <div class="image-plan-card__content">
-        <div>
-          <h3 class="image-plan-card__title">The Birth of Christ</h3>
-          <p class="image-plan-card__subtitle">Messages of Christ</p>
-        </div>
-        <div class="image-plan-card__footer">
-          <span class="image-plan-card__meta">Last open &bull; 2 hours ago</span>
-          <span class="image-plan-card__resume">
-            Resume
-            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
-          </span>
-        </div>
-      </div>
-    </button>
-
-    <section class="discover-section">
-      <div class="section-heading">
-        <h2>Discover the library</h2>
-      </div>
-      <div class="discover-row">
-        <a class="thumb" href="#">
-          <div class="thumb__image">
-            <img src="assets/images/thumb-videos.png" alt="" />
-          </div>
-          <h3>Videos</h3>
-          <p>Recent released videos</p>
-        </a>
-        <a class="thumb" href="#">
-          <div class="thumb__image">
-            <img src="assets/images/thumb-reading-plans.png" alt="" />
-          </div>
-          <h3>Reading Plans</h3>
-          <p>Recent reading plans</p>
-        </a>
-        <a class="thumb" href="#">
-          <div class="thumb__image">
-            <img src="assets/images/thumb-holy-land.png" alt="" />
-          </div>
-          <h3>Holy Land</h3>
-          <p>Events and chronology</p>
-        </a>
-      </div>
-    </section>
-
-    <section class="utility-section">
-      <div class="card-utility" id="createAccountTrigger" role="button" tabindex="0">
-        <div class="card-utility__title card-utility__title--spread">
-          <img src="assets/icons/user.svg" alt="" width="20" height="20" />
-          <span class="eyebrow">Create account</span>
-          <button class="icon-btn icon-btn--close" aria-label="Fechar" type="button">
-            <img src="assets/icons/close.svg" alt="" width="20" height="20" />
-          </button>
-        </div>
-        <div class="card-utility__row">
-          <p class="account-copy">Create an account to <strong>save your progress and notes.</strong></p>
-          <button class="btn btn--primary" type="button">
-            Create Now
-            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
-          </button>
-        </div>
-      </div>
-    </section>
-
-    <nav class="tabbar2">
-      <a class="tabbar2__item tabbar2__item--active" href="#">
-        <img src="assets/icons/home.svg" alt="" width="20" height="20" />
-        Home
+    <!-- Nav mobile: logo solto + botão de menu (pill translúcido). Nav desktop
+         (abaixo) é uma cápsula única com logo + links, centralizada. As duas
+         convivem no DOM e alternam por @media (min-width: 1280px), já que a
+         estrutura muda (não é só reflow) — ver wireframe-html/CLAUDE.md. -->
+    <div class="hero__nav hero__nav--mobile">
+      <a class="hero__logo" href="index.html" aria-label="ScriptureCentral">
+        <img src="assets/icons/landing-logo.svg" alt="" width="40" height="40" />
       </a>
-      <a class="tabbar2__item" href="#">
-        <img src="assets/icons/list.svg" alt="" width="20" height="20" />
-        Plans
-      </a>
-      <a class="tabbar2__item" href="#">
-        <img src="assets/icons/book-open.svg" alt="" width="20" height="20" />
-        Scriptures
-      </a>
-      <a class="tabbar2__item" href="#">
-        <img src="assets/icons/compass.svg" alt="" width="20" height="20" />
-        Discover
-      </a>
-      <button class="tabbar2__item" id="profileTrigger" type="button" aria-haspopup="dialog" aria-controls="loginOverlay" aria-expanded="false">
-        <img src="assets/icons/user.svg" alt="" width="20" height="20" />
-        Profile
+      <button class="hero__menu-btn" type="button" aria-label="Abrir menu" aria-haspopup="true" aria-expanded="false">
+        <img src="assets/icons/landing-menu.svg" alt="" width="18" height="8" />
       </button>
+    </div>
+
+    <nav class="hero__nav hero__nav--desktop" aria-label="Principal">
+      <a class="hero__logo" href="index.html" aria-label="ScriptureCentral">
+        <img src="assets/icons/landing-logo.svg" alt="" width="40" height="40" />
+      </a>
+      <a class="hero__nav-link" href="#">The app</a>
+      <a class="hero__nav-link" href="#">Sources</a>
+      <a class="hero__nav-link" href="#">About us</a>
     </nav>
 
-  </main>
+    <div class="hero__content">
+      <p class="hero__eyebrow">New ScripturePlus App</p>
+      <h1 class="hero__title">Every chapter<br />has more to give</h1>
+      <p class="hero__body hero__body--mobile">
+        Read with the commentary, video, and maps that open each chapter, a little deeper every day.
+        <br /><br />
+        Free. No subscription. Supported by donors.
+      </p>
+      <p class="hero__body hero__body--desktop">
+        Read deeper every day with commentaries, 3D models, videos, maps, and more.
+      </p>
 
-  <div class="login-overlay" id="loginOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Entrar ou criar conta">
-    <div class="login-overlay__sheet">
-
-      <div class="login-overlay__header">
-        <img class="login-overlay__logo" src="assets/icons/logo-full.svg" alt="ScriptureCentral" />
-        <button class="icon-btn icon-btn--surface" id="loginOverlayClose" aria-label="Fechar">
-          <img src="assets/icons/close.svg" alt="" width="20" height="20" />
+      <form class="newsletter hero__signup" novalidate>
+        <label class="newsletter__label" for="heroEmail">Enter your email for early access</label>
+        <input class="newsletter__input" type="email" id="heroEmail" name="email" placeholder="Enter your email for early access" required />
+        <button class="newsletter__submit" type="submit" aria-label="Enviar">
+          <img src="assets/icons/arrow-right-white.svg" alt="" width="20" height="20" />
         </button>
-      </div>
-
-      <div class="action-sheet">
-        <div class="action-sheet__title">
-          <h2>Illuminating and Defending<br />Divine Truth</h2>
-        </div>
-
-        <div class="action-sheet__buttons">
-          <a class="btn-social" href="choose-language.html">
-            <img src="assets/icons/google.svg" alt="" width="16" height="16" />
-            Login with Google
-          </a>
-          <a class="btn-social" href="choose-language.html">
-            <img src="assets/icons/facebook.svg" alt="" width="16" height="16" />
-            Login with Facebook
-          </a>
-          <a class="btn-social" href="choose-language.html">
-            <img src="assets/icons/apple.svg" alt="" width="12" height="15" />
-            Login with Apple
-          </a>
-          <a class="btn-social" href="choose-language.html">
-            <img src="assets/icons/mail.svg" alt="" width="16" height="16" />
-            Login with your e-mail
-          </a>
-        </div>
-
-        <p class="action-sheet__signup">Already have an account? <strong>Sign in here</strong></p>
-        <p class="action-sheet__legal">By signing up, you agree to our Terms<br />and Privacy Policy.</p>
-      </div>
-
+      </form>
     </div>
-  </div>
 
-  <div class="app-menu" id="appMenu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menu">
-    <div class="app-menu__sheet">
-      <div class="app-menu__header">
-        <button class="icon-btn icon-btn--sm icon-btn--surface" id="appMenuClose" aria-label="Fechar menu" type="button">
-          <img src="assets/icons/close.svg" alt="" width="20" height="20" />
-        </button>
+    <div class="hero__dots" aria-hidden="true">
+      <span class="hero__dot hero__dot--active"></span>
+      <span class="hero__dot"></span>
+      <span class="hero__dot"></span>
+      <span class="hero__dot"></span>
+    </div>
+  </section>
+
+  <!-- Copy muda entre mobile e desktop (não é só reflow), então os dois
+       blocos ficam no DOM e alternam via CSS — mesma convenção do Hero. -->
+  <section class="behind-verse behind-verse--mobile" aria-label="Behind every verse">
+    <p class="behind-verse__line behind-verse__line--muted">
+      Behind every verse there is a<br />
+      question someone has spent a career on.
+    </p>
+    <p class="behind-verse__line behind-verse__line--emphasis">
+      The commentary, the history,<br />
+      the archaeology, the video.
+    </p>
+    <p class="behind-verse__line behind-verse__line--muted">
+      Scripture Central has been gathering<br />
+      it for decades, and now it sits next to the words that raised it.
+    </p>
+  </section>
+
+  <section class="behind-verse behind-verse--desktop" aria-label="Behind every verse">
+    <p class="behind-verse__line behind-verse__line--muted">
+      Behind every verse there is a<br />
+      question someone has spent a career on.
+    </p>
+    <p class="behind-verse__line behind-verse__line--emphasis">
+      The commentary, the history,<br />
+      the archaeology, the videos.
+    </p>
+    <p class="behind-verse__line behind-verse__line--muted">
+      Scripture Central has gathered these resources for more than a decade, and now they meet you alongside the words that inspired them.
+    </p>
+  </section>
+
+  <!-- Come, Follow Me: mobile é um card estático (só a 1ª tela); desktop é
+       um carrossel de 4 slides com crossfade (Back/Next). Estruturas
+       diferentes o bastante pra justificar dois blocos de markup. -->
+  <section class="come-follow-me come-follow-me--mobile" aria-label="Come, Follow Me, one day at a time">
+    <div class="cfm-card">
+      <h2 class="cfm-card__title">Come, Follow Me,<br />one day at a time</h2>
+      <p class="cfm-card__body">
+        Move easily between books, chapters, and verses in a clean, distraction-free reader, with customizable text, multiple scripture editions, and essential study tools always close at hand.
+      </p>
+      <div class="cfm-device">
+        <div class="cfm-device__frame">
+          <img src="assets/images/cfm-device-frame.png" alt="" />
+        </div>
+        <div class="cfm-device__screen">
+          <img src="assets/images/cfm-screen-0.jpg" alt="Tela do app ScriptureCentral mostrando a leitura do dia de Come, Follow Me" />
+        </div>
+      </div>
+    </div>
+    <div class="cfm-dots" aria-hidden="true">
+      <span class="cfm-dot cfm-dot--active"></span>
+      <span class="cfm-dot"></span>
+      <span class="cfm-dot"></span>
+      <span class="cfm-dot"></span>
+    </div>
+  </section>
+
+  <section class="come-follow-me come-follow-me--desktop" aria-label="Come, Follow Me, one day at a time">
+    <div class="cfm-carousel" data-cfm-carousel>
+      <div class="cfm-carousel__copy">
+        <div class="cfm-slide cfm-slide--active" data-cfm-slide="0">
+          <h2 class="cfm-slide__title">Come, Follow Me,<br />one day at a time</h2>
+          <p class="cfm-slide__body">
+            The week the whole Church is studying, broken into seven days. Each day arrives with the commentaries, videos, and other resources already gathered. Miss a day and it waits for you.
+          </p>
+        </div>
+        <div class="cfm-slide" data-cfm-slide="1">
+          <h2 class="cfm-slide__title">Access trusted videos, podcasts, maps and commentary</h2>
+          <p class="cfm-slide__body">
+            Move easily between books, chapters, and verses in a clean, distraction-free reader, with customizable text, multiple scripture editions, and essential study tools always close at hand.
+          </p>
+        </div>
+        <div class="cfm-slide" data-cfm-slide="2">
+          <h2 class="cfm-slide__title">Save highlights, notes, and study progress</h2>
+          <p class="cfm-slide__body">
+            Move easily between books, chapters, and verses in a clean, distraction-free reader, with customizable text, multiple scripture editions, and essential study tools always close at hand.
+          </p>
+        </div>
+        <div class="cfm-slide" data-cfm-slide="3">
+          <h2 class="cfm-slide__title">Continue your study across sessions</h2>
+          <p class="cfm-slide__body">
+            Move easily between books, chapters, and verses in a clean, distraction-free reader, with customizable text, multiple scripture editions, and essential study tools always close at hand.
+          </p>
+        </div>
       </div>
 
-      <div class="app-menu__panel">
-        <div class="app-menu__group">
-          <a class="app-menu__item" href="#">
-            <img src="assets/icons/info.svg" alt="" width="16" height="16" />
-            About us
-          </a>
-          <a class="app-menu__item" href="#">
-            <img src="assets/icons/help.svg" alt="" width="16" height="16" />
-            Help
-          </a>
-          <a class="app-menu__item" href="#">
-            <img src="assets/icons/share.svg" alt="" width="16" height="16" />
-            Share Scripture Central
-          </a>
+      <div class="cfm-carousel__media">
+        <div class="cfm-device cfm-device--active" data-cfm-device="0">
+          <div class="cfm-device__frame"><img src="assets/images/cfm-device-frame.png" alt="" /></div>
+          <div class="cfm-device__screen"><img src="assets/images/cfm-screen-0.jpg" alt="Tela inicial do app com a leitura do dia" /></div>
         </div>
+        <div class="cfm-device" data-cfm-device="1">
+          <div class="cfm-device__frame"><img src="assets/images/cfm-device-frame.png" alt="" /></div>
+          <div class="cfm-device__screen"><img src="assets/images/cfm-screen-1.jpg" alt="Aba Discover com experiências imersivas e podcasts" /></div>
+        </div>
+        <div class="cfm-device" data-cfm-device="2">
+          <div class="cfm-device__frame"><img src="assets/images/cfm-device-frame.png" alt="" /></div>
+          <div class="cfm-device__screen"><img src="assets/images/cfm-screen-2.jpg" alt="Leitor de escrituras com ferramentas de estudo abertas" /></div>
+        </div>
+        <div class="cfm-device" data-cfm-device="3">
+          <div class="cfm-device__frame"><img src="assets/images/cfm-device-frame.png" alt="" /></div>
+          <div class="cfm-device__screen"><img src="assets/images/cfm-screen-3.jpg" alt="Perfil do usuário com planos de leitura e histórico" /></div>
+        </div>
+      </div>
 
-        <div class="app-menu__group">
-          <button class="app-menu__item" id="appMenuAuthItem" type="button">
-            <img src="assets/icons/logout.svg" alt="" width="16" height="16" />
-            Log In or Sign Up
+      <button class="cfm-carousel__nav cfm-carousel__nav--back" type="button" data-cfm-back aria-label="Slide anterior" disabled>
+        <img src="assets/icons/forward-arrow.svg" alt="" width="28" height="28" />
+      </button>
+      <button class="cfm-carousel__nav cfm-carousel__nav--next" type="button" data-cfm-next aria-label="Próximo slide">
+        <img src="assets/icons/forward-arrow.svg" alt="" width="28" height="28" />
+      </button>
+    </div>
+  </section>
+
+  <!-- Carrossel de fotos + legenda sincronizada ("TextMotion" no Figma): a
+       1ª foto ocupa o slot grande/opaco, as demais espiam parcialmente à
+       direita, cortadas pela borda da seção (não por uma caixa própria —
+       ver styles-landing.css). "Next" gira os papéis (a foto ativa vira a
+       última da fila) com uma animação FLIP real de posição/tamanho, e a
+       legenda troca em sincronia. -->
+  <section class="for-everyone" aria-label="For everyone who means to read more">
+    <div class="for-everyone__text" data-photo-caption>
+      <h2 class="for-everyone__title" data-caption-title>For everyone who<br />means to read more</h2>
+      <p class="for-everyone__body" data-caption-body>
+        Scripture Central brings the scriptures to life. ScripturePlus helps carry them into your mind and heart.
+      </p>
+    </div>
+    <div class="photo-carousel" data-photo-carousel>
+      <div class="photo-carousel__track" data-photo-track>
+        <div class="photo-carousel__item"><img src="assets/images/for-everyone-1.jpg" alt="Pai e filho lendo as escrituras juntos em casa" /></div>
+        <div class="photo-carousel__item"><img src="assets/images/for-everyone-2.jpg" alt="" /></div>
+        <div class="photo-carousel__item"><img src="assets/images/for-everyone-3.jpg" alt="" /></div>
+        <div class="photo-carousel__item"><img src="assets/images/for-everyone-4.jpg" alt="" /></div>
+        <div class="photo-carousel__item"><img src="assets/images/for-everyone-5.jpg" alt="" /></div>
+      </div>
+      <button class="photo-carousel__next" type="button" data-photo-next aria-label="Próxima foto">
+        <img src="assets/icons/forward-arrow.svg" alt="" width="28" height="28" />
+      </button>
+    </div>
+  </section>
+
+  <!-- Copy muda entre mobile e desktop (mobile nem tem o título grande —
+       tem uma frase diferente no lugar). O card "Keep the verses" que
+       aparece encaixado aqui no mobile do Figma vira parte da seção
+       "Reading Plan Cards" (próximo passo), que já reúne os 3 cards de
+       forma limpa no desktop. -->
+  <section class="ten-minutes" aria-label="Ten minutes or an hour, the scriptures are ready">
+    <div class="ten-minutes__bg">
+      <img src="assets/images/desert-walkers.jpg" alt="Duas pessoas observando o deserto ao amanhecer" />
+    </div>
+
+    <div class="ten-minutes__content ten-minutes__content--mobile">
+      <h2 class="ten-minutes__title ten-minutes__title--mobile">
+        Some days call for a complete lesson.<br />
+        Others begin with a single question, a short passage, or a moment of reflection.
+      </h2>
+      <p class="ten-minutes__body">
+        Scripture Central gives you a welcoming place to begin and trusted paths for going deeper.
+      </p>
+      <form class="newsletter ten-minutes__signup" novalidate>
+        <label class="newsletter__label" for="tenMinEmailMobile">Enter your email for early access</label>
+        <input class="newsletter__input" type="email" id="tenMinEmailMobile" name="email" placeholder="Enter your email for early access" required />
+        <button class="newsletter__submit" type="submit" aria-label="Enviar">
+          <img src="assets/icons/arrow-right-white.svg" alt="" width="20" height="20" />
+        </button>
+      </form>
+    </div>
+
+    <div class="ten-minutes__content ten-minutes__content--desktop">
+      <h2 class="ten-minutes__title ten-minutes__title--desktop">Ten minutes or an hour,<br />the scriptures are ready</h2>
+      <p class="ten-minutes__body">
+        Scripture Central gives you a welcoming place to begin and trusted paths for going deeper.
+      </p>
+      <form class="newsletter ten-minutes__signup" novalidate>
+        <label class="newsletter__label" for="tenMinEmailDesktop">Enter your email for early access</label>
+        <input class="newsletter__input" type="email" id="tenMinEmailDesktop" name="email" placeholder="Enter your email for early access" required />
+        <button class="newsletter__submit" type="submit" aria-label="Enviar">
+          <img src="assets/icons/arrow-right-white.svg" alt="" width="20" height="20" />
+        </button>
+      </form>
+    </div>
+  </section>
+
+  <!-- Os mesmos 3 cards que no Figma mobile aparecem espalhados em dois
+       momentos de rolagem diferentes (1 dentro de "Ten Minutes", 2 aqui)
+       — juntei os 3 numa seção só, igual o desktop já faz nativamente. -->
+  <section class="reading-plans" aria-label="Reading plans">
+    <div class="reading-plans__row">
+      <article class="plan-card plan-card--quote">
+        <div class="plan-card__media plan-card__media--quote">
+          <p class="plan-card__eyebrow">Two Months Today</p>
+          <p class="plan-card__quote">&ldquo;&hellip;I know in whom<br />I have trusted.&rdquo;</p>
+          <div class="plan-card__quote-footer">
+            <span>Nephi&nbsp;|&nbsp;4:19</span>
+            <span>you highlighted this</span>
+          </div>
+          <!-- Card flutuante duplicado, só no desktop: efeito de pilha de
+               cartões que o Figma usa aqui (mesmo conteúdo, levemente
+               deslocado e elevado com sombra). -->
+          <div class="plan-card__floating" aria-hidden="true">
+            <p class="plan-card__eyebrow">Two Months Today</p>
+            <p class="plan-card__quote">&ldquo;&hellip;I know in whom<br />I have trusted.&rdquo;</p>
+            <div class="plan-card__quote-footer">
+              <span>Nephi&nbsp;|&nbsp;4:19</span>
+              <span>you highlighted this</span>
+            </div>
+          </div>
+        </div>
+        <div class="plan-card__body">
+          <h3 class="plan-card__title">Keep the verses that stay with you</h3>
+          <p class="plan-card__caption">Highlight a verse and the app holds on to it.</p>
+        </div>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-card__media plan-card__media--gray">
+          <img src="assets/images/card-reading-plan-mockup.jpg" alt="Mockup de um plano de leitura: Genesis 1–50, 28 dias" />
+        </div>
+        <div class="plan-card__body">
+          <h3 class="plan-card__title">Make a reading plan of your own</h3>
+          <p class="plan-card__caption">Pick a book, choose how many days, and the reading lays itself out.</p>
+        </div>
+      </article>
+
+      <article class="plan-card">
+        <div class="plan-card__media">
+          <img src="assets/images/card-preparing-to-teach.jpg" alt="Mulher estudando cercada de livros" />
+        </div>
+        <div class="plan-card__body">
+          <h3 class="plan-card__title">Preparing to teach?</h3>
+          <p class="plan-card__caption">Enrichment resources have already been gathered and organized for you.</p>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- "Nothing Between You And The Verse" no mobile (3575:151) e "The Same
+       Chapters This Week" no desktop (3577:30289) são a mesma seção — só
+       nomeada diferente entre os dois frames no Figma. Mockup de mão
+       segurando o telefone (foto solta, fundo transparente) + a tela de
+       leitura composta por cima. -->
+  <section class="verse-focus verse-focus--mobile" aria-label="Nothing between you and the verse">
+    <div class="verse-focus__card">
+      <div class="verse-device">
+        <img class="verse-device__hand" src="assets/images/verse-hand-phone.png" alt="" />
+        <div class="verse-device__screen">
+          <img src="assets/images/verse-reading-screen.jpg" alt="Tela de leitura mostrando Salmos 1, capítulo 1" />
+        </div>
+      </div>
+      <div class="verse-focus__content">
+        <h2 class="verse-focus__title">Nothing between you and the verse</h2>
+        <p class="verse-focus__body">
+          Nothing to turn on and nothing to configure. The chrome fades as you move down the chapter, and the text is left alone with you.
+        </p>
+        <a class="btn-primary" href="#">Try now</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="verse-focus verse-focus--desktop" aria-label="Nothing between you and the verse">
+    <div class="verse-focus__frame">
+      <div class="verse-focus__card-bg"></div>
+      <div class="verse-device verse-device--desktop">
+        <img class="verse-device__hand" src="assets/images/verse-hand-phone.png" alt="" />
+        <div class="verse-device__screen">
+          <img src="assets/images/verse-reading-screen.jpg" alt="Tela de leitura mostrando Salmos 1, capítulo 1" />
+        </div>
+      </div>
+      <div class="verse-focus__content">
+        <h2 class="verse-focus__title">Nothing between you and the verse</h2>
+        <p class="verse-focus__body">
+          Nothing to turn on and nothing to configure. The chrome fades as you move down the chapter, and the text is left alone with you.
+        </p>
+        <a class="btn-primary" href="#">Try now</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- No arquivo do Figma, os 6 recortes espalhados no desktop (3578:9)
+       ainda são fotos de receitas culinárias — placeholder de template que
+       não foi trocado pelo conteúdo real. O mobile (3576:9) já tem as 6
+       imagens certas (Cristo, soldado romano, sermão, nascer do sol,
+       natividade, árvore da vida); reaproveitei essas 6 também no desktop
+       em vez de reproduzir o placeholder errado. -->
+  <section class="sources" aria-label="Study with sources you can trust">
+    <div class="sources__thumb" data-thumb="christ">
+      <img src="assets/images/sources-christ.png" alt="Retrato de Jesus Cristo de perfil" />
+    </div>
+    <div class="sources__thumb" data-thumb="soldier">
+      <img src="assets/images/sources-soldier.png" alt="Soldado romano de perfil" />
+    </div>
+    <div class="sources__thumb" data-thumb="lastsupper">
+      <img src="assets/images/sources-lastsupper.png" alt="Cristo ensinando um grupo de discípulos" />
+    </div>
+    <div class="sources__thumb" data-thumb="sunrise">
+      <img src="assets/images/sources-sunrise.png" alt="Nascer do sol sobre o deserto" />
+    </div>
+    <div class="sources__thumb" data-thumb="tree">
+      <img src="assets/images/sources-tree.png" alt="Árvore da vida iluminada" />
+    </div>
+    <div class="sources__thumb" data-thumb="nativity">
+      <img src="assets/images/sources-nativity.png" alt="Cena da natividade" />
+    </div>
+
+    <div class="sources__content">
+      <h2 class="sources__title">Study with sources<br />you can trust</h2>
+      <p class="sources__body">
+        Our research team has spent countless hours identifying and curating the best scholarship available. It&rsquo;s always faithful and illuminating.
+      </p>
+      <a class="btn-primary" href="#">About Scripture Central</a>
+    </div>
+  </section>
+
+  <section class="discover-more" aria-label="There is always more to discover">
+    <div class="discover-more__card">
+      <img class="discover-more__bg" src="assets/images/campfire.jpg" alt="Fogueira acesa no deserto ao entardecer" />
+      <div class="discover-more__content">
+        <h2 class="discover-more__title">There is always more to discover</h2>
+        <p class="discover-more__body">
+          ScripturePlus is free, with no subscription and no ads. Scripture Central is a nonprofit, and the app is funded by people who believe these resources should be available to everyone.
+        </p>
+        <form class="newsletter discover-more__signup" novalidate>
+          <label class="newsletter__label" for="discoverEmail">Enter your email for early access</label>
+          <input class="newsletter__input" type="email" id="discoverEmail" name="email" placeholder="Enter your email for early access" required />
+          <button class="newsletter__submit" type="submit" aria-label="Enviar">
+            <img src="assets/icons/arrow-right-white.svg" alt="" width="20" height="20" />
           </button>
-        </div>
+        </form>
       </div>
     </div>
-  </div>
+  </section>
 
-  <script src="assets/js/carousel.js"></script>
-  <script>
-    (function () {
-      var overlay = document.getElementById('loginOverlay');
-      var closeBtn = document.getElementById('loginOverlayClose');
-      var lastTrigger = null;
-
-      function openOverlay(trigger) {
-        lastTrigger = trigger || null;
-        overlay.classList.add('is-open');
-        overlay.setAttribute('aria-hidden', 'false');
-        if (lastTrigger) lastTrigger.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('no-scroll');
-        closeBtn.focus();
-      }
-
-      function closeOverlay() {
-        overlay.classList.remove('is-open');
-        overlay.setAttribute('aria-hidden', 'true');
-        if (lastTrigger) lastTrigger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('no-scroll');
-        if (lastTrigger) lastTrigger.focus();
-      }
-
-      closeBtn.addEventListener('click', closeOverlay);
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeOverlay();
-      });
-
-      // Quatro caminhos até o login: perfil da TabBar, card de criar conta,
-      // ThirdCard (plano de leitura) e o item do menu hamburguer.
-      document.getElementById('profileTrigger').addEventListener('click', function (event) {
-        openOverlay(event.currentTarget);
-      });
-      var createAccountTrigger = document.getElementById('createAccountTrigger');
-      createAccountTrigger.addEventListener('click', function (event) {
-        openOverlay(createAccountTrigger);
-      });
-      createAccountTrigger.addEventListener('keydown', function (event) {
-        if (event.key === 'Enter' || event.key === ' ') {
-          event.preventDefault();
-          openOverlay(createAccountTrigger);
-        }
-      });
-      createAccountTrigger.querySelector('.icon-btn--close').addEventListener('click', function (event) {
-        event.stopPropagation();
-      });
-      document.getElementById('thirdCardTrigger').addEventListener('click', function (event) {
-        openOverlay(event.currentTarget);
-      });
-
-      // Menu (hamburguer)
-      var menuTrigger = document.getElementById('menuTrigger');
-      var menu = document.getElementById('appMenu');
-      var menuClose = document.getElementById('appMenuClose');
-      var menuAuthItem = document.getElementById('appMenuAuthItem');
-
-      function openMenu() {
-        menu.classList.add('is-open');
-        menu.setAttribute('aria-hidden', 'false');
-        menuTrigger.setAttribute('aria-expanded', 'true');
-        document.body.classList.add('no-scroll');
-        menuClose.focus();
-      }
-
-      function closeMenu() {
-        menu.classList.remove('is-open');
-        menu.setAttribute('aria-hidden', 'true');
-        menuTrigger.setAttribute('aria-expanded', 'false');
-        document.body.classList.remove('no-scroll');
-        menuTrigger.focus();
-      }
-
-      menuTrigger.addEventListener('click', openMenu);
-      menuClose.addEventListener('click', closeMenu);
-      document.addEventListener('keydown', function (event) {
-        if (event.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
-      });
-
-      // "Log In or Sign Up": fecha o menu e abre o overlay de login já
-      // existente nesta mesma página.
-      menuAuthItem.addEventListener('click', function () {
-        closeMenu();
-        openOverlay(menuAuthItem);
-      });
-
-      // Chega aqui vindo do "Log Out" da home logada (?login=1): abre o
-      // login direto, sem precisar clicar em nada.
-      if (location.search.indexOf('login=1') !== -1) {
-        openOverlay(null);
-        history.replaceState(null, '', location.pathname);
-      }
-    })();
-  </script>
+  <script src="assets/js/cfm-carousel.js"></script>
+  <script src="assets/js/photo-carousel.js"></script>
 </body>
 </html>

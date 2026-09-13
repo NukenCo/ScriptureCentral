@@ -10,6 +10,16 @@
 @import url('https://fonts.googleapis.com/css2?family=DM+Serif+Text:ital@0;1&display=swap');
 
 :root {
+  /* ---------- Responsividade ----------
+     Duas versões por tela (mobile-first + desktop), refletindo os dois
+     frames desenhados no Figma (mobile ~390px / desktop 1920px). O breakpoint
+     em si é fixo em @media (min-width: 1280px) em cada arquivo CSS — media
+     queries não aceitam var(), então esse valor não vira token, mas toda
+     regra desktop do projeto deve usar exatamente esse número. O container
+     abaixo escala o frame de 1920px do Figma para uma largura de leitura
+     confortável em notebooks/monitores comuns. */
+  --container-desktop: 1200px;
+
   /* ---------- Cor · Base ---------- */
   --color-bg: #fafafa;              /* fundo geral do app */
   --color-surface: #ffffff;         /* cards e superfícies elevadas */

@@ -1,0 +1,1411 @@
+/*
+  ScriptureCentral — Landing Page (marketing)
+  Implementação da "Home Landing" do Figma (mobile: node 3574:691, desktop:
+  node 3577:739). Usa os tokens de ../design/tokens-landing.css — uma
+  coleção separada da usada nas telas do app (../design/tokens.css), porque
+  o arquivo Figma tem duas coleções de cor/tipografia que não se sobrepõem
+  1:1 (ver comentário no topo de tokens-landing.css).
+
+  Convenção de responsividade do projeto (ver wireframe-html/CLAUDE.md):
+  mobile-first, breakpoint fixo em 1280px, desktop logo depois do bloco
+  mobile do mesmo componente. Quando a estrutura muda (não é só reflow —
+  ex: nav vira uma cápsula única, e não logo+botão separados), os dois
+  blocos de markup ficam os dois no DOM e alternam via classe
+  `--mobile`/`--desktop` com display:none/flex.
+*/
+
+body.landing {
+  background: var(--landing-bg-canvas);
+  font-family: var(--landing-font-sans);
+  color: var(--landing-text-primary);
+}
+
+/* ---------- Hero ---------- */
+
+.hero {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 393 / 752;
+}
+
+.hero__media {
+  position: absolute;
+  inset: 14px 12px 5px;
+  border-radius: 24px 24px 50px 50px;
+  overflow: hidden;
+  background: var(--landing-deep-blue-900);
+}
+
+.hero__video {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Nav — mobile: logo solto + botão de menu (pill translúcido), sobrepostos
+   ao vídeo do hero (mesma referência de posição do Figma: relativa à seção
+   inteira, não ao card de vídeo com inset). */
+.hero__nav--mobile {
+  position: absolute;
+  top: 39px;
+  left: 32px;
+  right: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.hero__logo {
+  display: block;
+  width: 40px;
+  height: 40px;
+  flex-shrink: 0;
+}
+.hero__logo img {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.hero__menu-btn {
+  width: 56px;
+  height: 56px;
+  border-radius: var(--landing-radius-full);
+  background: rgba(251, 246, 238, 0.4);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Nav — desktop: cápsula única centralizada (escondida no mobile) */
+.hero__nav--desktop {
+  display: none;
+}
+
+.hero__content {
+  position: absolute;
+  top: 172px;
+  left: 0;
+  right: 0;
+  padding: 16px 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: var(--landing-space-12);
+  color: #eeeeee;
+}
+
+.hero__eyebrow {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 500;
+  font-size: 14px;
+  line-height: normal;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.hero__title {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 600;
+  font-size: var(--landing-text-headline-mobile);
+  line-height: var(--landing-headline-line-mobile);
+  letter-spacing: -2.2px;
+}
+
+.hero__body {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 500;
+}
+.hero__body--mobile {
+  font-size: var(--landing-text-body-mobile);
+  line-height: 18px;
+}
+.hero__body--desktop {
+  display: none;
+}
+
+.hero__signup {
+  margin-top: 4px;
+}
+
+.hero__dots {
+  display: none;
+}
+
+/* ---------- Behind Every Verse ---------- */
+
+.behind-verse {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 56px 20px 40px;
+  text-align: center;
+  font-family: var(--landing-font-serif);
+  font-weight: 300;
+  font-size: 22px;
+  line-height: 25px;
+}
+
+.behind-verse--desktop {
+  display: none;
+}
+
+.behind-verse__line {
+  margin: 0;
+  max-width: 353px;
+}
+
+.behind-verse__line--muted {
+  color: var(--landing-text-muted);
+  opacity: 0.1;
+}
+
+.behind-verse__line--emphasis {
+  color: var(--landing-text-primary);
+}
+
+/* ---------- Come, Follow Me ---------- */
+
+/* Device mockup (bezel + tela) — compartilhado entre o card estático do
+   mobile e o carrossel do desktop. Os offsets em % do frame vêm direto do
+   Figma (o PNG do aparelho tem bastante margem transparente ao redor); a
+   tela usa object-fit: cover, mais simples que replicar os 4 recortes
+   ligeiramente diferentes que o Figma exportou por slide. */
+.cfm-device {
+  position: relative;
+  width: 100%;
+  height: 311px;
+}
+.cfm-device__frame {
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 285px;
+  height: 311px;
+  overflow: hidden;
+  pointer-events: none;
+}
+.cfm-device__frame img {
+  position: absolute;
+  left: 15.13%;
+  top: -0.08%;
+  width: 69.67%;
+  height: 134.32%;
+  max-width: none;
+}
+.cfm-device__screen {
+  position: absolute;
+  left: 48px;
+  top: 4px;
+  width: 189px;
+  height: 307px;
+  border-radius: 27px 27px 0 0;
+  overflow: hidden;
+}
+.cfm-device__screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.come-follow-me--desktop {
+  display: none;
+}
+
+.cfm-card {
+  background: var(--landing-bg-surface);
+  border-radius: 24px;
+  padding: 40px 32px 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 24px;
+  margin: 0 20px;
+  overflow: hidden;
+}
+.cfm-card__title {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -0.26px;
+  text-align: center;
+  color: var(--landing-text-secondary);
+}
+.cfm-card__body {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  text-align: center;
+  color: var(--landing-text-secondary);
+}
+
+.cfm-dots {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  margin-top: 32px;
+  padding: 12px;
+  width: fit-content;
+  margin-inline: auto;
+  background: var(--landing-pure-gold-400);
+  border-radius: 40px;
+}
+.cfm-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 4px;
+  background: var(--landing-bg-surface);
+}
+.cfm-dot--active {
+  width: 24px;
+}
+
+/* ---------- For Everyone ---------- */
+
+.for-everyone {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  padding: 48px 0 56px 20px;
+  background: linear-gradient(to bottom, var(--landing-bg-canvas), var(--landing-sage));
+  /* O carrossel de fotos estoura essa largura de propósito (mostra o
+     card principal + fotos espiando) — é a seção que corta na borda,
+     não o carrossel em si (ver comentário abaixo). */
+  overflow: hidden;
+}
+
+.for-everyone__text {
+  padding-right: 12px;
+  transition: opacity 150ms ease;
+}
+.for-everyone__text.is-fading {
+  opacity: 0;
+}
+
+.for-everyone__title {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 600;
+  font-size: 26px;
+  line-height: 32px;
+  letter-spacing: -0.26px;
+  color: var(--landing-text-secondary);
+}
+.for-everyone__body {
+  margin: 12px 0 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--landing-text-secondary);
+}
+
+/* Carrossel de fotos "peek": o primeiro item é o único totalmente visível
+   e opaco (--pc-main-w/--pc-main-h); os demais (--pc-peek-w/h) espiam
+   parcialmente à direita, a 30% de opacidade — cortados pela borda da
+   SEÇÃO (.for-everyone tem overflow:hidden), não por uma caixa própria
+   aqui, então quanto mais larga a tela, mais fotos espiam (fiel ao
+   componente original do Figma, que não limita a própria largura).
+   "Next" gira o papel de cada foto (a 1ª vira a última) — o CSS abaixo
+   muda tamanho/opacidade instantaneamente, e o JS (assets/js/
+   photo-carousel.js) aplica um FLIP pra animar essa troca de verdade
+   (desliza + redimensiona + funde), em vez de um corte seco. */
+.photo-carousel {
+  --pc-main-w: 350px;
+  --pc-main-h: 431px;
+  --pc-peek-w: 184px;
+  --pc-peek-h: 367px;
+  position: relative;
+}
+.photo-carousel__track {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: max-content;
+}
+.photo-carousel__item {
+  flex-shrink: 0;
+  width: var(--pc-peek-w);
+  height: var(--pc-peek-h);
+  border-radius: 40px;
+  overflow: hidden;
+  opacity: 0.3;
+  transition: width 500ms cubic-bezier(0.33, 1, 0.68, 1), height 500ms cubic-bezier(0.33, 1, 0.68, 1),
+    opacity 500ms ease;
+}
+.photo-carousel__item:first-child {
+  width: var(--pc-main-w);
+  height: var(--pc-main-h);
+  opacity: 1;
+}
+.photo-carousel__item img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.photo-carousel__next {
+  position: absolute;
+  top: 50%;
+  left: var(--pc-main-w);
+  transform: translate(-50%, -50%);
+  width: 34px;
+  height: 34px;
+  border-radius: var(--landing-radius-full);
+  background: var(--landing-dark-grey);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1;
+}
+.photo-carousel__next img {
+  width: 17px;
+  height: 17px;
+}
+
+/* ---------- Ten Minutes Or An Hour ---------- */
+
+.ten-minutes {
+  position: relative;
+  aspect-ratio: 393 / 760;
+  overflow: hidden;
+}
+.ten-minutes__bg {
+  position: absolute;
+  inset: 0;
+}
+.ten-minutes__bg img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 62%;
+}
+
+.ten-minutes__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 0 20px;
+  text-align: center;
+}
+.ten-minutes__content--desktop {
+  display: none;
+}
+
+.ten-minutes__title {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 500;
+  color: var(--landing-dark-grey);
+}
+.ten-minutes__title--mobile {
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.14px;
+}
+
+.ten-minutes__body {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 400;
+  font-size: 15px;
+  line-height: 22px;
+  color: var(--landing-text-primary);
+}
+
+/* ---------- Reading Plan Cards ---------- */
+
+.reading-plans {
+  position: relative;
+  /* Sem bg sólido: a seção sobrepõe o chão do "Ten Minutes" logo acima
+     (margin-top negativo), então o deserto precisa continuar visível ao
+     redor dos cards, não escondido atrás de uma faixa cheia. */
+  padding: 0 20px 40px;
+  margin-top: -90px;
+}
+
+.reading-plans__row {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.plan-card {
+  position: relative;
+  background: var(--landing-bg-surface);
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.plan-card__media {
+  position: relative;
+  aspect-ratio: 389 / 287;
+  overflow: hidden;
+}
+.plan-card__media img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+.plan-card__media--gray {
+  background: #e5e5e5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.plan-card__media--gray img {
+  width: 85%;
+  height: 85%;
+  border-radius: 12px;
+}
+
+.plan-card__media--quote {
+  background: #fafafa;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 24px;
+  text-align: center;
+}
+.plan-card__eyebrow {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 600;
+  font-size: 12px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--landing-deep-blue-950);
+}
+.plan-card__quote {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 600;
+  font-size: 24px;
+  line-height: 30px;
+  color: var(--landing-deep-blue-950);
+}
+.plan-card__quote-footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  font-family: var(--landing-font-sans);
+  font-size: 13px;
+  color: var(--landing-deep-blue-950);
+}
+
+.plan-card__floating {
+  display: none;
+}
+
+.plan-card__body {
+  padding: 13px 22px 22px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.plan-card__title {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 700;
+  font-size: 17px;
+  line-height: 23px;
+  letter-spacing: -0.04px;
+  color: var(--landing-text-primary);
+  max-width: 240px;
+}
+.plan-card__caption {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 500;
+  font-size: 13px;
+  line-height: 18px;
+  color: var(--landing-gold-accent);
+}
+
+/* ---------- Nothing Between You And The Verse / The Same Chapters ---------- */
+
+.verse-focus {
+  padding: 40px 20px 56px;
+  background: var(--landing-bg-canvas);
+}
+.verse-focus--desktop {
+  display: none;
+}
+
+.verse-focus__card {
+  background: linear-gradient(to bottom, rgba(255, 255, 255, 0), var(--landing-bg-surface) 70%);
+  border-radius: 24px;
+  overflow: hidden;
+  padding-bottom: 32px;
+}
+
+/* Mockup mão+telefone: foto solta (fundo transparente) recortada pra
+   preencher o quadro, com a tela de leitura composta por cima na área
+   certa — mesmos dois recortes reaproveitados no desktop, só que
+   posicionados/escalados diferente (ver overrides abaixo). */
+.verse-device {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 390 / 577;
+  overflow: hidden;
+}
+.verse-device__hand {
+  position: absolute;
+  left: -25.91%;
+  top: -19.76%;
+  width: 151.82%;
+  height: 128.25%;
+  max-width: none;
+}
+.verse-device__screen {
+  position: absolute;
+  left: 26.41%;
+  top: 5.8%;
+  width: 46.15%;
+  aspect-ratio: 180 / 382;
+  border-radius: 20px;
+  overflow: hidden;
+}
+.verse-device__screen img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.verse-focus__content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  text-align: center;
+  padding: 56px 20px 0;
+}
+.verse-focus__title {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.14px;
+  color: var(--landing-text-primary);
+}
+.verse-focus__body {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--landing-text-secondary);
+}
+
+/* ---------- There Is Always More To Discover (CTA final) ---------- */
+
+.discover-more {
+  padding: 0 12px 20px;
+  background: var(--landing-bg-canvas);
+}
+
+.discover-more__card {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 360 / 385;
+  border-radius: 32px;
+  overflow: hidden;
+}
+.discover-more__bg {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.discover-more__content {
+  position: absolute;
+  inset: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 20px;
+  padding: 48px 24px;
+  text-align: center;
+}
+.discover-more__title {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 500;
+  font-size: 28px;
+  line-height: 34px;
+  letter-spacing: -0.14px;
+  color: var(--landing-cream);
+}
+.discover-more__body {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--landing-cream);
+}
+
+/* ---------- Botão primário (reutilizado no resto da landing) ---------- */
+
+.btn-primary {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px 20px;
+  border-radius: var(--landing-radius-full);
+  background: var(--landing-deep-blue-800);
+  font-family: var(--landing-font-sans);
+  font-weight: 600;
+  font-size: 16px;
+  color: var(--landing-bg-surface);
+  white-space: nowrap;
+}
+
+/* ---------- Study With Sources You Can Trust ---------- */
+
+.sources {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 859px;
+  padding: 56px 20px;
+  overflow: hidden;
+}
+
+.sources__content {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 28px;
+  text-align: center;
+  max-width: 353px;
+}
+
+.sources__title {
+  margin: 0;
+  font-family: var(--landing-font-serif);
+  font-weight: 500;
+  font-size: 36px;
+  line-height: 44px;
+  letter-spacing: -0.36px;
+  color: var(--landing-pure-gold-400);
+}
+
+.sources__body {
+  margin: 0;
+  font-family: var(--landing-font-sans);
+  font-weight: 400;
+  font-size: 13px;
+  line-height: 19px;
+  color: var(--landing-text-secondary);
+}
+
+.sources__thumb {
+  position: absolute;
+  width: 96px;
+  height: 72px;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 15px 15px rgba(0, 0, 0, 0.09), 0 4px 9px rgba(0, 0, 0, 0.1);
+}
+.sources__thumb img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Posições soltas ao redor do texto — valores do Figma mobile (3576:9),
+   relativos à seção inteira (393px de largura). */
+.sources__thumb[data-thumb='christ'] {
+  left: 193px;
+  top: 34px;
+}
+.sources__thumb[data-thumb='soldier'] {
+  left: 284px;
+  top: 204px;
+}
+.sources__thumb[data-thumb='lastsupper'] {
+  left: -13px;
+  top: 161px;
+}
+.sources__thumb[data-thumb='sunrise'] {
+  left: 315px;
+  top: 582px;
+}
+.sources__thumb[data-thumb='tree'] {
+  left: -61px;
+  top: 541px;
+}
+.sources__thumb[data-thumb='nativity'] {
+  left: 35px;
+  top: 697px;
+}
+
+/* ---------- Newsletter signup (reutilizado no resto da landing) ---------- */
+
+.newsletter {
+  display: flex;
+  align-items: center;
+  gap: var(--landing-space-10);
+  background: var(--landing-bg-surface);
+  border-radius: var(--landing-radius-full);
+  padding: var(--landing-space-6) var(--landing-space-6) var(--landing-space-6) 20px;
+  width: 289px;
+  max-width: 100%;
+}
+
+.newsletter__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+}
+
+.newsletter__input {
+  border: none;
+  outline: none;
+  background: transparent;
+  flex: 1;
+  min-width: 0;
+  font-family: var(--landing-font-sans);
+  font-style: italic;
+  font-size: var(--landing-text-field-label);
+  letter-spacing: 0.24px;
+  color: #6b6b69;
+}
+.newsletter__input::placeholder {
+  color: #6b6b69;
+  font-style: italic;
+}
+
+.newsletter__submit {
+  flex-shrink: 0;
+  width: 40px;
+  height: 40px;
+  border-radius: var(--landing-radius-full);
+  background: var(--landing-deep-blue-950);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.newsletter__submit img {
+  width: 20px;
+  height: 20px;
+}
+
+/* ---------- Desktop (≥1280px) ---------- */
+
+@media (min-width: 1280px) {
+  .hero {
+    aspect-ratio: auto;
+    min-height: 100vh;
+  }
+
+  .hero__media {
+    inset: 20px;
+    border-radius: 23px;
+  }
+
+  .hero__nav--mobile {
+    display: none;
+  }
+
+  .hero__nav--desktop {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    position: absolute;
+    top: 47.5px;
+    left: 50%;
+    transform: translateX(-50%);
+    background: var(--landing-bg-surface);
+    border-radius: var(--landing-radius-full);
+    padding: 8px 26px;
+    height: 70px;
+  }
+
+  .hero__nav-link {
+    padding: 8px 12px;
+    border-radius: var(--landing-radius-full);
+    font-family: var(--landing-font-sans);
+    font-weight: 600;
+    font-size: 14px;
+    color: var(--landing-text-primary);
+  }
+  .hero__nav-link:hover {
+    background: var(--landing-bg-canvas);
+  }
+
+  .hero__content {
+    position: absolute;
+    left: 164px;
+    top: 280px;
+    width: 700px;
+    max-width: calc(100% - 328px);
+    padding: 0;
+    gap: var(--landing-space-16);
+    color: inherit;
+  }
+
+  .hero__eyebrow {
+    font-size: var(--landing-text-title-desktop);
+    line-height: 34px;
+    letter-spacing: -0.14px;
+    color: var(--landing-deep-blue-800);
+  }
+
+  .hero__title {
+    font-size: var(--landing-text-headline-desktop);
+    line-height: var(--landing-headline-line-desktop);
+    letter-spacing: -1.2px;
+    color: var(--landing-deep-blue-900);
+  }
+
+  .hero__body--mobile {
+    display: none;
+  }
+  .hero__body--desktop {
+    display: block;
+    font-size: var(--landing-text-body-desktop);
+    line-height: 32px;
+    color: var(--landing-deep-blue-950);
+  }
+
+  .hero__signup {
+    margin-top: 8px;
+  }
+
+  .hero__dots {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    position: absolute;
+    right: 40px;
+    bottom: 60px;
+    background: var(--landing-pure-gold-400);
+    border-radius: 40px;
+    padding: 12px;
+  }
+  .hero__dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 4px;
+    background: var(--landing-bg-surface);
+  }
+  .hero__dot--active {
+    width: 24px;
+  }
+
+  .behind-verse--mobile {
+    display: none;
+  }
+  .behind-verse--desktop {
+    display: flex;
+    gap: 64px;
+    padding: 156px 160px 165px;
+    color: var(--landing-deep-blue-800);
+  }
+  .behind-verse--desktop .behind-verse__line {
+    max-width: none;
+  }
+  .behind-verse--desktop .behind-verse__line--muted {
+    font-size: 60px;
+    line-height: 66.417px;
+    color: var(--landing-deep-blue-800);
+  }
+  .behind-verse--desktop .behind-verse__line--emphasis {
+    font-size: 70px;
+    line-height: 80px;
+    color: var(--landing-deep-blue-800);
+  }
+
+  .come-follow-me--mobile {
+    display: none;
+  }
+
+  .come-follow-me--desktop {
+    display: flex;
+    justify-content: center;
+    padding: 64px 20px;
+    background: linear-gradient(to bottom, var(--landing-bg-canvas), var(--landing-cream));
+  }
+
+  .cfm-carousel {
+    position: relative;
+    width: 1420px;
+    max-width: calc(100% - 40px);
+    height: 688px;
+    background: var(--landing-bg-surface);
+    border-radius: 40px;
+    overflow: hidden;
+  }
+
+  .cfm-carousel__copy {
+    position: absolute;
+    left: 80px;
+    top: 117px;
+    width: 572px;
+    height: 393px;
+  }
+
+  .cfm-slide {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+    pointer-events: none;
+  }
+  .cfm-slide--active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .cfm-slide__title {
+    margin: 0;
+    font-family: var(--landing-font-sans);
+    font-weight: 500;
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: 0.44px;
+    color: var(--landing-deep-blue-800);
+  }
+  .cfm-slide__body {
+    margin: 0;
+    max-width: 450px;
+    font-family: var(--landing-font-sans);
+    font-weight: 400;
+    font-size: 19px;
+    line-height: 32px;
+    color: var(--landing-text-body-grey);
+  }
+  .cfm-slide[data-cfm-slide="0"] .cfm-slide__body {
+    max-width: none;
+  }
+
+  .cfm-carousel__media {
+    position: absolute;
+    left: 620px;
+    top: 0;
+    width: 800px;
+    height: 688px;
+    overflow: hidden;
+  }
+
+  .cfm-carousel__media .cfm-device {
+    position: absolute;
+    inset: 0;
+    width: auto;
+    height: auto;
+    opacity: 0;
+    transition: opacity 500ms ease-in-out;
+    pointer-events: none;
+  }
+  .cfm-carousel__media .cfm-device--active {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .cfm-carousel__media .cfm-device__frame {
+    width: 546px;
+    height: 596px;
+  }
+  .cfm-carousel__media .cfm-device__screen {
+    left: 216px;
+    top: 102px;
+    width: 364px;
+    height: 586px;
+    border-radius: 54px 54px 0 0;
+  }
+
+  .cfm-carousel__nav {
+    position: absolute;
+    top: calc(50% + 247px);
+    transform: translateY(-50%);
+    width: 56px;
+    height: 56px;
+    border-radius: var(--landing-radius-full);
+    background: var(--landing-dark-grey);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .cfm-carousel__nav:disabled {
+    opacity: 0.6;
+    cursor: default;
+  }
+  .cfm-carousel__nav--back {
+    left: 80px;
+  }
+  .cfm-carousel__nav--back img {
+    transform: rotate(180deg);
+  }
+  .cfm-carousel__nav--next {
+    left: 163px;
+  }
+
+  .for-everyone {
+    flex-direction: row;
+    align-items: center;
+    gap: 64px;
+    padding: 96px 0 96px 160px;
+    background: linear-gradient(to bottom, var(--landing-cream) 10%, var(--landing-sage));
+  }
+
+  .for-everyone__text {
+    width: 500px;
+    flex-shrink: 0;
+    padding-right: 0;
+    color: var(--landing-deep-blue-800);
+  }
+  .for-everyone__title {
+    font-size: 44px;
+    line-height: 1.1;
+    letter-spacing: normal;
+    color: inherit;
+  }
+  .for-everyone__body {
+    margin-top: 24px;
+    font-size: 19px;
+    line-height: 32px;
+    color: inherit;
+  }
+
+  .photo-carousel {
+    --pc-main-w: 572px;
+    --pc-main-h: 704px;
+    --pc-peek-w: 300px;
+    --pc-peek-h: 600px;
+    flex-shrink: 0;
+  }
+  .photo-carousel__track {
+    gap: 40px;
+  }
+  .photo-carousel__next {
+    width: 56px;
+    height: 56px;
+  }
+  .photo-carousel__next img {
+    width: 28px;
+    height: 28px;
+  }
+
+  .ten-minutes {
+    aspect-ratio: 1920 / 1377;
+  }
+  .ten-minutes__content {
+    gap: 20px;
+    padding: 0 80px;
+  }
+  .ten-minutes__content--mobile {
+    display: none;
+  }
+  .ten-minutes__content--desktop {
+    display: flex;
+  }
+  .ten-minutes__title--desktop {
+    font-size: var(--landing-text-headline-desktop);
+    line-height: var(--landing-headline-line-desktop);
+    letter-spacing: -1.2px;
+    color: var(--landing-deep-blue-800);
+    white-space: nowrap;
+  }
+  .ten-minutes .ten-minutes__body {
+    font-size: 16px;
+    line-height: 24px;
+    color: var(--landing-deep-blue-800);
+    max-width: 900px;
+  }
+
+  .reading-plans {
+    padding: 0 40px 96px;
+    margin-top: -260px;
+  }
+  .reading-plans__row {
+    flex-direction: row;
+    justify-content: center;
+    gap: 48px;
+  }
+  .plan-card {
+    flex: 0 1 479px;
+    min-width: 0;
+    border-radius: 27px;
+  }
+  .plan-card__media {
+    aspect-ratio: 479 / 353;
+  }
+  .plan-card__media--gray img {
+    width: 72%;
+    height: 82%;
+  }
+  .plan-card__media--quote {
+    padding: 40px;
+  }
+  .plan-card__eyebrow {
+    font-size: 15px;
+  }
+  .plan-card__quote {
+    font-size: 30px;
+    line-height: 35px;
+  }
+  .plan-card__quote-footer {
+    font-size: 15px;
+  }
+
+  .plan-card__floating {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    position: absolute;
+    top: 4.8%;
+    left: 4.4%;
+    width: 91.6%;
+    height: 91.5%;
+    padding: 25px;
+    text-align: center;
+    background: var(--landing-quote-tan);
+    border-radius: 25px;
+    box-shadow: 0 24px 48px rgba(1, 17, 34, 0.25);
+  }
+  .plan-card__floating .plan-card__eyebrow {
+    font-size: 13px;
+  }
+  .plan-card__floating .plan-card__quote {
+    font-size: 30px;
+    line-height: 35px;
+  }
+  .plan-card__floating .plan-card__quote-footer {
+    font-size: 15px;
+  }
+
+  .plan-card__body {
+    padding: 16px 27px 27px;
+    gap: 27px;
+  }
+  .plan-card__title {
+    font-size: 24px;
+    line-height: normal;
+    letter-spacing: normal;
+    max-width: 280px;
+  }
+  .plan-card__caption {
+    font-size: 16px;
+    line-height: normal;
+    letter-spacing: 0.3px;
+  }
+
+  /* min-height fixo quebrava em monitores largos (>1920px): as imagens
+     ficavam presas ao px absoluto enquanto o texto centralizado (flex)
+     recentralizava sozinho, os dois saindo de sincronia. Com
+     aspect-ratio, a seção INTEIRA escala junto — texto (agora
+     absolute+translate, não mais flex) e imagens (position em %, não
+     px) se movem sempre na mesma proporção, em qualquer largura. */
+  .sources {
+    aspect-ratio: 1920 / 1415;
+    min-height: 0;
+    padding: 0;
+    max-width: 2200px;
+    margin-inline: auto;
+  }
+  .sources__content {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 58.3%; /* 1120 / 1920 */
+    max-width: none;
+    gap: 28px;
+  }
+  .sources__title {
+    font-size: var(--landing-text-headline-desktop);
+    line-height: 1.1;
+    letter-spacing: -2.4px;
+  }
+  .sources__body {
+    font-size: 19px;
+    line-height: 32px;
+    color: var(--landing-deep-blue-800);
+  }
+
+  .sources__thumb {
+    width: 13.39%; /* 257 / 1920 */
+    height: 13.64%; /* 193 / 1415 */
+    border-radius: 40px;
+    background: var(--landing-bg-surface);
+    box-shadow: 0 41px 41px rgba(0, 0, 0, 0.09), 0 11px 23px rgba(0, 0, 0, 0.1);
+    animation: sources-float 7s ease-in-out infinite;
+  }
+  .sources__thumb[data-thumb='christ'] {
+    left: 15.63%;
+    top: 7%;
+    animation-delay: -0.6s;
+  }
+  .sources__thumb[data-thumb='soldier'] {
+    left: 56.88%;
+    top: 16.04%;
+    animation-delay: -2.4s;
+  }
+  .sources__thumb[data-thumb='sunrise'] {
+    left: 83.33%;
+    top: 45.65%;
+    animation-delay: -4.1s;
+  }
+  .sources__thumb[data-thumb='tree'] {
+    left: 69.84%;
+    top: 72.44%;
+    animation-delay: -1.3s;
+  }
+  .sources__thumb[data-thumb='lastsupper'] {
+    left: 15.26%;
+    top: 72.51%;
+    animation-delay: -5.2s;
+  }
+  .sources__thumb[data-thumb='nativity'] {
+    left: 0.42%;
+    top: 38.8%;
+    animation-delay: -3.5s;
+  }
+
+  /* Flutuação bem sutil (± 8px), como pedido: sensação de calma, nada de
+     movimento chamativo — é um app religioso. Delays diferentes por
+     imagem pra não flutuarem todas em uníssono. Preparado pra virar
+     parallax de scroll depois. */
+  @keyframes sources-float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-8px); }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .sources__thumb {
+      animation: none;
+    }
+  }
+
+  .verse-focus {
+    padding: 96px 160px;
+  }
+  .verse-focus--mobile {
+    display: none;
+  }
+  .verse-focus--desktop {
+    display: block;
+  }
+
+  .verse-focus__frame {
+    position: relative;
+    aspect-ratio: 1420 / 1058;
+    max-width: 1420px;
+    margin: 0 auto;
+  }
+  .verse-focus__card-bg {
+    position: absolute;
+    left: 0;
+    top: 21.27%;
+    width: 100%;
+    height: 78.74%;
+    background: var(--landing-bg-surface);
+    border-radius: 40px;
+  }
+
+  .verse-device--desktop {
+    position: absolute;
+    left: 27.93%;
+    top: 0;
+    width: 69.31%;
+    height: 100%;
+    aspect-ratio: auto;
+  }
+  .verse-device--desktop .verse-device__hand {
+    left: 0;
+    top: -19.57%;
+    width: 111.74%;
+    height: 142.82%;
+  }
+  .verse-device--desktop .verse-device__screen {
+    left: 38.54%;
+    top: 9.64%;
+    width: 33.65%;
+    height: 74.2%;
+    aspect-ratio: auto;
+    border-radius: 40px;
+  }
+
+  .verse-focus__content {
+    position: absolute;
+    left: 8.01%;
+    top: 44.9%;
+    width: 32.9%;
+    align-items: flex-start;
+    text-align: left;
+    gap: 27px;
+    padding: 0;
+  }
+  .verse-focus__title {
+    font-family: var(--landing-font-serif);
+    font-weight: 600;
+    font-size: 44px;
+    line-height: 52px;
+    letter-spacing: -2.2px;
+    color: var(--landing-deep-blue-900);
+  }
+  .verse-focus__body {
+    font-size: 19px;
+    line-height: 32px;
+    color: var(--landing-text-body-grey);
+  }
+
+  .discover-more {
+    padding: 20px;
+  }
+  .discover-more__card {
+    aspect-ratio: 1920 / 808;
+  }
+  .discover-more__content {
+    gap: 64px;
+    max-width: 1215px;
+    margin: 0 auto;
+  }
+  .discover-more__title {
+    font-size: var(--landing-text-headline-desktop);
+    line-height: var(--landing-headline-line-desktop);
+    letter-spacing: -1.2px;
+  }
+  .discover-more__body {
+    font-size: 19px;
+    line-height: 32px;
+  }
+}

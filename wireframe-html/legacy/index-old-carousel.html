@@ -2,11 +2,10 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <script src="assets/js/gate.js"></script>
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <title>ScriptureCentral — Home (logged in)</title>
-  <link rel="stylesheet" href="../design/tokens.css" />
-  <link rel="stylesheet" href="./styles.css" />
+  <title>ScriptureCentral — Home (legacy, pre-redesign)</title>
+  <link rel="stylesheet" href="../../design/tokens.css" />
+  <link rel="stylesheet" href="../styles.css" />
   <style>
     /* Chegada na home: fade in suave, sem o slide horizontal padrão. */
     ::view-transition-new(root) {
@@ -38,17 +37,17 @@
         </svg>
       </button>
 
-      <img class="logo" src="assets/icons/logo.svg" alt="ScriptureCentral" />
+      <img class="logo" src="../assets/icons/logo.svg" alt="ScriptureCentral" />
 
       <span class="icon-btn icon-btn--plain" aria-hidden="true">
-        <img src="assets/icons/search.svg" alt="" width="24" height="24" />
+        <img src="../assets/icons/search.svg" alt="" width="24" height="24" />
       </span>
     </header>
 
     <section>
-      <h1 class="principle-saudation">Good morning, Emma</h1>
+      <h1 class="principle-saudation">Hello, start here</h1>
 
-      <div class="carousel" data-start-index="1">
+      <div class="carousel">
         <div class="carousel__track">
 
           <div class="carousel-card" style="background-image: url(assets/images/carousel-card-mountain.jpg); --card-overlay: 0.5;">
@@ -61,7 +60,7 @@
               <p class="carousel-card__quote">&ldquo;The Lord stirred up<br />the spirit of Cyrus.&rdquo;</p>
               <span class="carousel-card__cta">
                 Begin
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
+                <img src="../assets/icons/arrow-right.svg" alt="" width="16" height="16" />
               </span>
             </div>
             <div class="carousel-card__progress">
@@ -83,7 +82,7 @@
               <p class="carousel-card__quote">&ldquo;We are the servants<br />of the God of heaven and earth.&rdquo;</p>
               <span class="carousel-card__cta">
                 Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
+                <img src="../assets/icons/arrow-right.svg" alt="" width="16" height="16" />
               </span>
             </div>
             <div class="carousel-card__progress">
@@ -105,7 +104,7 @@
               <p class="carousel-card__quote">&ldquo;The hand of the Lord<br />his God was upon him.&rdquo;</p>
               <span class="carousel-card__cta">
                 Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
+                <img src="../assets/icons/arrow-right.svg" alt="" width="16" height="16" />
               </span>
             </div>
             <div class="carousel-card__progress">
@@ -127,7 +126,7 @@
               <p class="carousel-card__quote">&ldquo;Let us rise up<br />and build.&rdquo;</p>
               <span class="carousel-card__cta">
                 Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
+                <img src="../assets/icons/arrow-right.svg" alt="" width="16" height="16" />
               </span>
             </div>
             <div class="carousel-card__progress">
@@ -149,7 +148,7 @@
               <p class="carousel-card__quote">&ldquo;Our God shall<br />fight for us.&rdquo;</p>
               <span class="carousel-card__cta">
                 Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
+                <img src="../assets/icons/arrow-right.svg" alt="" width="16" height="16" />
               </span>
             </div>
             <div class="carousel-card__progress">
@@ -171,7 +170,7 @@
               <p class="carousel-card__quote">&ldquo;I am doing a great work,<br />so that I cannot come down.&rdquo;</p>
               <span class="carousel-card__cta">
                 Continue
-                <img src="assets/icons/arrow-right.svg" alt="" width="16" height="16" />
+                <img src="../assets/icons/arrow-right.svg" alt="" width="16" height="16" />
               </span>
             </div>
             <div class="carousel-card__progress">
@@ -216,7 +215,7 @@
       </div>
     </div>
 
-    <div class="image-plan-card">
+    <button class="image-plan-card" id="thirdCardTrigger" type="button">
       <div class="image-plan-card__image" style="background-image: url(assets/images/reading-plan-card.png);">
         <span class="image-plan-card__badge">Your Reading plan</span>
       </div>
@@ -229,56 +228,11 @@
           <span class="image-plan-card__meta">Last open &bull; 2 hours ago</span>
           <span class="image-plan-card__resume">
             Resume
-            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+            <img src="../assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
           </span>
         </div>
       </div>
-    </div>
-
-    <div class="continue-cards">
-      <h2 class="continue-cards__title">Continue where left off</h2>
-      <div class="continue-cards__row">
-        <div class="continue-card">
-          <div class="continue-card__image" style="background-image: url(assets/images/continue-card.png);"></div>
-          <div class="continue-card__content">
-            <h3 class="continue-card__title">Alma the Younger Repents</h3>
-            <div>
-              <span class="continue-card__track"><span style="width: 79%;"></span></span>
-              <div class="continue-card__row">
-                <span>Video</span>
-                <span>20 min left</span>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="continue-card">
-          <div class="continue-card__image" style="background-image: url(assets/images/continue-card.png);"></div>
-          <div class="continue-card__content">
-            <h3 class="continue-card__title">Alma the Younger Repents</h3>
-            <div class="continue-card__row">
-              <span>Gospel For Kids &bull; Scripture Central</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-    <div class="study-highlight" style="background-image: url(assets/images/carousel-card-mountain.jpg);">
-      <div class="study-highlight__head">
-        <span class="study-highlight__eyebrow">From your study</span>
-        <button class="icon-btn icon-btn--sm" aria-label="Fechar" type="button">
-          <img src="assets/icons/close.svg" alt="" width="16" height="16" class="icon--on-dark" />
-        </button>
-      </div>
-      <div class="study-highlight__body">
-        <p class="study-highlight__eyebrow-2">two months today</p>
-        <p class="study-highlight__quote">&ldquo;...I know in whom I have trusted.&rdquo;</p>
-      </div>
-      <div class="study-highlight__footer">
-        <span>Nephi &nbsp;|&nbsp; 4:19</span>
-        <span>you highlighted this</span>
-      </div>
-    </div>
+    </button>
 
     <section class="discover-section">
       <div class="section-heading">
@@ -287,21 +241,21 @@
       <div class="discover-row">
         <a class="thumb" href="#">
           <div class="thumb__image">
-            <img src="assets/images/thumb-videos.png" alt="" />
+            <img src="../assets/images/thumb-videos.png" alt="" />
           </div>
           <h3>Videos</h3>
           <p>Recent released videos</p>
         </a>
         <a class="thumb" href="#">
           <div class="thumb__image">
-            <img src="assets/images/thumb-reading-plans.png" alt="" />
+            <img src="../assets/images/thumb-reading-plans.png" alt="" />
           </div>
           <h3>Reading Plans</h3>
           <p>Recent reading plans</p>
         </a>
         <a class="thumb" href="#">
           <div class="thumb__image">
-            <img src="assets/images/thumb-holy-land.png" alt="" />
+            <img src="../assets/images/thumb-holy-land.png" alt="" />
           </div>
           <h3>Holy Land</h3>
           <p>Events and chronology</p>
@@ -310,19 +264,19 @@
     </section>
 
     <section class="utility-section">
-      <div class="card-utility">
+      <div class="card-utility" id="createAccountTrigger" role="button" tabindex="0">
         <div class="card-utility__title card-utility__title--spread">
-          <img src="assets/icons/user.svg" alt="" width="20" height="20" />
+          <img src="../assets/icons/user.svg" alt="" width="20" height="20" />
           <span class="eyebrow">Create account</span>
           <button class="icon-btn icon-btn--close" aria-label="Fechar" type="button">
-            <img src="assets/icons/close.svg" alt="" width="20" height="20" />
+            <img src="../assets/icons/close.svg" alt="" width="20" height="20" />
           </button>
         </div>
         <div class="card-utility__row">
           <p class="account-copy">Create an account to <strong>save your progress and notes.</strong></p>
           <button class="btn btn--primary" type="button">
             Create Now
-            <img src="assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+            <img src="../assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
           </button>
         </div>
       </div>
@@ -330,69 +284,160 @@
 
     <nav class="tabbar2">
       <a class="tabbar2__item tabbar2__item--active" href="#">
-        <img src="assets/icons/home.svg" alt="" width="20" height="20" />
+        <img src="../assets/icons/home.svg" alt="" width="20" height="20" />
         Home
       </a>
       <a class="tabbar2__item" href="#">
-        <img src="assets/icons/list.svg" alt="" width="20" height="20" />
+        <img src="../assets/icons/list.svg" alt="" width="20" height="20" />
         Plans
       </a>
       <a class="tabbar2__item" href="#">
-        <img src="assets/icons/book-open.svg" alt="" width="20" height="20" />
+        <img src="../assets/icons/book-open.svg" alt="" width="20" height="20" />
         Scriptures
       </a>
       <a class="tabbar2__item" href="#">
-        <img src="assets/icons/compass.svg" alt="" width="20" height="20" />
+        <img src="../assets/icons/compass.svg" alt="" width="20" height="20" />
         Discover
       </a>
-      <a class="tabbar2__item" href="#">
-        <img src="assets/icons/user.svg" alt="" width="20" height="20" />
+      <button class="tabbar2__item" id="profileTrigger" type="button" aria-haspopup="dialog" aria-controls="loginOverlay" aria-expanded="false">
+        <img src="../assets/icons/user.svg" alt="" width="20" height="20" />
         Profile
-      </a>
+      </button>
     </nav>
 
   </main>
+
+  <div class="login-overlay" id="loginOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Entrar ou criar conta">
+    <div class="login-overlay__sheet">
+
+      <div class="login-overlay__header">
+        <img class="login-overlay__logo" src="../assets/icons/logo-full.svg" alt="ScriptureCentral" />
+        <button class="icon-btn icon-btn--surface" id="loginOverlayClose" aria-label="Fechar">
+          <img src="../assets/icons/close.svg" alt="" width="20" height="20" />
+        </button>
+      </div>
+
+      <div class="action-sheet">
+        <div class="action-sheet__title">
+          <h2>Illuminating and Defending<br />Divine Truth</h2>
+        </div>
+
+        <div class="action-sheet__buttons">
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/google.svg" alt="" width="16" height="16" />
+            Login with Google
+          </a>
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/facebook.svg" alt="" width="16" height="16" />
+            Login with Facebook
+          </a>
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/apple.svg" alt="" width="12" height="15" />
+            Login with Apple
+          </a>
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/mail.svg" alt="" width="16" height="16" />
+            Login with your e-mail
+          </a>
+        </div>
+
+        <p class="action-sheet__signup">Already have an account? <strong>Sign in here</strong></p>
+        <p class="action-sheet__legal">By signing up, you agree to our Terms<br />and Privacy Policy.</p>
+      </div>
+
+    </div>
+  </div>
 
   <div class="app-menu" id="appMenu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menu">
     <div class="app-menu__sheet">
       <div class="app-menu__header">
         <button class="icon-btn icon-btn--sm icon-btn--surface" id="appMenuClose" aria-label="Fechar menu" type="button">
-          <img src="assets/icons/close.svg" alt="" width="20" height="20" />
+          <img src="../assets/icons/close.svg" alt="" width="20" height="20" />
         </button>
       </div>
 
       <div class="app-menu__panel">
         <div class="app-menu__group">
           <a class="app-menu__item" href="#">
-            <img src="assets/icons/info.svg" alt="" width="16" height="16" />
+            <img src="../assets/icons/info.svg" alt="" width="16" height="16" />
             About us
           </a>
           <a class="app-menu__item" href="#">
-            <img src="assets/icons/help.svg" alt="" width="16" height="16" />
+            <img src="../assets/icons/help.svg" alt="" width="16" height="16" />
             Help
           </a>
           <a class="app-menu__item" href="#">
-            <img src="assets/icons/share.svg" alt="" width="16" height="16" />
+            <img src="../assets/icons/share.svg" alt="" width="16" height="16" />
             Share Scripture Central
           </a>
         </div>
 
         <div class="app-menu__group">
-          <a class="app-menu__item" id="appMenuAuthItem" href="index.html">
-            <img src="assets/icons/logout.svg" alt="" width="16" height="16" />
-            Log Out
-          </a>
+          <button class="app-menu__item" id="appMenuAuthItem" type="button">
+            <img src="../assets/icons/logout.svg" alt="" width="16" height="16" />
+            Log In or Sign Up
+          </button>
         </div>
       </div>
     </div>
   </div>
 
-  <script src="assets/js/carousel.js"></script>
+  <script src="../assets/js/carousel.js"></script>
   <script>
     (function () {
+      var overlay = document.getElementById('loginOverlay');
+      var closeBtn = document.getElementById('loginOverlayClose');
+      var lastTrigger = null;
+
+      function openOverlay(trigger) {
+        lastTrigger = trigger || null;
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden', 'false');
+        if (lastTrigger) lastTrigger.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('no-scroll');
+        closeBtn.focus();
+      }
+
+      function closeOverlay() {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        if (lastTrigger) lastTrigger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      closeBtn.addEventListener('click', closeOverlay);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeOverlay();
+      });
+
+      // Quatro caminhos até o login: perfil da TabBar, card de criar conta,
+      // ThirdCard (plano de leitura) e o item do menu hamburguer.
+      document.getElementById('profileTrigger').addEventListener('click', function (event) {
+        openOverlay(event.currentTarget);
+      });
+      var createAccountTrigger = document.getElementById('createAccountTrigger');
+      createAccountTrigger.addEventListener('click', function (event) {
+        openOverlay(createAccountTrigger);
+      });
+      createAccountTrigger.addEventListener('keydown', function (event) {
+        if (event.key === 'Enter' || event.key === ' ') {
+          event.preventDefault();
+          openOverlay(createAccountTrigger);
+        }
+      });
+      createAccountTrigger.querySelector('.icon-btn--close').addEventListener('click', function (event) {
+        event.stopPropagation();
+      });
+      document.getElementById('thirdCardTrigger').addEventListener('click', function (event) {
+        openOverlay(event.currentTarget);
+      });
+
+      // Menu (hamburguer)
       var menuTrigger = document.getElementById('menuTrigger');
       var menu = document.getElementById('appMenu');
       var menuClose = document.getElementById('appMenuClose');
+      var menuAuthItem = document.getElementById('appMenuAuthItem');
 
       function openMenu() {
         menu.classList.add('is-open');
@@ -415,6 +460,20 @@
       document.addEventListener('keydown', function (event) {
         if (event.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
       });
+
+      // "Log In or Sign Up": fecha o menu e abre o overlay de login já
+      // existente nesta mesma página.
+      menuAuthItem.addEventListener('click', function () {
+        closeMenu();
+        openOverlay(menuAuthItem);
+      });
+
+      // Chega aqui vindo do "Log Out" da home logada (?login=1): abre o
+      // login direto, sem precisar clicar em nada.
+      if (location.search.indexOf('login=1') !== -1) {
+        openOverlay(null);
+        history.replaceState(null, '', location.pathname);
+      }
     })();
   </script>
 </body>

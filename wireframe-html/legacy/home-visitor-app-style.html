@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <title>ScriptureCentral — Home visitante, estilo app (legacy, pré-landing de marketing)</title>
+  <link rel="stylesheet" href="../../design/tokens.css" />
+  <link rel="stylesheet" href="../styles.css" />
+  <style>
+    /* Chegada na home: fade in suave, sem o slide horizontal padrão. */
+    ::view-transition-new(root) {
+      animation-name: vt-fade-in;
+      animation-timing-function: var(--ease-decelerate);
+      animation-duration: var(--duration-page);
+    }
+    @keyframes vt-fade-in {
+      from { transform: translateY(6px); opacity: 0; }
+    }
+  </style>
+</head>
+<body>
+  <main class="app-frame app-frame--fixed-header app-frame--tabbar2">
+
+    <header class="top-nav">
+      <button
+        class="icon-btn icon-btn--plain"
+        id="menuTrigger"
+        aria-label="Menu"
+        aria-haspopup="dialog"
+        aria-controls="appMenu"
+        aria-expanded="false"
+      >
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+          <path d="M3 6H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+          <path d="M3 12H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+          <path d="M3 18H21" stroke="#1A1A18" stroke-width="2" stroke-linecap="round"/>
+        </svg>
+      </button>
+
+      <img class="logo" src="../assets/icons/logo.svg" alt="ScriptureCentral" />
+
+      <span class="icon-btn icon-btn--plain" aria-hidden="true">
+        <img src="../assets/icons/search.svg" alt="" width="24" height="24" />
+      </span>
+    </header>
+
+    <section
+      class="day-hero"
+      style="background-image: url(assets/images/carousel-card-mountain.jpg);"
+      aria-label="Come, Follow Me — Tuesday, July 28"
+    >
+      <div class="day-hero__tags">
+        <span class="day-hero__tag-left">Come, Follow Me</span>
+        <span class="day-hero__tag-right">Tuesday, July 28</span>
+      </div>
+
+      <h1 class="day-hero__title">
+        <span class="day-hero__title-eyebrow">Old Testament</span>
+        <span class="day-hero__title-main">Esther&nbsp; |&nbsp; 2:1&ndash;23</span>
+      </h1>
+
+      <div class="day-hero__footer">
+        <div class="day-hero__days">
+          <div class="day-hero__day day-hero__day--done">
+            <span class="day-hero__day-label">M</span>
+            <img class="day-hero__day-icon" src="../assets/icons/circle-check.svg" alt="Concluído" />
+          </div>
+          <div class="day-hero__day day-hero__day--done">
+            <span class="day-hero__day-label">T</span>
+            <img class="day-hero__day-icon" src="../assets/icons/circle-check.svg" alt="Concluído" />
+          </div>
+          <div class="day-hero__day day-hero__day--today">
+            <span class="day-hero__day-label">W</span>
+            <img class="day-hero__day-icon" src="../assets/icons/circle.svg" alt="Hoje" />
+          </div>
+          <div class="day-hero__day">
+            <span class="day-hero__day-label">T</span>
+            <img class="day-hero__day-icon" src="../assets/icons/circle.svg" alt="" />
+          </div>
+          <div class="day-hero__day">
+            <span class="day-hero__day-label">F</span>
+            <img class="day-hero__day-icon" src="../assets/icons/circle.svg" alt="" />
+          </div>
+          <div class="day-hero__day">
+            <span class="day-hero__day-label">S</span>
+            <img class="day-hero__day-icon" src="../assets/icons/circle.svg" alt="" />
+          </div>
+          <div class="day-hero__day">
+            <span class="day-hero__day-label">S</span>
+            <img class="day-hero__day-icon" src="../assets/icons/circle.svg" alt="" />
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="seeking-card">
+      <p class="seeking-card__eyebrow">Tap to get a passage</p>
+      <h2 class="seeking-card__title">What are you seeking right now?</h2>
+      <div class="seeking-card__buttons">
+        <span class="chip">Guidance</span>
+        <span class="chip">Comfort</span>
+        <span class="chip">Peace</span>
+        <span class="chip">Gratitude</span>
+      </div>
+    </div>
+
+    <section class="reading-plan-section">
+      <div class="section-title-row">
+        <h2>Your reading plan</h2>
+        <a class="see-all" href="#">
+          See all
+          <img src="../assets/icons/chevron-tiny.svg" alt="" width="6" height="10" />
+        </a>
+      </div>
+      <button class="image-plan-card" id="thirdCardTrigger" type="button">
+        <div class="image-plan-card__image" style="background-image: url(assets/images/reading-plan-card.png);"></div>
+        <div class="image-plan-card__content">
+          <div>
+            <h3 class="image-plan-card__title">The Birth of Christ</h3>
+            <p class="image-plan-card__subtitle">Messages of Christ</p>
+          </div>
+          <div class="image-plan-card__footer">
+            <span class="image-plan-card__meta">Last open &bull; 2 hours ago</span>
+            <span class="image-plan-card__resume">
+              Resume
+              <img src="../assets/icons/chevron-right.svg" alt="" width="8" height="14" class="icon--on-dark" />
+            </span>
+          </div>
+        </div>
+      </button>
+    </section>
+
+    <div class="continue-cards">
+      <div class="section-title-row">
+        <h2 class="continue-cards__title">Continue where left off</h2>
+        <a class="see-all" href="#">
+          See all
+          <img src="../assets/icons/chevron-tiny.svg" alt="" width="6" height="10" />
+        </a>
+      </div>
+      <div class="continue-cards__row">
+        <div class="continue-card">
+          <div class="continue-card__image" style="background-image: url(assets/images/continue-card.png);"></div>
+          <div class="continue-card__content">
+            <h3 class="continue-card__title">Alma the Younger Repents</h3>
+            <div>
+              <span class="continue-card__track"><span style="width: 79%;"></span></span>
+              <div class="continue-card__row">
+                <span>Video</span>
+                <span>20 min left</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="continue-card">
+          <div class="continue-card__image" style="background-image: url(assets/images/continue-card.png);"></div>
+          <div class="continue-card__content">
+            <h3 class="continue-card__title">Alma the Younger Repents</h3>
+            <div class="continue-card__row">
+              <span>Gospel For Kids &bull; Scripture Central</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <section class="golden-card-section">
+      <h2>From your study</h2>
+      <div class="study-highlight" style="background-image: url(assets/images/carousel-card-mountain.jpg);">
+        <div class="study-highlight__body">
+          <p class="study-highlight__eyebrow-2">Two months today</p>
+          <p class="study-highlight__quote">&ldquo;...I know in whom I have trusted.&rdquo;</p>
+        </div>
+        <div class="study-highlight__footer">
+          <span>Nephi &nbsp;|&nbsp; 4:19</span>
+          <span>you highlighted this</span>
+        </div>
+      </div>
+    </section>
+
+    <section class="discover-section">
+      <div class="section-heading">
+        <h2>Discover the library</h2>
+      </div>
+      <div class="discover-row">
+        <a class="thumb" href="#">
+          <div class="thumb__image">
+            <img src="../assets/images/thumb-videos.png" alt="" />
+          </div>
+          <h3>Videos Series</h3>
+          <p>Recent released videos</p>
+        </a>
+        <a class="thumb" href="#">
+          <div class="thumb__image">
+            <img src="../assets/images/thumb-reading-plans.png" alt="" />
+          </div>
+          <h3>Podcasts</h3>
+          <p>Recent reading plans</p>
+        </a>
+        <a class="thumb" href="#">
+          <div class="thumb__image">
+            <img src="../assets/images/thumb-holy-land.png" alt="" />
+          </div>
+          <h3>Scripture Central</h3>
+          <p>Events and chronology</p>
+        </a>
+        <a class="thumb" href="#">
+          <div class="thumb__image">
+            <img src="../assets/images/thumb-holy-land.png" alt="" />
+          </div>
+          <h3>KnoWhys</h3>
+          <p>Events and chronology</p>
+        </a>
+      </div>
+    </section>
+
+    <nav class="tabbar2">
+      <a class="tabbar2__item tabbar2__item--active" href="#">
+        <img src="../assets/icons/home.svg" alt="" width="20" height="20" />
+        Home
+      </a>
+      <a class="tabbar2__item" href="#">
+        <img src="../assets/icons/list.svg" alt="" width="20" height="20" />
+        Plans
+      </a>
+      <a class="tabbar2__item" href="#">
+        <img src="../assets/icons/book-open.svg" alt="" width="20" height="20" />
+        Scriptures
+      </a>
+      <a class="tabbar2__item" href="#">
+        <img src="../assets/icons/compass.svg" alt="" width="20" height="20" />
+        Discover
+      </a>
+      <button class="tabbar2__item" id="profileTrigger" type="button" aria-haspopup="dialog" aria-controls="loginOverlay" aria-expanded="false">
+        <img src="../assets/icons/user.svg" alt="" width="20" height="20" />
+        Profile
+      </button>
+    </nav>
+
+  </main>
+
+  <div class="login-overlay" id="loginOverlay" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Entrar ou criar conta">
+    <div class="login-overlay__sheet">
+
+      <div class="login-overlay__header">
+        <img class="login-overlay__logo" src="../assets/icons/logo-full.svg" alt="ScriptureCentral" />
+        <button class="icon-btn icon-btn--surface" id="loginOverlayClose" aria-label="Fechar">
+          <img src="../assets/icons/close.svg" alt="" width="20" height="20" />
+        </button>
+      </div>
+
+      <div class="action-sheet">
+        <div class="action-sheet__title">
+          <h2>Illuminating and Defending<br />Divine Truth</h2>
+        </div>
+
+        <div class="action-sheet__buttons">
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/google.svg" alt="" width="16" height="16" />
+            Login with Google
+          </a>
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/facebook.svg" alt="" width="16" height="16" />
+            Login with Facebook
+          </a>
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/apple.svg" alt="" width="12" height="15" />
+            Login with Apple
+          </a>
+          <a class="btn-social" href="../choose-language.html">
+            <img src="../assets/icons/mail.svg" alt="" width="16" height="16" />
+            Login with your e-mail
+          </a>
+        </div>
+
+        <p class="action-sheet__signup">Already have an account? <strong>Sign in here</strong></p>
+        <p class="action-sheet__legal">By signing up, you agree to our Terms<br />and Privacy Policy.</p>
+      </div>
+
+    </div>
+  </div>
+
+  <div class="app-menu" id="appMenu" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Menu">
+    <div class="app-menu__sheet">
+      <div class="app-menu__header">
+        <button class="icon-btn icon-btn--sm icon-btn--surface" id="appMenuClose" aria-label="Fechar menu" type="button">
+          <img src="../assets/icons/close.svg" alt="" width="20" height="20" />
+        </button>
+      </div>
+
+      <div class="app-menu__panel">
+        <div class="app-menu__group">
+          <a class="app-menu__item" href="#">
+            <img src="../assets/icons/info.svg" alt="" width="16" height="16" />
+            About us
+          </a>
+          <a class="app-menu__item" href="#">
+            <img src="../assets/icons/help.svg" alt="" width="16" height="16" />
+            Help
+          </a>
+          <a class="app-menu__item" href="#">
+            <img src="../assets/icons/share.svg" alt="" width="16" height="16" />
+            Share Scripture Central
+          </a>
+        </div>
+
+        <div class="app-menu__group">
+          <button class="app-menu__item" id="appMenuAuthItem" type="button">
+            <img src="../assets/icons/logout.svg" alt="" width="16" height="16" />
+            Log In or Sign Up
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    (function () {
+      var overlay = document.getElementById('loginOverlay');
+      var closeBtn = document.getElementById('loginOverlayClose');
+      var lastTrigger = null;
+
+      function openOverlay(trigger) {
+        lastTrigger = trigger || null;
+        overlay.classList.add('is-open');
+        overlay.setAttribute('aria-hidden', 'false');
+        if (lastTrigger) lastTrigger.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('no-scroll');
+        closeBtn.focus();
+      }
+
+      function closeOverlay() {
+        overlay.classList.remove('is-open');
+        overlay.setAttribute('aria-hidden', 'true');
+        if (lastTrigger) lastTrigger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+        if (lastTrigger) lastTrigger.focus();
+      }
+
+      closeBtn.addEventListener('click', closeOverlay);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && overlay.classList.contains('is-open')) closeOverlay();
+      });
+
+      // Dois caminhos até o login: perfil da TabBar e o ThirdCard (plano de leitura).
+      document.getElementById('profileTrigger').addEventListener('click', function (event) {
+        openOverlay(event.currentTarget);
+      });
+      document.getElementById('thirdCardTrigger').addEventListener('click', function (event) {
+        openOverlay(event.currentTarget);
+      });
+
+      // Menu (hamburguer)
+      var menuTrigger = document.getElementById('menuTrigger');
+      var menu = document.getElementById('appMenu');
+      var menuClose = document.getElementById('appMenuClose');
+      var menuAuthItem = document.getElementById('appMenuAuthItem');
+
+      function openMenu() {
+        menu.classList.add('is-open');
+        menu.setAttribute('aria-hidden', 'false');
+        menuTrigger.setAttribute('aria-expanded', 'true');
+        document.body.classList.add('no-scroll');
+        menuClose.focus();
+      }
+
+      function closeMenu() {
+        menu.classList.remove('is-open');
+        menu.setAttribute('aria-hidden', 'true');
+        menuTrigger.setAttribute('aria-expanded', 'false');
+        document.body.classList.remove('no-scroll');
+        menuTrigger.focus();
+      }
+
+      menuTrigger.addEventListener('click', openMenu);
+      menuClose.addEventListener('click', closeMenu);
+      document.addEventListener('keydown', function (event) {
+        if (event.key === 'Escape' && menu.classList.contains('is-open')) closeMenu();
+      });
+
+      menuAuthItem.addEventListener('click', function () {
+        closeMenu();
+        openOverlay(menuAuthItem);
+      });
+    })();
+  </script>
+</body>
+</html>
