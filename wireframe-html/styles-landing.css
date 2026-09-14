@@ -162,8 +162,7 @@ body.landing {
 }
 
 .behind-verse__line--muted {
-  color: var(--landing-text-muted);
-  opacity: 0.1;
+  color: var(--landing-deep-blue-900);
 }
 
 .behind-verse__line--emphasis {
