@@ -94,7 +94,7 @@ body.landing {
   flex-direction: column;
   align-items: flex-start;
   gap: var(--landing-space-12);
-  color: #eeeeee;
+  color: var(--landing-deep-blue-900);
 }
 
 .hero__eyebrow {
@@ -162,7 +162,8 @@ body.landing {
 }
 
 .behind-verse__line--muted {
-  color: var(--landing-deep-blue-900);
+  color: var(--landing-text-muted);
+  opacity: 0.1;
 }
 
 .behind-verse__line--emphasis {
